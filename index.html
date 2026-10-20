@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lore-Karte Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+/* Layout: Vollbild-Karte, links ein ruhiges Lese-Panel (mobil: Bottom-Sheet). Eine Akzentfarbe: roter Mainsandstein. */
+:root {
+  --bg: #f4f5f6;
+  --surface: #ffffff;
+  --ink: #1b1e22;
+  --muted: #646b73;
+  --line: #e1e4e8;
+  --chip: #eef0f2;
+  --accent: #9b3a2c;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(155, 58, 44, 0.10);
+  --halo: rgba(255, 255, 255, 0.92);
+  --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 8px 24px rgba(20, 24, 28, .08);
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --panel-w: 384px;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #111315;
+  --surface: #181b1e;
+  --ink: #e8e9eb;
+  --muted: #979da4;
+  --line: #2a2e33;
+  --chip: #23272b;
+  --accent: #dd8470;
+  --accent-ink: #1a0f0c;
+  --accent-soft: rgba(221, 132, 112, 0.14);
+  --halo: rgba(17, 19, 21, 0.88);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font-ui); -webkit-font-smoothing: antialiased; overflow: hidden; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+#map { position: fixed; inset: 0; background: var(--bg); }
+
+/* ---------- Panel ---------- */
+.panel {
+  position: fixed; z-index: 5; top: 16px; left: 16px; bottom: 16px; width: var(--panel-w);
+  display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; box-shadow: var(--shadow); overflow: hidden;
+}
+.panel-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--line); display: grid; gap: 14px; }
+.brand { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.brand h1 { margin: 0; font: 600 21px/1.15 var(--font-display); letter-spacing: -0.01em; }
+.brand .sub { margin: 3px 0 0; color: var(--muted); font-size: 12.5px; }
+.handle { display: none; }
+
+.icon-btn {
+  width: 36px; height: 36px; flex: none; display: grid; place-items: center; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surface); cursor: pointer; color: var(--ink);
+}
+.icon-btn:hover { background: var(--chip); }
+.icon-btn svg { width: 18px; height: 18px; }
+
+.search { position: relative; }
+.search svg { position: absolute; left: 11px; top: 50%; width: 16px; height: 16px; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.search input {
+  width: 100%; height: 38px; padding: 0 12px 0 34px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--ink); font: inherit;
+}
+.search input::placeholder { color: var(--muted); }
+
+.filter-toggle { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--muted); font-size: 12.5px; }
+.filter-toggle strong { color: var(--ink); font-weight: 600; }
+.filter-toggle svg { width: 14px; height: 14px; transition: transform .2s; }
+.filter-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.filters { display: grid; gap: 14px; padding-top: 2px; }
+.fgroup { display: grid; gap: 7px; }
+.fgroup > span { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  height: 28px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+  cursor: pointer; font-size: 12.5px; color: var(--ink);
+}
+.chip:hover { border-color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.seg button { height: 30px; border: 0; background: var(--surface); cursor: pointer; font-size: 12.5px; border-left: 1px solid var(--line); }
+.seg button:first-child { border-left: 0; }
+.seg button[aria-pressed="true"] { background: var(--chip); font-weight: 600; }
+.select { height: 34px; width: 100%; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 0 10px; font: inherit; font-size: 13px; }
+.reset { justify-self: start; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: 12.5px; font-weight: 500; }
+
+.panel-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.list-meta { padding: 12px 20px 6px; font-size: 12px; color: var(--muted); }
+.list { list-style: none; margin: 0; padding: 0 8px 12px; }
+.item {
+  display: grid; grid-template-columns: 14px 1fr auto; gap: 4px 10px; align-items: baseline; width: 100%; text-align: left;
+  padding: 11px 12px; border: 0; border-radius: 10px; background: none; cursor: pointer;
+}
+.item:hover, .item.hl { background: var(--chip); }
+.item .mk { align-self: center; justify-self: center; }
+.item h3 { margin: 0; font: 500 15px/1.3 var(--font-display); min-width: 0; }
+.item .dist { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.item p { grid-column: 2 / 4; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.item .meta { grid-column: 2 / 4; font-size: 11.5px; color: var(--muted); letter-spacing: .01em; }
+.empty { padding: 28px 20px; color: var(--muted); }
+
+/* Wichtigkeits-Marker (auch in Listen) */
+.mk { display: inline-block; border-radius: 50%; flex: none; }
+.mk.i3 { width: 12px; height: 12px; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mk.i2 { width: 9px; height: 9px; background: var(--ink); }
+.mk.i1 { width: 8px; height: 8px; border: 1.5px solid var(--ink); background: var(--surface); }
+
+/* ---------- Detail ---------- */
+.detail { padding: 6px 24px 28px; }
+.back { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 14px -6px; padding: 6px; background: none; border: 0; border-radius: 8px; cursor: pointer; color: var(--muted); font-size: 13px; }
+.back:hover { color: var(--ink); background: var(--chip); }
+.back svg { width: 16px; height: 16px; }
+.eyebrow { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.detail h2 { margin: 8px 0 6px; font: 600 27px/1.15 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+.lead { font: 500 17px/1.5 var(--font-display); margin: 0 0 16px; }
+.story p { font: 400 15.5px/1.68 var(--font-display); margin: 0 0 14px; max-width: 62ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 18px; }
+.tag { padding: 3px 9px; border-radius: 6px; background: var(--chip); font-size: 12px; color: var(--ink); border: 0; cursor: pointer; }
+.tag:hover { background: var(--line); }
+.tag.loc { background: none; border: 1px solid var(--line); cursor: default; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; }
+.links a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.links a:hover { text-decoration: underline; }
+
+/* ---------- Karten-Steuerung ---------- */
+.mapctl { position: fixed; z-index: 4; top: 16px; right: 16px; display: grid; gap: 8px; justify-items: end; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px 0 12px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); cursor: pointer; font-size: 13px; font-weight: 500;
+}
+.pill:hover { background: var(--chip); }
+.pill svg { width: 17px; height: 17px; }
+.pill.busy svg { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.zoombox { display: grid; border-radius: 12px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.zoombox button { width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: none; cursor: pointer; }
+.zoombox button + button { border-top: 1px solid var(--line); }
+.zoombox button:hover { background: var(--chip); }
+.zoombox svg { width: 17px; height: 17px; }
+
+.legend {
+  position: fixed; z-index: 4; right: 16px; bottom: 34px; display: flex; gap: 14px; align-items: center;
+  padding: 8px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+  font-size: 12px; color: var(--muted);
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+.toast {
+  position: fixed; z-index: 20; left: 50%; bottom: 40px; transform: translate(-50%, 12px); max-width: min(440px, calc(100vw - 32px));
+  padding: 11px 16px; border-radius: 10px; background: var(--ink); color: var(--surface); font-size: 13px; box-shadow: var(--shadow);
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Marker auf der Karte ---------- */
+.pin { position: absolute; width: 0; height: 0; }
+/* MapLibre setzt die Deckkraft am Marker-Element selbst, daher wird der innere Button ausgeblendet. */
+.pin button { position: absolute; left: 0; top: 0; padding: 0; border: 0; background: none; cursor: pointer; transition: opacity .18s ease; }
+.pin.off button { opacity: 0; pointer-events: none; visibility: hidden; transition: opacity .18s ease, visibility 0s .18s; }
+.pin .dot { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); border-radius: 50%; transition: transform .15s; }
+.pin.i3 .dot { width: 16px; height: 16px; background: var(--accent); border: 2.5px solid var(--surface); box-shadow: 0 0 0 4px var(--accent-soft), 0 1px 4px rgba(0,0,0,.25); }
+.pin.i2 .dot { width: 12px; height: 12px; background: var(--ink); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+.pin.i1 .dot { width: 10px; height: 10px; background: var(--surface); border: 2px solid var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.pin .lbl {
+  position: absolute; left: 12px; top: 0; transform: translateY(-50%); white-space: nowrap; pointer-events: auto;
+  font: 500 12.5px/1 var(--font-ui); color: var(--ink); padding: 4px 7px; border-radius: 6px; background: var(--halo);
+  box-shadow: 0 0 0 1px var(--line); transition: opacity .18s;
+}
+.pin.i3 .lbl { font: 600 13.5px/1 var(--font-display); left: 14px; }
+.pin.nolabel .lbl { opacity: 0; pointer-events: none; }
+.pin button:hover .dot, .pin.sel .dot { transform: translate(-50%, -50%) scale(1.25); }
+.pin.sel .dot { background: var(--accent); border-color: var(--surface); box-shadow: 0 0 0 6px var(--accent-soft), 0 1px 4px rgba(0,0,0,.3); }
+.pin.sel .lbl { opacity: 1; color: var(--accent); }
+.me { width: 16px; height: 16px; border-radius: 50%; background: #2f6fd6; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(47,111,214,.2); }
+
+.maplibregl-ctrl-attrib { font-size: 11px; background: var(--halo) !important; color: var(--muted); }
+.maplibregl-ctrl-attrib a { color: var(--muted) !important; }
+.maplibregl-ctrl-attrib-button { filter: none; }
+:root[data-theme="dark"] .maplibregl-ctrl-attrib-button { filter: invert(1); }
+
+/* ---------- Mobil: Bottom-Sheet ---------- */
+@media (max-width: 760px) {
+  .panel {
+    top: auto; left: 0; right: 0; bottom: 0; width: auto; height: 44vh; border-radius: 16px 16px 0 0; border-bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px); transition: height .25s ease;
+  }
+  .panel.expanded { height: calc(88vh - env(safe-area-inset-top, 0px)); }
+  .panel-head { padding: 6px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px)); gap: 10px; }
+  .handle { display: block; justify-self: center; width: 56px; height: 18px; border: 0; background: none; cursor: pointer; position: relative; }
+  .handle::after { content: ""; position: absolute; left: 14px; right: 14px; top: 7px; height: 4px; border-radius: 4px; background: var(--line); }
+  .brand h1 { font-size: 18px; }
+  .detail { padding: 4px 18px 24px; }
+  .detail h2 { font-size: 23px; }
+  .mapctl { top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); }
+  .pill .txt { display: none; }
+  .pill { width: 40px; height: 40px; padding: 0; justify-content: center; }
+  .legend { display: none; }
+  .toast { bottom: calc(46vh + 12px); }
+  .maplibregl-ctrl-bottom-right { bottom: 44vh; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="map" aria-label="Karte"></div>
+
+<aside class="panel" id="panel" aria-label="Lore-Geschichten">
+  <div class="panel-head">
+    <button class="handle" id="handle" aria-label="Panel vergrößern oder verkleinern"></button>
+    <div class="brand">
+      <div>
+        <h1>Lore-Karte Frankfurt</h1>
+        <p class="sub" id="sub">Geschichten, Sagen und Persönlichkeiten am Main</p>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"></button>
+    </div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Suchen: Ort, Person, Sage …" autocomplete="off" aria-label="Suchen">
+    </label>
+    <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">
+      <span><strong>Filter</strong> <span id="filterSummary">alle Geschichten</span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="filters" id="filters" hidden>
+      <div class="fgroup"><span>Thema</span><div class="chips" id="fThemes"></div></div>
+      <div class="fgroup"><span>Epoche</span><div class="chips" id="fEpochs"></div></div>
+      <div class="fgroup"><span>Wichtigkeit</span>
+        <div class="seg" id="fImp">
+          <button data-v="1" aria-pressed="true">Alle</button>
+          <button data-v="2" aria-pressed="false">Bedeutend+</button>
+          <button data-v="3" aria-pressed="false">Wahrzeichen</button>
+        </div>
+      </div>
+      <div class="fgroup"><span>Stadtteil</span><select class="select" id="fDistrict" aria-label="Stadtteil"></select></div>
+      <button class="reset" id="reset">Filter zurücksetzen</button>
+    </div>
+  </div>
+  <div class="panel-body" id="body">
+    <div id="listView">
+      <div class="list-meta" id="listMeta"></div>
+      <ul class="list" id="list"></ul>
+    </div>
+    <article class="detail" id="detail" hidden></article>
+  </div>
+</aside>
+
+<div class="mapctl">
+  <button class="pill" id="nearBtn" title="In meiner Nähe">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg>
+    <span class="txt">In meiner Nähe</span>
+  </button>
+  <button class="pill" id="shuffleBtn" title="Andere Geschichten vorschlagen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+    <span class="txt">Andere vorschlagen</span>
+  </button>
+  <div class="zoombox">
+    <button id="zin" aria-label="Hineinzoomen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button id="zout" aria-label="Herauszoomen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+  </div>
+</div>
+
+<div class="legend" aria-hidden="true">
+  <span><i class="mk i3"></i>Wahrzeichen</span>
+  <span><i class="mk i2"></i>Bedeutend</span>
+  <span><i class="mk i1"></i>Lokal</span>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Beim Bauen der Einzeldatei wird hier der Inhalt von data/frankfurt.geojson eingesetzt. -->
+<script id="lore-data" type="application/json">/*LORE_DATA*/</script>
+<script>
+(() => {
+  "use strict";
+
+  // ---------- Konfiguration ----------
+  const STYLES = {
+    light: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+    dark: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  };
+  const CITY = { name: "Frankfurt am Main", center: [8.6821, 50.1106], radiusKm: 25 };
+  const IMPORTANCE = { 3: "Wahrzeichen", 2: "Bedeutend", 1: "Lokal" };
+  // Ab welchem Zoom eine Stufe erscheint und ab wann sie beschriftet wird.
+  const MIN_ZOOM = { 3: 0, 2: 12.4, 1: 13.9 };
+  const LABEL_ZOOM = { 3: 0, 2: 14, 1: 15.3 };
+  // Weit herausgezoomt: nur eine Handvoll zufälliger Wahrzeichen statt Zählblasen.
+  const FAR_ZOOM = 11.5, FAR_MAX = 4;
+
+  // ---------- Hilfen ----------
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  };
+  function km(a, b) {
+    const R = 6371, r = Math.PI / 180;
+    const dLat = (b[1] - a[1]) * r, dLon = (b[0] - a[0]) * r;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[1] * r) * Math.cos(b[1] * r) * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+  const fmtDist = (d) => d < 1 ? `${Math.round(d * 1000 / 10) * 10} m` : `${d.toLocaleString("de-DE", { maximumFractionDigits: 1 })} km`;
+  let toastTimer;
+  function toast(msg) {
+    const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 4200);
+  }
+  const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>';
+
+  // ---------- Theme ----------
+  const prefersDark = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+  let theme = store.get("lore-theme") || (prefersDark ? "dark" : "light");
+  function applyTheme() {
+    document.documentElement.dataset.theme = theme;
+    $("#themeBtn").innerHTML = theme === "dark" ? ICON_SUN : ICON_MOON;
+    $("#themeBtn").setAttribute("aria-label", theme === "dark" ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren");
+  }
+  applyTheme();
+
+  // ---------- Daten ----------
+  async function loadData() {
+    const inline = $("#lore-data").textContent.trim();
+    if (inline && !inline.startsWith("/*")) return JSON.parse(inline);
+    const res = await fetch("data/frankfurt.geojson");
+    if (!res.ok) throw new Error("Daten nicht gefunden");
+    return res.json();
+  }
+
+  // ---------- Zustand ----------
+  const state = {
+    items: [], themes: new Set(), epochs: new Set(), minImp: 1, district: "", q: "",
+    selected: null, user: null,
+  };
+
+  let map;
+  loadData().then(init).catch((e) => {
+    $("#listMeta").textContent = "Die Lore-Daten konnten nicht geladen werden. Öffne die Einzeldatei oder starte einen lokalen Webserver.";
+    console.error(e);
+  });
+
+  function init(fc) {
+    state.items = fc.features.map((f) => ({
+      ...f.properties,
+      coord: f.geometry.coordinates,
+      rand: Math.random(),
+    }));
+    buildFilters();
+    map = new maplibregl.Map({
+      container: "map",
+      style: STYLES[theme],
+      center: CITY.center,
+      zoom: 13.2,
+      minZoom: 5,
+      maxZoom: 19,
+      attributionControl: { compact: true },
+      dragRotate: false,
+      pitchWithRotate: false,
+    });
+    map.touchZoomRotate.disableRotation();
+    for (const it of state.items) createPin(it);
+    let raf = 0;
+    const schedule = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; place(); }); };
+    map.on("move", schedule);
+    map.on("resize", schedule);
+    map.on("moveend", renderList);
+    map.on("load", () => { place(); renderList(); });
+    wireUi();
+    place(); renderList();
+    const fromHash = location.hash.slice(1);
+    if (fromHash && state.items.some((i) => i.id === fromHash)) openDetail(fromHash, { fly: true });
+  }
+
+  // ---------- Filter ----------
+  function buildFilters() {
+    const count = (key) => {
+      const m = new Map();
+      state.items.forEach((i) => i[key].forEach((v) => m.set(v, (m.get(v) || 0) + 1)));
+      return m;
+    };
+    const themeOrder = ["Geschichte", "Sage", "Legende", "Persönlichkeit", "Architektur", "Kultur", "Religion", "Erinnerung", "Natur"];
+    const epochOrder = ["Antike", "Mittelalter", "Frühe Neuzeit", "19. Jahrhundert", "20. Jahrhundert", "Gegenwart"];
+    const sortBy = (order) => (a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99);
+    const chips = (el, m, set, order) => {
+      el.innerHTML = [...m.keys()].sort(sortBy(order)).map((v) =>
+        `<button class="chip" aria-pressed="false" data-v="${esc(v)}">${esc(v)}</button>`).join("");
+      el.addEventListener("click", (e) => {
+        const b = e.target.closest(".chip"); if (!b) return;
+        const v = b.dataset.v; set.has(v) ? set.delete(v) : set.add(v);
+        b.setAttribute("aria-pressed", set.has(v)); refresh();
+      });
+    };
+    chips($("#fThemes"), count("themes"), state.themes, themeOrder);
+    chips($("#fEpochs"), count("epochs"), state.epochs, epochOrder);
+    const districts = [...new Set(state.items.map((i) => i.place.stadtteil))].sort((a, b) => a.localeCompare(b, "de"));
+    $("#fDistrict").innerHTML = `<option value="">Alle Stadtteile</option>` + districts.map((d) => `<option>${esc(d)}</option>`).join("");
+  }
+  function passes(i) {
+    if (i.importance < state.minImp) return false;
+    if (state.district && i.place.stadtteil !== state.district) return false;
+    if (state.themes.size && !i.themes.some((t) => state.themes.has(t))) return false;
+    if (state.epochs.size && !i.epochs.some((t) => state.epochs.has(t))) return false;
+    if (state.q) {
+      const hay = `${i.title} ${i.kind} ${i.teaser} ${i.place.stadtteil} ${i.themes.join(" ")} ${i.story.join(" ")}`.toLowerCase();
+      if (!state.q.split(/\s+/).every((w) => hay.includes(w))) return false;
+    }
+    return true;
+  }
+  function filterSummary() {
+    const parts = [...state.themes, ...state.epochs];
+    if (state.minImp > 1) parts.push(state.minImp === 3 ? "nur Wahrzeichen" : "Bedeutend+");
+    if (state.district) parts.push(state.district);
+    $("#filterSummary").textContent = parts.length ? parts.join(", ") : "alle Geschichten";
+  }
+  function refresh() { filterSummary(); place(); renderList(); }
+
+  // ---------- Marker & zoomabhängige Auswahl ----------
+  const measure = document.createElement("canvas").getContext("2d");
+  function labelWidth(it) {
+    measure.font = it.importance === 3 ? "600 13.5px Literata, Georgia, serif" : "500 12.5px 'Public Sans', system-ui, sans-serif";
+    return measure.measureText(it.title).width + 14;
+  }
+  function createPin(it) {
+    const el = document.createElement("div");
+    el.className = `pin i${it.importance} off`;
+    el.innerHTML = `<button aria-label="${esc(it.title)}"><span class="dot"></span><span class="lbl">${esc(it.title)}</span></button>`;
+    el.querySelector("button").addEventListener("click", (e) => { e.stopPropagation(); openDetail(it.id, { fly: false }); });
+    el.addEventListener("mouseenter", () => highlightRow(it.id, true));
+    el.addEventListener("mouseleave", () => highlightRow(it.id, false));
+    it.el = el;
+    it.marker = new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat(it.coord).addTo(map);
+  }
+
+  // Greedy-Platzierung in Bildschirmkoordinaten: wichtigere (und zufällig gemischte) Geschichten zuerst,
+  // was nicht mehr passt, wird ausgeblendet statt zu einer Zahl zusammengefasst.
+  function place() {
+    if (!map) return;
+    const z = map.getZoom();
+    const w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+    const pad = z < 13 ? 22 : 12;
+    const boxes = [];
+    const hit = (b) => boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+    const cand = state.items
+      .filter((i) => passes(i) && (i.id === state.selected || z >= MIN_ZOOM[i.importance]))
+      .map((i) => ({ i, p: map.project(i.coord) }))
+      .filter(({ p }) => p.x > -60 && p.y > -30 && p.x < w + 60 && p.y < h + 30)
+      .sort((a, b) => (b.i.id === state.selected) - (a.i.id === state.selected) || b.i.importance - a.i.importance || a.i.rand - b.i.rand);
+    const shown = new Set(), labeled = new Set();
+    let farCount = 0;
+    for (const { i, p } of cand) {
+      if (z < FAR_ZOOM && i.id !== state.selected && farCount >= FAR_MAX) continue;
+      const r = i.importance === 3 ? 9 : 7;
+      const dot = [p.x - r - pad, p.y - r - pad, p.x + r + pad, p.y + r + pad];
+      const wantLabel = i.id === state.selected || z >= LABEL_ZOOM[i.importance];
+      const lbl = [p.x + r, p.y - 12, p.x + r + 6 + labelWidth(i), p.y + 12];
+      if (wantLabel && !hit(dot) && !hit(lbl)) {
+        boxes.push(dot, lbl); shown.add(i.id); labeled.add(i.id);
+      } else if (!hit(dot)) {
+        boxes.push(dot); shown.add(i.id);
+      } else continue;
+      farCount++;
+    }
+    for (const i of state.items) {
+      i.el.classList.toggle("off", !shown.has(i.id));
+      i.el.classList.toggle("nolabel", !labeled.has(i.id));
+      i.el.classList.toggle("sel", i.id === state.selected);
+      i.el.style.zIndex = i.id === state.selected ? 3 : i.importance === 3 ? 2 : 1;
+    }
+  }
+
+  // ---------- Liste ----------
+  function refPoint() { return state.user || map.getCenter().toArray(); }
+  function renderList() {
+    if (!map || state.selected) return;
+    const ref = refPoint();
+    const items = state.items.filter(passes).map((i) => ({ i, d: km(ref, i.coord) })).sort((a, b) => a.d - b.d);
+    const from = state.user ? "deinem Standort" : "der Kartenmitte";
+    $("#listMeta").textContent = items.length
+      ? `${items.length} ${items.length === 1 ? "Geschichte" : "Geschichten"}, sortiert nach Entfernung zu ${from}`
+      : "";
+    $("#list").innerHTML = items.length ? items.map(({ i, d }) => `
+      <li><button class="item" data-id="${esc(i.id)}">
+        <i class="mk i${i.importance}" title="${IMPORTANCE[i.importance]}"></i>
+        <h3>${esc(i.title)}</h3><span class="dist">${fmtDist(d)}</span>
+        <p>${esc(i.teaser)}</p>
+        <span class="meta">${esc(i.place.stadtteil)} · ${esc(i.period)} · ${esc(i.themes.slice(0, 2).join(", "))}</span>
+      </button></li>`).join("")
+      : `<li class="empty">Keine Geschichten für diese Filter. <button class="reset" data-reset>Filter zurücksetzen</button></li>`;
+  }
+  function highlightRow(id, on) {
+    const row = document.querySelector(`.item[data-id="${CSS.escape(id)}"]`);
+    if (row) row.classList.toggle("hl", on);
+  }
+
+  // ---------- Detail ----------
+  function openDetail(id, { fly = true } = {}) {
+    const it = state.items.find((i) => i.id === id); if (!it) return;
+    state.selected = id;
+    const d = state.user ? km(state.user, it.coord) : null;
+    const osm = `https://www.openstreetmap.org/?mlat=${it.coord[1]}&mlon=${it.coord[0]}#map=18/${it.coord[1]}/${it.coord[0]}`;
+    $("#detail").innerHTML = `
+      <button class="back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>Alle Geschichten</button>
+      <div class="eyebrow"><i class="mk i${it.importance}"></i>${IMPORTANCE[it.importance]} · ${esc(it.kind)}</div>
+      <h2>${esc(it.title)}</h2>
+      <div class="facts"><span>${esc(it.address)}</span><span>${esc(it.period)}</span>${d != null ? `<span>${fmtDist(d)} entfernt</span>` : ""}</div>
+      <p class="lead">${esc(it.teaser)}</p>
+      <div class="story">${it.story.map((p) => `<p>${esc(p)}</p>`).join("")}</div>
+      <div class="tags">
+        ${it.themes.map((t) => `<button class="tag" data-theme-tag="${esc(t)}" title="Nach ${esc(t)} filtern">${esc(t)}</button>`).join("")}
+        ${it.epochs.map((t) => `<button class="tag" data-epoch-tag="${esc(t)}" title="Nach ${esc(t)} filtern">${esc(t)}</button>`).join("")}
+        <span class="tag loc">${esc(it.place.stadtteil)}</span>
+        <span class="tag loc">${esc(it.place.stadt)}</span>
+        <span class="tag loc">${esc(it.place.bundesland)}</span>
+      </div>
+      <div class="links">
+        <a href="${osm}" target="_blank" rel="noopener">Auf OpenStreetMap öffnen</a>
+        ${it.sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">Mehr bei ${esc(s.label)}</a>`).join("")}
+      </div>`;
+    $("#listView").hidden = true; $("#detail").hidden = false; $("#body").scrollTop = 0;
+    $("#panel").classList.add("expanded");
+    try { history.replaceState(null, "", "#" + id); } catch {}
+    if (fly) {
+      map.flyTo({ center: it.coord, zoom: Math.max(map.getZoom(), 16), offset: panelOffset(), duration: 900 });
+    } else {
+      const p = map.project(it.coord), c = map.getContainer();
+      const leftEdge = window.innerWidth > 760 ? 400 : 0;
+      if (p.x < leftEdge + 30 || p.x > c.clientWidth - 30 || p.y < 30 || p.y > c.clientHeight * (window.innerWidth > 760 ? 1 : 0.5)) {
+        map.easeTo({ center: it.coord, offset: panelOffset(), duration: 600 });
+      }
+    }
+    place();
+  }
+  function closeDetail() {
+    state.selected = null;
+    $("#detail").hidden = true; $("#listView").hidden = false;
+    try { history.replaceState(null, "", location.pathname + location.search); } catch {}
+    place(); renderList();
+  }
+  function panelOffset() {
+    return window.innerWidth > 760 ? [(16 + 384) / 2, 0] : [0, -window.innerHeight * 0.25];
+  }
+
+  // ---------- In meiner Nähe ----------
+  let meMarker;
+  function locate() {
+    const btn = $("#nearBtn");
+    if (!navigator.geolocation) { toast("Dein Browser gibt keinen Standort frei."); return; }
+    btn.classList.add("busy");
+    navigator.geolocation.getCurrentPosition((pos) => {
+      btn.classList.remove("busy");
+      const here = [pos.coords.longitude, pos.coords.latitude];
+      state.user = here;
+      if (!meMarker) { const el = document.createElement("div"); el.className = "me"; meMarker = new maplibregl.Marker({ element: el }); }
+      meMarker.setLngLat(here).addTo(map);
+      const dist = km(here, CITY.center);
+      if (dist > CITY.radiusKm) {
+        toast(`Du bist etwa ${Math.round(dist)} km von Frankfurt entfernt. Bisher gibt es nur Geschichten aus Frankfurt, sie sind nach Entfernung zu dir sortiert.`);
+        map.flyTo({ center: CITY.center, zoom: 13.2, offset: panelOffset() });
+      } else {
+        map.flyTo({ center: here, zoom: 16, offset: panelOffset() });
+        const near = state.items.filter(passes).map((i) => km(here, i.coord)).filter((d) => d < 0.5).length;
+        toast(near ? `${near} ${near === 1 ? "Geschichte" : "Geschichten"} im Umkreis von 500 m.` : "In 500 m Umkreis gibt es noch keine Geschichten. Die Liste zeigt die nächsten.");
+      }
+      if (!state.selected) renderList();
+    }, (err) => {
+      btn.classList.remove("busy");
+      toast(err.code === 1 ? "Standortzugriff wurde abgelehnt. Du kannst ihn in den Browser-Einstellungen erlauben." : "Dein Standort konnte gerade nicht ermittelt werden.");
+    }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+  }
+
+  // ---------- UI-Verdrahtung ----------
+  function wireUi() {
+    $("#themeBtn").addEventListener("click", () => {
+      theme = theme === "dark" ? "light" : "dark";
+      store.set("lore-theme", theme); applyTheme();
+      map.setStyle(STYLES[theme]);
+    });
+    $("#q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); if (state.selected) closeDetail(); refresh(); });
+    $("#filterToggle").addEventListener("click", (e) => {
+      const open = $("#filters").hidden; $("#filters").hidden = !open;
+      e.currentTarget.setAttribute("aria-expanded", open);
+      if (open) $("#panel").classList.add("expanded");
+    });
+    $("#fImp").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      state.minImp = +b.dataset.v;
+      $("#fImp").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      refresh();
+    });
+    $("#fDistrict").addEventListener("change", (e) => {
+      state.district = e.target.value; refresh();
+      if (state.district) {
+        const pts = state.items.filter((i) => i.place.stadtteil === state.district).map((i) => i.coord);
+        const b = pts.reduce((bb, c) => bb.extend(c), new maplibregl.LngLatBounds(pts[0], pts[0]));
+        map.fitBounds(b, { padding: { top: 80, bottom: 80, left: window.innerWidth > 760 ? 440 : 40, right: 80 }, maxZoom: 16 });
+      }
+    });
+    const resetAll = () => {
+      state.themes.clear(); state.epochs.clear(); state.minImp = 1; state.district = ""; state.q = "";
+      $("#q").value = ""; $("#fDistrict").value = "";
+      document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", "false"));
+      $("#fImp").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.v === "1"));
+      refresh();
+    };
+    $("#reset").addEventListener("click", resetAll);
+    $("#list").addEventListener("click", (e) => {
+      if (e.target.closest("[data-reset]")) return resetAll();
+      const b = e.target.closest(".item"); if (b) openDetail(b.dataset.id, { fly: true });
+    });
+    $("#list").addEventListener("mouseover", (e) => {
+      const b = e.target.closest(".item");
+      state.items.forEach((i) => i.el.querySelector(".dot").style.transform = b && i.id === b.dataset.id ? "translate(-50%,-50%) scale(1.35)" : "");
+    });
+    $("#list").addEventListener("mouseleave", () => state.items.forEach((i) => i.el.querySelector(".dot").style.transform = ""));
+    $("#detail").addEventListener("click", (e) => {
+      if (e.target.closest("#back")) return closeDetail();
+      const t = e.target.closest("[data-theme-tag],[data-epoch-tag]"); if (!t) return;
+      const set = t.dataset.themeTag ? state.themes : state.epochs, v = t.dataset.themeTag || t.dataset.epochTag;
+      set.add(v);
+      document.querySelectorAll(`.chip[data-v="${CSS.escape(v)}"]`).forEach((c) => c.setAttribute("aria-pressed", "true"));
+      closeDetail(); refresh();
+      toast(`Gefiltert nach „${v}“.`);
+    });
+    $("#nearBtn").addEventListener("click", locate);
+    $("#shuffleBtn").addEventListener("click", () => {
+      state.items.forEach((i) => (i.rand = Math.random()));
+      place();
+      toast(map.getZoom() < 14 ? "Neue Auswahl. Zoom hinein, um mehr zu sehen." : "Neue Auswahl.");
+    });
+    $("#zin").addEventListener("click", () => map.zoomIn());
+    $("#zout").addEventListener("click", () => map.zoomOut());
+    $("#handle").addEventListener("click", () => $("#panel").classList.toggle("expanded"));
+    map.on("click", () => { if (window.innerWidth <= 760) $("#panel").classList.remove("expanded"); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.selected) closeDetail(); });
+  }
+})();
+</script>
+</body>
+</html>
