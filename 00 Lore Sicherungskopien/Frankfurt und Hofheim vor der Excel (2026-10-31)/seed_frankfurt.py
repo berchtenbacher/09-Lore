@@ -111,7 +111,7 @@ add("judengasse", "Judengasse und Börneplatz", "Gedenkort, Museum", 3, ["Geschi
      "1744 wurde hier Mayer Amschel Rothschild geboren, der Begründer des Bankhauses Rothschild. Erst Anfang des 19. Jahrhunderts fiel der Ghettozwang.",
      "Das Museum Judengasse zeigt Fundamente der Häuser. Am Neuen Börneplatz erinnert eine Gedenkstätte mit über 11.000 Namen an die Frankfurter Juden, die im Holocaust ermordet wurden."])
 
-add("grossmarkthalle", "Großmarkthalle und Erinnerungsstätte", "Gebäude, Gedenkort", 2, ["Erinnerung", "Architektur", "Geschichte"], ["20. Jahrhundert", "Gegenwart"],
+add("grossmarkthalle", "Großmarkthalle und Erinnerungsstätte", "Gebäude, Gedenkort", 2, ["Erinnerung", "Architektur", "Geschichte", "Bankentürme"], ["20. Jahrhundert", "Gegenwart"],
     "Ostend", "Sonnemannstraße 20", "1928 / 1941–1945", 50.10970, 8.70250,
     "Aus dem Keller der Großmarkthalle wurden mehr als 10.000 Frankfurter Juden deportiert. Heute steht hier die EZB.",
     ["Die Großmarkthalle von Martin Elsaesser wurde 1928 eröffnet und war ein Hauptwerk des Neuen Frankfurt.",
@@ -283,7 +283,7 @@ add("lohrberg", "Lohrberg", "Berg, Weinberg", 1, ["Natur", "Kultur"], ["Gegenwar
     ["Früher wurde rund um Frankfurt viel Wein angebaut. Übrig geblieben ist der Lohrberger Hang in Seckbach, die einzige Weinlage innerhalb der Stadtgrenze.",
      "Der Lohrberg-Park auf der Kuppe ist ein beliebtes Ausflugsziel, von hier aus liegt die Skyline wie ein Modell vor einem."])
 
-add("skyline", "Commerzbank-Tower", "Hochhaus", 2, ["Architektur", "Geschichte"], ["Gegenwart"],
+add("skyline", "Commerzbank-Tower", "Bankenturm", 2, ["Bankentürme", "Architektur", "Geschichte"], ["20. Jahrhundert", "Gegenwart"],
     "Innenstadt", "Kaiserplatz", "1997", 50.11040, 8.67430,
     "Mit 259 Metern war der Turm von Norman Foster lange das höchste Gebäude der EU.",
     ["Frankfurt ist die einzige deutsche Stadt mit einer echten Hochhaus-Skyline, was ihr den Spitznamen „Mainhattan“ eingebracht hat.",
@@ -306,6 +306,172 @@ add("hessendenkmal", "Hessendenkmal", "Denkmal", 1, ["Geschichte", "Erinnerung"]
     "Ein Denkmal für hessische Soldaten, die 1792 beim Sturm auf das französisch besetzte Frankfurt fielen.",
     ["Im Oktober 1792 besetzten französische Revolutionstruppen Frankfurt. Am 2. Dezember stürmten preußische und hessische Truppen das Friedberger Tor und eroberten die Stadt zurück.",
      "Der preußische König Friedrich Wilhelm II. stiftete das Denkmal für die gefallenen Hessen. Es steht bis heute an der Friedberger Anlage."])
+
+# ---------- Ergänzungen Oktober 2026: Ereignisse, Persönlichkeiten, Trinkhalle, Bankentürme ----------
+
+add("nitribitt", "Der Fall Nitribitt", "Wohnhaus, Kriminalfall", 2, ["Geschichte", "Persönlichkeit"], ["20. Jahrhundert"],
+    "Innenstadt", "Stiftstraße 36", "1957", 50.11580, 8.68350,
+    "Der ungeklärte Mord an einer Edelprostituierten wurde zum größten Skandal der jungen Bundesrepublik.",
+    ["Am 1. November 1957 fand die Polizei Rosemarie Nitribitt tot in ihrer Wohnung in der Stiftstraße. Sie war vermutlich schon drei Tage zuvor erdrosselt worden. Zu ihren Kunden sollen Industrielle und Politiker gehört haben, sie fuhr stadtbekannt einen schwarzen Mercedes 190 SL Cabrio.",
+     "Die Ermittlungen waren von Anfang an verpfuscht: Beamte öffneten die Fenster, bevor die Raumtemperatur gemessen wurde, und Journalisten durften noch am selben Tag in die Wohnung. Der einzige Angeklagte wurde 1960 freigesprochen, der Mord ist bis heute ungeklärt.",
+     "Der Fall lieferte Stoff für Romane, Filme und ein Musical und wurde zum Sinnbild für die Doppelmoral der Wirtschaftswunderzeit. Das Haus aus den 1950er Jahren steht heute unter Denkmalschutz."])
+
+add("yok-yok", "Yok Yok Kiosk", "Trinkhalle", 2, ["Kultur"], ["Gegenwart"],
+    "Bahnhofsviertel", "Münchener Straße 32", "Kiosk-Legende", 50.10750, 8.66800,
+    "Der wohl bekannteste Kiosk Frankfurts: hunderte Biersorten und an Sommerabenden eine Menschentraube auf dem Gehweg.",
+    ["„Yok yok“ heißt auf Türkisch sinngemäß „gibt’s nicht, gibt’s nicht“. Inhaber Nazim Alemdar nahm das wörtlich: Er notierte Kundenwünsche und versuchte, alles zu besorgen. Berühmt wurde sein Bierregal mit weit über 200 Sorten aus aller Welt.",
+     "An warmen Abenden standen Dutzende Menschen vor dem Laden im Bahnhofsviertel, Banker neben Studierenden und Nachtschwärmern. Der Kiosk wurde zu einem Wahrzeichen des Viertels, das gleichzeitig für Rotlicht, Drogenszene und eine lebendige Ausgehkultur bekannt ist. Später zog Yok Yok um, nur wenige Schritte weiter in Richtung Hauptbahnhof.",
+     "Yok Yok steht in einer langen Tradition: Frankfurts Trinkhallen heißen hier „Wasserhäuschen“. Sie entstanden im 19. Jahrhundert, um Mineralwasser als Alternative zum Schnaps zu verkaufen. In den 1970er Jahren gab es bis zu 800 davon, heute sind es noch etwa 200 bis 300."])
+
+add("schindler", "Wohnung von Oskar Schindler", "Wohnhaus", 2, ["Persönlichkeit", "Erinnerung"], ["20. Jahrhundert"],
+    "Bahnhofsviertel", "Am Hauptbahnhof 4", "bis 1974", 50.10820, 8.66560,
+    "Der Mann, der über 1.000 Juden vor dem Holocaust rettete, lebte seine letzten Jahre verarmt in einem Zimmer am Hauptbahnhof.",
+    ["Oskar Schindler rettete im Zweiten Weltkrieg mehr als 1.000 jüdische Zwangsarbeiterinnen und Zwangsarbeiter, indem er sie in seinen Fabriken als unverzichtbar ausgab. Nach dem Krieg scheiterte er geschäftlich und zog nach Frankfurt.",
+     "Hier lebte er bis zu seinem Tod 1974 weitgehend unbeachtet, zuletzt allein in einer kleinen Einzimmerwohnung im Haus Am Hauptbahnhof 4. Weltweit bekannt wurde er erst 1993 durch Steven Spielbergs Film „Schindlers Liste“.",
+     "Seit 1996 erinnert eine Gedenktafel am Haus an ihn. 2025 wurde der Bahnhofsvorplatz in Emilie-und-Oskar-Schindler-Platz umbenannt, auch zu Ehren seiner Frau, die an der Rettung beteiligt war."])
+
+add("hauptbahnhof", "Hauptbahnhof", "Bahnhof", 2, ["Geschichte", "Architektur"], ["19. Jahrhundert"],
+    "Bahnhofsviertel", "Am Hauptbahnhof", "1888", 50.10700, 8.66330,
+    "Bei seiner Eröffnung 1888 war er der größte Bahnhof Europas.",
+    ["Vor dem Hauptbahnhof hatte Frankfurt drei getrennte Westbahnhöfe. Der neue Centralbahnhof nach Plänen von Hermann Eggert fasste sie zusammen und wurde am 18. August 1888 eröffnet. Bis zur Fertigstellung des Leipziger Hauptbahnhofs 1915 war er der größte Bahnhof Europas.",
+     "Auf dem Dach trägt eine Bronzefigur des Atlas die Weltkugel, begleitet von Figuren, die Dampf und Elektrizität darstellen. Die drei großen Bahnhofshallen gehören bis heute zu den eindrucksvollsten Stahlkonstruktionen des 19. Jahrhunderts."])
+
+add("mozart", "Mozarts Wunderkind-Konzert", "Ereignisort", 1, ["Persönlichkeit", "Kultur"], ["Frühe Neuzeit"],
+    "Innenstadt", "Liebfrauenberg", "1763", 50.11320, 8.68280,
+    "Der siebenjährige Mozart spielte hier, und im Publikum saß vermutlich der 14-jährige Goethe.",
+    ["Am 18. August 1763 gaben Wolfgang Amadeus Mozart und seine Schwester Maria Anna im Scharfischen Saal am Liebfrauenberg ein Konzert. Der Erfolg war so groß, dass es mehrfach wiederholt wurde. Vater Leopold präsentierte die Kinder auf einer großen Europareise.",
+     "Unter den Zuhörern war nach Überlieferung der junge Goethe. Er erinnerte sich noch im Alter an den „kleinen Mann mit Frisur und Degen“. Die Familie Mozart wohnte während des Aufenthalts in der Bendergasse, wo heute die Schirn steht."])
+
+add("hoelderlin", "Hölderlin und Diotima", "Ereignisort", 2, ["Persönlichkeit", "Kultur"], ["Frühe Neuzeit"],
+    "Innenstadt", "Großer Hirschgraben", "1796–1798", 50.11160, 8.67700,
+    "Als Hauslehrer bei einem Bankier verliebte sich Hölderlin in dessen Frau und machte sie als Diotima unsterblich.",
+    ["Im Januar 1796 trat Friedrich Hölderlin eine Stelle als Hauslehrer beim Frankfurter Bankier Jakob Friedrich Gontard an. Die Familie lebte im Haus „Zum Weißen Hirsch“ am Großen Hirschgraben, nur wenige Schritte vom Goethe-Haus.",
+     "Zwischen Hölderlin und Susette Gontard entstand eine tiefe Liebe. Sie wurde zum Vorbild der Diotima in seinem Roman „Hyperion“. Im September 1798 kam es zum Eklat, Hölderlin musste das Haus verlassen und ging nach Bad Homburg.",
+     "Auch danach trafen sich die beiden heimlich und tauschten Briefe, angeblich durch eine Hecke am Sommersitz der Gontards. Susette starb 1802, Hölderlin verfiel wenige Jahre später in geistige Umnachtung."])
+
+add("fettmilch", "Fettmilch-Aufstand", "Ereignisort", 2, ["Geschichte", "Erinnerung"], ["Frühe Neuzeit"],
+    "Innenstadt", "Roßmarkt", "1612–1616", 50.11280, 8.67700,
+    "Ein Lebkuchenbäcker führte einen Aufstand gegen den Rat an, der in der Plünderung der Judengasse endete.",
+    ["Ab 1612 wehrten sich Frankfurter Zünfte gegen die Misswirtschaft des patrizischen Rats. Ihr Anführer war der Lebkuchenbäcker Vinzenz Fettmilch. Der Protest richtete sich bald auch gegen die jüdische Gemeinde.",
+     "Am 22. August 1614 stürmte ein Mob die Judengasse und plünderte die Häuser. Am folgenden Tag wurden alle Juden aus der Stadt vertrieben.",
+     "Kaiser Matthias verhängte die Reichsacht über die Anführer. Fettmilch wurde 1616 auf dem Roßmarkt hingerichtet, und die jüdische Gemeinde wurde unter kaiserlichem Schutz zurück in die Stadt geführt. Bis heute erinnert das Fest „Purim Vinz“ an diesen Tag."])
+
+add("kaufhausbrand", "Kaufhausbrand auf der Zeil", "Ereignisort", 2, ["Geschichte"], ["20. Jahrhundert"],
+    "Innenstadt", "Zeil", "1968", 50.11450, 8.68480,
+    "Zwei Brandsätze in Frankfurter Kaufhäusern gelten als Geburtsstunde der RAF.",
+    ["In der Nacht des 2. April 1968 gingen kurz vor Mitternacht in den Kaufhäusern M. Schneider und Kaufhof auf der Zeil selbstgebaute Brandsätze mit Zeitzündern hoch. Sie waren kurz vor Ladenschluss deponiert worden. Verletzt wurde niemand, die Sprinkleranlagen richteten den größten Schaden an.",
+     "Täter waren Andreas Baader, Gudrun Ensslin, Thorwald Proll und Horst Söhnlein. Sie wurden zwei Tage später festgenommen und zu drei Jahren Haft verurteilt. Der Anschlag gilt als Anfang dessen, was später die Rote Armee Fraktion wurde."])
+
+add("haeuserkampf", "Häuserkampf im Westend", "Ereignisort", 1, ["Geschichte"], ["20. Jahrhundert"],
+    "Westend-Süd", "Eppsteiner Straße 47", "1970", 50.11950, 8.66300,
+    "Hier begann 1970 der Frankfurter Häuserkampf, vermutlich die erste Hausbesetzung der Bundesrepublik.",
+    ["In den 1960er Jahren kauften Spekulanten im Westend Gründerzeitvillen auf, ließen sie leer stehen und wollten sie für Bürotürme abreißen. In der Nacht zum 19. September 1970 besetzten Studierende, Familien aus Obdachlosensiedlungen und Gastarbeiter fünf Wohnungen im Haus Eppsteiner Straße 47.",
+     "Weitere Besetzungen folgten, es kam zu heftigen Straßenschlachten mit der Polizei. Das Haus in der Eppsteiner Straße blieb stehen, und das Westend blieb zumindest teilweise ein Wohnviertel."])
+
+add("henninger", "Henninger Turm", "Turm", 2, ["Kultur", "Architektur"], ["20. Jahrhundert", "Gegenwart"],
+    "Sachsenhausen-Süd", "Hainer Weg", "1961 / 2017", 50.09600, 8.69300,
+    "Ein Getreidesilo mit Drehrestaurant gab einem der großen Radrennen der Welt seinen Namen.",
+    ["Die Henninger-Brauerei baute 1959 bis 1961 ein knapp 120 Meter hohes Getreidesilo mit Aussichtsplattform und Drehrestaurant. Er war damals eines der höchsten Bauwerke der Stadt.",
+     "1962 erfanden die Brüder Erwin und Hermann Moos als Werbeaktion ein Radrennen: „Rund um den Henninger Turm“. Daraus wurde ein Klassiker, der seit Jahrzehnten am 1. Mai Hunderttausende an die Strecke lockt und heute Eschborn–Frankfurt heißt.",
+     "2013 wurde der alte Turm abgerissen. An seiner Stelle steht ein 140 Meter hohes Wohnhochhaus, das die alte Silhouette mit dem Fass auf dem Schaft aufnimmt."])
+
+add("gruene-sosse", "Grüne-Soße-Denkmal", "Denkmal", 1, ["Kultur", "Natur"], ["Gegenwart"],
+    "Oberrad", "Kräuterfelder Oberrad", "2007", 50.09750, 8.73200,
+    "Sieben kleine Gewächshäuser, eins für jedes Kraut der Frankfurter Grie Soß.",
+    ["In Oberrad werden seit Generationen die Kräuter für die Frankfurter Grüne Soße angebaut. Am Rand der Felder steht seit 2007 ein Denkmal für das Leibgericht der Stadt.",
+     "Es besteht aus sieben Gewächshäusern in verschiedenen Grüntönen: Schnittlauch, Petersilie, Kresse, Kerbel, Pimpinelle, Sauerampfer und Borretsch. Genau diese sieben Kräuter gehören in die echte Frankfurter Grüne Soße, dazu Eier und Kartoffeln."])
+
+add("juedischer-friedhof", "Alter Jüdischer Friedhof", "Friedhof, Gedenkort", 2, ["Geschichte", "Erinnerung", "Religion"], ["Mittelalter", "Frühe Neuzeit", "20. Jahrhundert"],
+    "Innenstadt", "Battonnstraße", "ab 1272", 50.11240, 8.69120,
+    "Einer der ältesten jüdischen Friedhöfe Deutschlands, mit dem Grab von Mayer Amschel Rothschild.",
+    ["Die ältesten erhaltenen Grabsteine stammen von 1272. Bis 1828 wurden hier fast 7.000 Menschen bestattet, darunter der Bankier Mayer Amschel Rothschild.",
+     "1942 zerschlugen die Nationalsozialisten Tausende Grabsteine. Ein Teil der Trümmer liegt bis heute auf dem Gelände. Rund 175 Steine waren vorher in Sicherheit gebracht worden. An der Friedhofsmauer erinnern kleine Namensblöcke an die ermordeten Frankfurter Jüdinnen und Juden."])
+
+add("paul-ehrlich", "Paul Ehrlich und die Zauberkugel", "Forschungsinstitut", 1, ["Persönlichkeit"], ["20. Jahrhundert"],
+    "Sachsenhausen-Süd", "Paul-Ehrlich-Straße 42–44", "1909", 50.09580, 8.66100,
+    "Im Georg-Speyer-Haus entwickelte Paul Ehrlich das erste moderne Medikament gegen Syphilis.",
+    ["Der Mediziner Paul Ehrlich erhielt 1908 den Nobelpreis. Er suchte nach einer „Zauberkugel“, einem Stoff, der Krankheitserreger gezielt angreift, ohne den Körper zu schädigen.",
+     "1909 fanden er und der Chemiker Alfred Bertheim im Georg-Speyer-Haus das „Präparat 606“, später Salvarsan genannt. Es war das erste wirksame Mittel gegen Syphilis und gilt als Beginn der modernen Chemotherapie."])
+
+add("ifs", "Institut für Sozialforschung", "Forschungsinstitut", 2, ["Persönlichkeit", "Kultur"], ["20. Jahrhundert"],
+    "Westend-Süd", "Senckenberganlage 26", "1923", 50.12070, 8.65220,
+    "Die Heimat der Frankfurter Schule um Horkheimer und Adorno.",
+    ["Das Institut wurde 1923 mit dem Geld von Felix Weil gegründet und bezog 1924 ein eigenes Gebäude. Unter Max Horkheimer entstand hier die Kritische Theorie, bekannt als „Frankfurter Schule“.",
+     "1933 schlossen die Nationalsozialisten das Institut, die Forscher gingen ins Exil, vor allem nach New York. Nach dem Krieg kehrten Horkheimer und Theodor W. Adorno zurück und bauten das Institut neu auf. In den 1960er Jahren wurde es zu einem Bezugspunkt der Studentenbewegung."])
+
+add("stoltze", "Stoltze-Brunnen", "Brunnen", 1, ["Persönlichkeit", "Kultur"], ["19. Jahrhundert", "Gegenwart"],
+    "Altstadt", "Hühnermarkt", "1892 / 2017", 50.11080, 8.68410,
+    "Ein Denkmal für Friedrich Stoltze, den Dichter, der Frankfurterisch zur Literatur machte.",
+    ["Friedrich Stoltze (1816–1891) schrieb Gedichte und Satiren auf Frankfurterisch und gab das Satireblatt „Frankfurter Latern“ heraus. Er gilt bis heute als Stimme des Frankfurter Dialekts und der Apfelweinkultur.",
+     "Der Brunnen wurde 1892 auf dem Hühnermarkt errichtet und nach den Luftangriffen 1944 abgebaut. Nach Jahrzehnten an anderer Stelle kehrte er 2017 an seinen alten Platz in der Neuen Altstadt zurück."])
+
+add("zoo", "Zoo Frankfurt", "Zoo", 2, ["Natur", "Persönlichkeit"], ["19. Jahrhundert", "20. Jahrhundert"],
+    "Ostend", "Bernhard-Grzimek-Allee 1", "1858", 50.11650, 8.69900,
+    "Von hier aus machte Bernhard Grzimek die Serengeti weltberühmt.",
+    ["Der Frankfurter Zoo wurde 1858 gegründet und ist einer der ältesten Zoos Deutschlands. Im Krieg wurde er fast vollständig zerstört.",
+     "Im Mai 1945 wurde Bernhard Grzimek Direktor und baute den Zoo wieder auf. Mit seiner Fernsehsendung „Ein Platz für Tiere“ wurde er in ganz Deutschland bekannt. Sein Film „Serengeti darf nicht sterben“ gewann 1960 als erster deutscher Film nach dem Krieg einen Oscar. Sein Sohn Michael war während der Dreharbeiten bei einem Flugzeugabsturz ums Leben gekommen."])
+
+add("waldstadion", "Waldstadion und Eintracht", "Stadion", 2, ["Kultur", "Geschichte"], ["20. Jahrhundert", "Gegenwart"],
+    "Sachsenhausen-Süd", "Mörfelder Landstraße 362", "1925", 50.06860, 8.64550,
+    "Im Stadtwald spielt die Eintracht, deren Fans 2022 halb Europa in Weiß tauchten.",
+    ["Das Waldstadion wurde 1925 mitten im Frankfurter Stadtwald eröffnet. Hier fanden Spiele der Fußball-Weltmeisterschaften 1974 und 2006 statt.",
+     "Eintracht Frankfurt wurde 1959 Deutscher Meister und gewann 1980 und 2022 den UEFA-Pokal beziehungsweise die Europa League. Beim Viertelfinale 2022 in Barcelona sollen rund 30.000 Frankfurter Fans im Camp Nou gewesen sein, ein Abend, der in der Stadt längst zur Legende geworden ist."])
+
+add("startbahn-west", "Startbahn West", "Ereignisort", 2, ["Geschichte"], ["20. Jahrhundert"],
+    "Flughafen", "Startbahn 18 West", "1980–1987", 50.02500, 8.52600,
+    "Der Kampf gegen eine Startbahn im Wald wurde zu einer der größten Protestbewegungen der Bundesrepublik.",
+    ["Für eine neue Startbahn des Flughafens sollten große Waldflächen gerodet werden. Ab 1980 entstand im Wald ein Hüttendorf mit über 40 Hütten, Baumhäusern und einer Kapelle. Zehntausende demonstrierten.",
+     "Am 2. November 1981 räumte die Polizei das Hüttendorf, die Startbahn wurde 1984 in Betrieb genommen. Am Jahrestag der Räumung 1987 fielen bei einer Demonstration Schüsse: Die Polizisten Klaus Eichhöfer und Thorsten Schwalm wurden getötet. Danach zerfiel die Bewegung."])
+
+add("buchmesse", "Frankfurter Buchmesse", "Messegelände", 2, ["Kultur", "Geschichte"], ["Mittelalter", "20. Jahrhundert", "Gegenwart"],
+    "Westend-Süd", "Ludwig-Erhard-Anlage 1", "seit dem 15. Jh.", 50.11150, 8.64750,
+    "Schon kurz nach Gutenbergs Erfindung kamen Buchhändler zur Frankfurter Messe, heute ist es die größte Buchmesse der Welt.",
+    ["Frankfurt war seit dem Mittelalter eine bedeutende Messestadt. Nach der Erfindung des Buchdrucks im nahen Mainz kamen im 15. Jahrhundert auch Drucker und Buchhändler zur Messe. Im 16. Jahrhundert war Frankfurt der wichtigste Buchhandelsplatz Europas, bis Leipzig ihm diesen Rang ablief.",
+     "1949 fand die erste Buchmesse der Nachkriegszeit in der Paulskirche statt. Heute treffen sich jeden Oktober Verlage aus aller Welt auf dem Messegelände, und zum Abschluss wird in der Paulskirche der Friedenspreis des Deutschen Buchhandels verliehen."])
+
+# ---------- Bankentürme ----------
+
+add("deutsche-bank", "Deutsche-Bank-Türme „Soll und Haben“", "Bankenturm", 2, ["Bankentürme", "Architektur"], ["20. Jahrhundert"],
+    "Westend-Süd", "Taunusanlage 12", "1984", 50.11400, 8.66950,
+    "Zwei gespiegelte Zwillingstürme, die die Frankfurter „Soll und Haben“ nennen.",
+    ["Die beiden 155 Meter hohen Türme wurden von 1979 bis 1984 gebaut. Geplant war das Projekt ursprünglich als Hotel, erst während des Baus übernahm die Deutsche Bank und machte die Türme zu ihrer Zentrale.",
+     "Der Volksmund taufte die beiden Glastürme nach der doppelten Buchführung „Soll und Haben“. Sie stehen an der Taunusanlage nahe der Alten Oper und gehören zu den bekanntesten Motiven der Skyline."])
+
+add("main-tower", "Main Tower", "Bankenturm", 2, ["Bankentürme", "Architektur"], ["Gegenwart"],
+    "Innenstadt", "Neue Mainzer Straße 52–58", "1999/2000", 50.11250, 8.67200,
+    "Der einzige Frankfurter Bankenturm mit öffentlicher Aussichtsplattform, fast 200 Meter über der Stadt.",
+    ["Der Main Tower ist 200 Meter hoch, mit Antenne rund 240 Meter, und gehört der Landesbank Hessen-Thüringen (Helaba). Er wurde um die Jahrtausendwende fertig.",
+     "Anders als die anderen Bankentürme hat er eine öffentliche Aussichtsplattform in knapp 200 Metern Höhe. Von hier blickt man direkt auf die Nachbartürme und an klaren Tagen bis in den Taunus und den Odenwald."])
+
+add("eurotower", "Eurotower und Euro-Skulptur", "Bankenturm, Skulptur", 2, ["Bankentürme", "Kultur"], ["20. Jahrhundert", "Gegenwart"],
+    "Innenstadt", "Willy-Brandt-Platz", "1977 / 2001", 50.10900, 8.67370,
+    "Vor dem ersten Sitz der Europäischen Zentralbank steht das wohl meistfotografierte Euro-Zeichen der Welt.",
+    ["Im Eurotower am Willy-Brandt-Platz hatte die Europäische Zentralbank von ihrer Gründung 1998 bis zum Umzug ins Ostend 2014 ihren Sitz. Von hier aus wurde die Einführung des Euro gesteuert.",
+     "Davor steht seit dem Jahreswechsel 2001/2002 die 14 Meter hohe Euro-Skulptur des Künstlers Ottmar Hörl, blau mit zwölf gelben Sternen. Seit 2025 teilen sich Stadt und EZB die Kosten für ihren Unterhalt."])
+
+add("messeturm", "Messeturm", "Hochhaus", 2, ["Bankentürme", "Architektur"], ["20. Jahrhundert"],
+    "Westend-Süd", "Friedrich-Ebert-Anlage 49", "1991", 50.11240, 8.65330,
+    "Der „Bleistift“ war bei seiner Fertigstellung das höchste Gebäude Europas.",
+    ["Der Messeturm von Helmut Jahn wurde 1991 fertig. Mit 256,5 Metern war er bis 1997 das höchste Gebäude Europas, dann übertraf ihn der Commerzbank-Tower.",
+     "Wegen seiner schlanken Form und der pyramidenförmigen Spitze nennen die Frankfurter ihn „Bleistift“. Er ist zwar kein Bankenturm im engeren Sinn, beherbergt aber vor allem Büros von Finanzunternehmen und Kanzleien."])
+
+add("westend-tower", "Westend Tower („Kronenhochhaus“)", "Bankenturm", 1, ["Bankentürme", "Architektur"], ["20. Jahrhundert"],
+    "Westend-Süd", "Westendplatz", "1993", 50.11100, 8.66570,
+    "Ein Hochhaus mit einer Krone aus Stahl auf dem Dach.",
+    ["Der Westend Tower der DZ Bank ist 208 Meter hoch und wurde 1993 fertig. Entworfen hat ihn das Büro Kohn Pedersen Fox.",
+     "Sein Markenzeichen ist der weit auskragende Strahlenkranz auf dem Dach. Die Frankfurter nennen den Turm deshalb „Kronenhochhaus“."])
+
+add("silberturm", "Silberturm", "Bankenturm", 1, ["Bankentürme", "Architektur"], ["20. Jahrhundert"],
+    "Bahnhofsviertel", "Jürgen-Ponto-Platz 1", "1978", 50.10780, 8.66970,
+    "Der silbern glänzende Turm der Dresdner Bank war über ein Jahrzehnt das höchste Haus Deutschlands.",
+    ["Der 166 Meter hohe Silberturm wurde 1978 als Zentrale der Dresdner Bank fertig und war bis 1990 das höchste Gebäude Deutschlands.",
+     "Der Platz davor ist nach Jürgen Ponto benannt, dem Vorstandssprecher der Dresdner Bank, der 1977 von der RAF ermordet wurde. Nach der Übernahme der Dresdner Bank durch die Commerzbank zog 2012 die Deutsche Bahn als Hauptmieter ein."])
+
+add("trianon", "Trianon", "Bankenturm", 1, ["Bankentürme", "Architektur"], ["20. Jahrhundert"],
+    "Westend-Süd", "Mainzer Landstraße 16", "1993", 50.11180, 8.66830,
+    "Ein Turm mit dreieckigem Grundriss und einer auf dem Kopf stehenden Pyramide auf dem Dach.",
+    ["Das Trianon ist 186 Meter hoch und wurde 1993 fertig. Der Name spielt auf den dreieckigen Grundriss und die umgedrehte Pyramide an, die an den drei Ecken der Spitze hängt.",
+     "Jahrzehntelang war es die Zentrale der DekaBank, seit 2015 ist auch die Deutsche Bundesbank Mieterin im Haus."])
 
 feats = []
 for (id_, title, kind, imp, themes, epochs, st, addr, year, lat, lon, teaser, story) in I:
