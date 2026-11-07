@@ -17,13 +17,25 @@ mit --ohne-ideen fehlen sie wieder. Braucht openpyxl (pip install openpyxl).
 import argparse, json, pathlib, re, sys, unicodedata
 from collections import Counter, defaultdict
 
+from bildlinks import Bildinfos, finish, story_images  # Spalten „Bild 1 (Hauptbild)“ und „Bild 2“
+
 try:
     import openpyxl
 except ImportError:
     sys.exit("Bitte zuerst openpyxl installieren: pip install openpyxl")
 
 HIDDEN_STATUS = {"Verworfen"}
+MIN_TAG = 3  # Tags mit weniger Geschichten pro Region erscheinen nicht als Filter und nicht an den Geschichten
 FLAG_IMPORTANCE = {"Touri 1x1": 3, "Sehenswürdigkeit": 2, "Lokal": 1}
+# Spalte „Vorgeschlagen“ (Ja/Nein): eigene Punktkategorie auf der Karte, gleiche Priorität wie Touri 1x1.
+SUGGESTED_COLUMN = "Vorgeschlagen"
+
+
+def yes(v):
+    """Ja/Nein-Zelle: „Ja“, „j“, „x“, „1“, WAHR zählen als ja, alles andere (auch leer) als nein."""
+    if v is True:
+        return True
+    return text(v).lower() in {"ja", "j", "x", "1", "y", "yes", "wahr", "true"}
 
 
 def rows(ws):
@@ -105,22 +117,26 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "data"))
     ap.add_argument("--region", help="nur diese Region schreiben, z. B. berlin")
     ap.add_argument("--ohne-ideen", action="store_true", help="Status „Idee“ nicht auf die Karte")
+    ap.add_argument("--offline", action="store_true", help="Urheber und Lizenz neuer Bilder nicht bei Commons abfragen")
     args = ap.parse_args()
     files = [pathlib.Path(f) for f in args.xlsx] or tables()
     if not files:
         sys.exit(f"Keine Excel-Datei gefunden ({PATTERN}).")
+    infos = Bildinfos(ROOT / "data" / "bildinfos.json", offline=args.offline)
     for f in files:
         if args.ohne_ideen:
             HIDDEN_STATUS.add("Idee")
-        convert(f, args.out, args.region)
+        convert(f, args.out, args.region, infos)
 
 
-def convert(xlsx, out_dir, only_region):
+def convert(xlsx, out_dir, only_region, infos):
     print(f"== {xlsx.name}")
 
     wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
     sheet = lambda name: wb[name] if name in wb.sheetnames else None
     warn = []
+    tail = unicodedata.normalize("NFC", xlsx.stem).split("Einträge")[-1].strip().lower()
+    default_region = tail.split()[0] if tail else "berlin"
 
     # Stammdaten: Tag-Gruppen, Reihenfolgen, Geo-Zuordnung
     epochs, topics = [], []
@@ -146,6 +162,8 @@ def convert(xlsx, out_dir, only_region):
         places[pid] = {"id": pid, "title": text(r.get("Ort")), "coord": c, "address": text(r.get("Adresse")),
                        "bezirk": text(r.get("Bezirk")), "precision": text(r.get("Genauigkeit")) or "genau", "stories": []}
 
+    if SUGGESTED_COLUMN not in [str(c).strip() for c in next(entries_sheet(wb).iter_rows(max_row=1, values_only=True)) if c]:
+        warn.append(f"Spalte „{SUGGESTED_COLUMN}“ fehlt im Blatt mit den Geschichten, alle Einträge gelten als nicht vorgeschlagen")
     seen, skipped = set(), Counter()
     for n, r in enumerate(rows(entries_sheet(wb)), start=2):
         sid = text(r.get("ID"))
@@ -169,7 +187,12 @@ def convert(xlsx, out_dir, only_region):
                            "address": text(r.get("Adresse")), "bezirk": text(r.get("Bezirk")),
                            "precision": text(r.get("Genauigkeit Koordinaten")) or "genau", "stories": []}
         p = places[pid]
-        p.setdefault("region", text(r.get("Region")).lower() or "berlin")
+        region = text(r.get("Region")).lower()
+        if not region:
+            # Ohne Region gilt die Stadt aus dem Dateinamen, sonst würde z. B. eine Frankfurter Zeile berlin.geojson überschreiben.
+            region = default_region
+            warn.append(f"{sid}: Spalte „Region“ leer, als {region} übernommen")
+        p.setdefault("region", region)
         tags = split_list(r.get("Tags"))
         unknown = [t for t in tags if t not in epochs and t not in topics]
         if unknown:
@@ -198,10 +221,22 @@ def convert(xlsx, out_dir, only_region):
             "note": text(r.get("Prüfen / unsicher")),
             "sources": sources(r.get("Quellen")),
             "imageQuery": text(r.get("Bildsuche")),
+            # Bilder aus der Tabelle, Hauptbild zuerst. Gehen in der App vor den Vorschlägen aus data/images.json.
+            "images": story_images(r, sid, text(r.get("Name")), infos, warn),
+            "suggested": yes(r.get(SUGGESTED_COLUMN)),
             "photosImportant": text(r.get("Fotos wichtig j/n?")).lower().startswith("j"),
             "author": text(r.get("Autor")),
             "updated": text(r.get("Aktualisiert")),
         })
+
+    # Urheber und Lizenz der Commons-Bilder (einmal abfragen, dann aus data/bildinfos.json)
+    infos.fetch()
+    if infos.failed:
+        warn.append(f"Commons nicht erreichbar ({infos.failed}): neue Bilder ohne Urheber und Lizenz, später nochmal laufen lassen")
+        infos.failed = None
+    for p in places.values():
+        for s in p["stories"]:
+            s["images"] = finish(s["images"], infos, warn, s["id"])
 
     by_region = defaultdict(list)
     for p in places.values():
@@ -220,6 +255,7 @@ def convert(xlsx, out_dir, only_region):
                 "id": p["id"],
                 "title": p["title"],
                 "importance": max(s["importance"] for s in p["stories"]),
+                "suggested": any(s["suggested"] for s in p["stories"]),
                 "place": {"stadtteil": p["bezirk"], "stadt": text(g.get("Stadt / Ort")) or p["region"].title(),
                           "kreis": text(g.get("Kreis")), "bundesland": text(g.get("Bundesland"))},
                 "address": p["address"],
@@ -234,6 +270,13 @@ def convert(xlsx, out_dir, only_region):
         if only_region and region != only_region:
             continue
         feats.sort(key=lambda f: f["properties"]["id"])
+        tc = Counter(t for f in feats for s in f["properties"]["stories"] for t in s["tags"])
+        rare = {t for t, n in tc.items() if n < MIN_TAG}
+        for f in feats:
+            for s in f["properties"]["stories"]:
+                s["tags"] = [t for t in s["tags"] if t not in rare]
+        if rare:
+            print(f"{region}: Tags mit weniger als {MIN_TAG} Geschichten ausgeblendet: {', '.join(sorted(rare))}")
         used = lambda key: {v for f in feats for s in f["properties"]["stories"] for v in s[key]}
         fc = {
             "type": "FeatureCollection",
@@ -250,7 +293,9 @@ def convert(xlsx, out_dir, only_region):
         path.write_text(json.dumps(fc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         n = sum(len(f["properties"]["stories"]) for f in feats)
         status = Counter(s["status"] for f in feats for s in f["properties"]["stories"])
-        print(f"{path}: {len(feats)} Orte, {n} Geschichten ({', '.join(f'{v} {k}' for k, v in status.most_common())})")
+        sug = sum(f["properties"]["suggested"] for f in feats)
+        print(f"{path}: {len(feats)} Orte, {n} Geschichten ({', '.join(f'{v} {k}' for k, v in status.most_common())})"
+              + (f", {sug} Orte vorgeschlagen" if sug else ""))
     if skipped:
         print("Nicht auf der Karte: " + ", ".join(f"{v} × {k}" for k, v in skipped.items()))
     if warn:

@@ -20,10 +20,14 @@ def inline(m):
 
 base = re.sub(r'<link rel="stylesheet" href="([^"]+)"><!--INLINE-->|<script src="([^"]+)"></script><!--INLINE-->', inline, html)
 base = base.replace("/*LORE_IMAGES*/", pack(images), 1)
+# Stadtteilflächen (REGIONS-Eintrag mit areas: "...") je Region einbetten.
+area_files = dict(re.findall(r'\{ id: "([a-z0-9-]+)",[^}]*?areas: "([^"]+)"', html))
+areas = {rid: json.loads((root / f).read_text(encoding="utf-8")) for rid, f in area_files.items() if (root / f).exists()}
 (root / "dist").mkdir(exist_ok=True)
 outputs = {"sagenhaft.html": data}
 outputs.update({f"sagenhaft-{rid}.html": {rid: fc} for rid, fc in data.items()})
 for name, subset in outputs.items():
     out = base.replace("/*LORE_DATA*/", pack(subset), 1)
+    out = out.replace("/*LORE_AREAS*/", pack({rid: a for rid, a in areas.items() if rid in subset}), 1)
     (root / "dist" / name).write_text(out, encoding="utf-8")
     print(f"dist/{name}", len(out) // 1024, "KB")

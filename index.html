@@ -27,6 +27,12 @@
   --accent-soft: rgba(155, 58, 44, 0.10);
   --halo: rgba(255, 255, 255, 0.92);
   --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 8px 24px rgba(20, 24, 28, .08);
+  /* Vorgeschlagen (Excel-Spalte), Merken und Kenn ich (Nutzerstatus im Browser) */
+  --sug: #b7791f;
+  --sug-soft: rgba(183, 121, 31, 0.16);
+  --saved: #2f8a4f;
+  --saved-soft: rgba(47, 138, 79, 0.16);
+  --known: #a9afb5;
   --font-display: "Literata", Georgia, "Times New Roman", serif;
   --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --panel-w: 384px;
@@ -46,6 +52,11 @@
   --accent-soft: rgba(224, 139, 119, 0.16);
   --halo: rgba(31, 35, 39, 0.9);
   --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .32);
+  --sug: #e3a94f;
+  --sug-soft: rgba(227, 169, 79, 0.18);
+  --saved: #5cc185;
+  --saved-soft: rgba(92, 193, 133, 0.18);
+  --known: #5d646b;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -117,8 +128,6 @@ button { font: inherit; color: inherit; }
 }
 .chip:hover { border-color: var(--muted); }
 .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
-.chip .n { margin-left: 5px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.chip[aria-pressed="true"] .n { color: inherit; opacity: .7; }
 .more { height: 28px; padding: 0 6px; border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 12.5px; font-weight: 500; }
 .seg { display: grid; grid-template-columns: 1fr 1.7fr 1.2fr; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
 .seg button { height: 30px; border: 0; background: var(--surface); cursor: pointer; font-size: 12.5px; border-left: 1px solid var(--line); white-space: nowrap; }
@@ -127,6 +136,8 @@ button { font: inherit; color: inherit; }
 .select { height: 34px; width: 100%; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 0 10px; font: inherit; font-size: 13px; }
 .reset { justify-self: start; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: 12.5px; font-weight: 500; }
 
+/* Beim Lesen bleiben aufgeklappte Filter knapp, damit der Eintrag darunter Platz hat. */
+.panel.reading .filters { max-height: 34vh; }
 .panel-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
 .list-meta { padding: 12px 20px 6px; font-size: 12px; color: var(--muted); }
 .list { list-style: none; margin: 0; padding: 0 8px 12px; }
@@ -142,20 +153,28 @@ button { font: inherit; color: inherit; }
 .item p b { color: var(--ink); font-weight: 500; }
 .item .meta { grid-column: 2 / 4; font-size: 11.5px; color: var(--muted); letter-spacing: .01em; }
 .empty { padding: 28px 20px; color: var(--muted); }
+.hint { display: grid; gap: 10px; padding: 18px 12px 8px; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
 /* Wichtigkeits-Marker (auch in Listen) */
 .mk { display: inline-block; border-radius: 50%; flex: none; }
 .mk.i3 { width: 12px; height: 12px; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 .mk.i2 { width: 9px; height: 9px; background: var(--ink); }
 .mk.i1 { width: 8px; height: 8px; border: 1.5px solid var(--ink); background: var(--surface); }
+.mk.sug { width: 12px; height: 12px; border: 0; background: var(--sug); box-shadow: 0 0 0 3px var(--sug-soft); }
+.mk.saved { width: 12px; height: 12px; border: 0; background: var(--saved); box-shadow: 0 0 0 3px var(--saved-soft); }
+.mk.known { width: 8px; height: 8px; border: 0; background: var(--known); box-shadow: none; }
 
 /* ---------- Detail ---------- */
-.detail { padding: 6px 24px 28px; }
-.back { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 14px -6px; padding: 6px; background: none; border: 0; border-radius: 8px; cursor: pointer; color: var(--muted); font-size: 13px; }
-.back:hover { color: var(--ink); background: var(--chip); }
-.back svg { width: 16px; height: 16px; }
+.detail { padding: 16px 24px 28px; }
+/* Schließen: kleiner runder Knopf oben rechts, bleibt beim Scrollen sichtbar. */
+.back {
+  position: sticky; top: 10px; z-index: 2; float: right; display: grid; place-items: center; width: 32px; height: 32px; margin: 2px -8px 0 10px; padding: 0;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.back:hover { color: var(--ink); border-color: var(--muted); }
+.back svg { width: 15px; height: 15px; }
 .eyebrow { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-.detail h2 { margin: 8px 0 6px; font: 600 27px/1.15 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
+.detail h2 { margin: 4px 0 6px; font: 600 27px/1.15 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
 .facts { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 18px; color: var(--muted); font-size: 13px; }
 .lead { font: 500 17px/1.5 var(--font-display); margin: 0 0 16px; }
 .story p { font: 400 15.5px/1.68 var(--font-display); margin: 0 0 14px; max-width: 62ch; }
@@ -163,9 +182,41 @@ button { font: inherit; color: inherit; }
 .tag { padding: 3px 9px; border-radius: 6px; background: var(--chip); font-size: 12px; color: var(--ink); border: 0; cursor: pointer; }
 .tag:hover { background: var(--line); }
 .tag.loc { background: none; border: 1px solid var(--line); cursor: default; color: var(--muted); }
-.links { display: flex; flex-wrap: wrap; gap: 6px 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; }
-.links a { color: var(--accent); text-decoration: none; font-weight: 500; }
-.links a:hover { text-decoration: underline; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; }
+.links a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.links a:hover { color: var(--ink); }
+.ctx { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.ctx .gone, .ctx .top { color: var(--accent); font-weight: 500; }
+.ctx .sug { color: var(--sug); font-weight: 500; }
+/* Nutzerstatus im Detail */
+.mine-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.mine-btn { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink); }
+.mine-btn:hover { border-color: var(--muted); }
+.mine-btn svg { width: 15px; height: 15px; }
+.mine-btn[data-mine="saved"][aria-pressed="true"] { background: var(--saved); border-color: var(--saved); color: #fff; }
+.mine-btn[data-mine="known"][aria-pressed="true"] { background: var(--chip); border-color: var(--known); color: var(--muted); }
+:root[data-theme="dark"] .mine-btn[data-mine="saved"][aria-pressed="true"] { color: #0f2618; }
+/* Meine Orte */
+.mine-view { padding: 16px 20px 28px; }
+.mine-view h2 { margin: 2px 0 4px; font: 600 24px/1.2 var(--font-display); letter-spacing: -0.015em; }
+.mine-view > p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.mine-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; margin-bottom: 6px; }
+.mine-tabs button { height: 34px; border: 0; background: var(--surface); cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+.mine-tabs button + button { border-left: 1px solid var(--line); }
+.mine-tabs button[aria-pressed="true"] { background: var(--chip); font-weight: 600; }
+.mine-tabs .n { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+.mine-view .list { padding: 0; margin: 0 -12px; }
+.mine-view .empty { padding: 18px 12px; }
+.mine-backup { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 10px; }
+.mine-backup p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.mine-backup .actions { margin: 0; gap: 8px; }
+.mine-backup .btn { height: 34px; padding: 0 14px; font-size: 13px; }
+.icon-btn { position: relative; }
+.icon-btn .cnt { position: absolute; top: -5px; right: -5px; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px; background: var(--saved); color: #fff; font-size: 10.5px; font-weight: 600; line-height: 17px; text-align: center; }
+.icon-btn[aria-pressed="true"] { background: var(--chip); border-color: var(--muted); }
+.ctx .soft { font-style: italic; cursor: help; }
+.st .ctx { margin-bottom: 8px; font-size: 12.5px; }
+.detail > .ctx + .st { border-top: 0; padding-top: 2px; }
 .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .badge { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 999px; font-size: 11.5px; font-weight: 500; white-space: nowrap; }
 .badge.flag { background: var(--accent-soft); color: var(--accent); }
@@ -221,12 +272,6 @@ button { font: inherit; color: inherit; }
 .zoombox button:hover { background: var(--chip); }
 .zoombox svg { width: 17px; height: 17px; }
 
-.legend {
-  position: fixed; z-index: 4; right: 16px; bottom: 34px; display: flex; gap: 14px; align-items: center;
-  padding: 8px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
-  font-size: 12px; color: var(--muted);
-}
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
 
 .toast {
   position: fixed; z-index: 20; left: 50%; bottom: calc(40px + var(--bb)); transform: translate(-50%, 12px); max-width: min(440px, calc(100vw - 32px));
@@ -244,13 +289,18 @@ button { font: inherit; color: inherit; }
 .pin.i3 .dot { width: 16px; height: 16px; background: var(--accent); border: 2.5px solid var(--surface); box-shadow: 0 0 0 4px var(--accent-soft), 0 1px 4px rgba(0,0,0,.25); }
 .pin.i2 .dot { width: 12px; height: 12px; background: var(--ink); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.25); }
 .pin.i1 .dot { width: 10px; height: 10px; background: var(--surface); border: 2px solid var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.pin.sug .dot { width: 16px; height: 16px; background: var(--sug); border: 2.5px solid var(--surface); box-shadow: 0 0 0 4px var(--sug-soft), 0 1px 4px rgba(0,0,0,.25); }
+.pin.saved .dot { width: 16px; height: 16px; background: var(--saved); border: 2.5px solid var(--surface); box-shadow: 0 0 0 4px var(--saved-soft), 0 1px 4px rgba(0,0,0,.25); }
+.pin.known .dot { width: 11px; height: 11px; background: var(--known); border: 2px solid var(--surface); box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
 .pin .lbl {
   position: absolute; left: 12px; top: 0; transform: translateY(-50%); white-space: nowrap; pointer-events: auto;
   font: 500 12.5px/1 var(--font-ui); color: var(--ink); padding: 4px 7px; border-radius: 6px; background: var(--halo);
   box-shadow: 0 0 0 1px var(--line); transition: opacity .18s;
 }
 .pin .lbl small { margin-left: 5px; font: 500 11px/1 var(--font-ui); color: var(--muted); }
-.pin.i3 .lbl { font: 600 13.5px/1 var(--font-display); left: 14px; }
+.pin.i3 .lbl, .pin.sug .lbl, .pin.saved .lbl { font: 600 13.5px/1 var(--font-display); left: 14px; }
+.pin.known .lbl { font: 500 12px/1 var(--font-ui); color: var(--muted); left: 10px; }
+.pin.known.idea .dot { border-style: solid; }
 .pin.nolabel .lbl { opacity: 0; pointer-events: none; }
 /* Mit Maus: Namen ohne feste Beschriftung erscheinen beim Darüberfahren. */
 @media (hover: hover) and (pointer: fine) {
@@ -260,6 +310,10 @@ button { font: inherit; color: inherit; }
 .pin button:hover .dot, .pin.sel .dot { transform: translate(-50%, -50%) scale(1.25); }
 .pin.sel .dot { background: var(--accent); border-color: var(--surface); box-shadow: 0 0 0 6px var(--accent-soft), 0 1px 4px rgba(0,0,0,.3); }
 .pin.sel .lbl { opacity: 1; color: var(--accent); }
+.pin.sel.saved .dot { background: var(--saved); box-shadow: 0 0 0 6px var(--saved-soft), 0 1px 4px rgba(0,0,0,.3); }
+.pin.sel.saved .lbl { color: var(--saved); }
+.pin.sel.known .dot { background: var(--known); box-shadow: 0 0 0 5px rgba(128,128,128,.18); opacity: 1; }
+.pin.sel.known .lbl { color: var(--muted); }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2f6fd6; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(47,111,214,.2); }
 
 .leaflet-container { font: inherit; background: var(--bg); }
@@ -353,12 +407,12 @@ button { font: inherit; color: inherit; }
   .panel-head { padding: 6px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px)); gap: 10px; }
   .handle { display: block; justify-self: center; width: 56px; height: 18px; border: 0; background: none; cursor: pointer; position: relative; }
   .handle::after { content: ""; position: absolute; left: 14px; right: 14px; top: 7px; height: 4px; border-radius: 4px; background: var(--line); }
+  .filters { max-height: 34vh; }
   .detail { padding: 4px 18px 24px; }
   .detail h2 { font-size: 23px; }
   .mapctl { top: calc(var(--top) + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }
   .pill .txt { display: none; }
   .pill { width: 40px; height: 40px; padding: 0; justify-content: center; }
-  .legend { display: none; }
   .toast { bottom: calc(42vh + var(--bb) + 12px); }
   body.discovering .toast { bottom: calc(var(--bb) + 16px); }
   .maplibregl-ctrl-bottom-right, .leaflet-bottom.leaflet-right { bottom: 42vh; }
@@ -396,6 +450,7 @@ button { font: inherit; color: inherit; }
     <button data-view="discover" aria-pressed="false">Entdecken</button>
   </nav>
   <div class="tb-right">
+    <button class="icon-btn" id="mineBtn" aria-pressed="false" aria-label="Meine Orte: gemerkt und bekannt" title="Meine Orte"></button>
     <button class="icon-btn" id="themeBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"></button>
   </div>
 </header>
@@ -409,11 +464,12 @@ button { font: inherit; color: inherit; }
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Suchen: Ort, Person, Sage …" autocomplete="off" aria-label="Suchen">
     </label>
-    <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">
+    <button class="filter-toggle" id="filterToggle" aria-expanded="true" aria-controls="filters">
       <span><strong>Filter</strong> <span id="filterSummary">alle Geschichten</span></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
-    <div class="filters" id="filters" hidden>
+    <div class="filters" id="filters">
+      <div class="fgroup" id="fPickGroup"><span>Auswahl</span><div class="chips" id="fPick" data-f="pick"></div></div>
       <div class="fgroup"><span>Kategorie</span><div class="chips" id="fCats" data-f="cats"></div></div>
       <div class="fgroup"><span>Epoche</span><div class="chips" id="fEpochs" data-f="epochs"></div></div>
       <div class="fgroup"><span>Thema</span><div class="chips" id="fTags" data-f="tags"></div></div>
@@ -434,6 +490,7 @@ button { font: inherit; color: inherit; }
       <ul class="list" id="list"></ul>
     </div>
     <article class="detail" id="detail" hidden></article>
+    <section class="mine-view" id="mine" hidden aria-label="Meine Orte"></section>
   </div>
 </aside>
 
@@ -442,20 +499,10 @@ button { font: inherit; color: inherit; }
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg>
     <span class="txt">In meiner Nähe</span>
   </button>
-  <button class="pill" id="shuffleBtn" title="Andere Geschichten vorschlagen">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-    <span class="txt">Andere vorschlagen</span>
-  </button>
   <div class="zoombox">
     <button id="zin" aria-label="Hineinzoomen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
     <button id="zout" aria-label="Herauszoomen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
   </div>
-</div>
-
-<div class="legend" id="legend" aria-hidden="true">
-  <span><i class="mk i3"></i>Touri 1x1</span>
-  <span><i class="mk i2"></i>Sehenswürdigkeit</span>
-  <span><i class="mk i1"></i>Lokal</span>
 </div>
 
 <main class="discover" id="discover" hidden aria-label="Entdecken"><div class="dc" id="dc"></div></main>
@@ -473,6 +520,7 @@ button { font: inherit; color: inherit; }
 <!-- Beim Bauen der Einzeldatei werden hier die GeoJSON-Dateien aus data/ eingesetzt. -->
 <script id="lore-data" type="application/json">/*LORE_DATA*/</script>
 <script id="lore-images" type="application/json">/*LORE_IMAGES*/</script>
+<script id="lore-areas" type="application/json">/*LORE_AREAS*/</script>
 <script>
 (() => {
   "use strict";
@@ -488,7 +536,7 @@ button { font: inherit; color: inherit; }
   // Orte mit eigener Datendatei. Neue Orte: Datei unter data/ anlegen und hier eintragen.
   const REGIONS = [
     { id: "berlin", name: "Berlin", file: "data/berlin.geojson", center: [13.3990, 52.5150], zoom: 12.4, radiusKm: 35, districtLabel: "Bezirk" },
-    { id: "frankfurt", name: "Frankfurt und Umgebung", file: "data/frankfurt.geojson", center: [8.6821, 50.1106], zoom: 13.2, radiusKm: 30, districtLabel: "Stadtteil" },
+    { id: "frankfurt", name: "Frankfurt und Umgebung", file: "data/frankfurt.geojson", areas: "data/frankfurt-stadtteile.geojson", center: [8.6821, 50.1106], zoom: 13.2, radiusKm: 30, districtLabel: "Stadtteil" },
   ];
   let regions = REGIONS;
   const regionById = (id) => regions.find((r) => r.id === id) || regions[0];
@@ -538,7 +586,70 @@ button { font: inherit; color: inherit; }
   const ICON_MOON = svg('<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/>');
   const ICON_PIN = svg('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>');
   const ICON_SHUFFLE = svg('<path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>');
+  const ICON_BOOKMARK = svg('<path d="M6.5 3.5h11v17l-5.5-4-5.5 4v-17Z"/>');
+  const ICON_BOOKMARK_ON = svg('<path d="M6.5 3.5h11v17l-5.5-4-5.5 4v-17Z" fill="currentColor"/>');
+  const ICON_CHECK = svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>');
   const ICON_NEAR = svg('<circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/>');
+
+  // ---------- Nutzerdaten (nur im Browser) ----------
+  // Pro Ort (stabile Ort-ID aus der Excel, nie die Zeilennummer) zwei unabhängige Markierungen mit Zeitstempel:
+  // „saved“ (Merken) und „known“ (Kenn ich). Gespeichert unter USER_KEY als
+  //   { app: "sagenhaft", v: 1, updated: ISO, places: { "<ort-id>": { saved?: ISO, known?: ISO } } }
+  // Die Zeitstempel erlauben später einen Abgleich mit einem Konto (neuere Änderung gewinnt).
+  // Eigene Listen wären später einfach weitere Sammlungen von Ort-IDs, z. B. lists: { "<name>": [ids] }.
+  // Kommt das Schema einmal in Version 2, gehört die Umwandlung in migrateUser().
+  const USER_KEY = "lore-user", USER_VERSION = 1, USER_KINDS = ["saved", "known"];
+  const user = (() => {
+    const empty = () => ({ app: "sagenhaft", v: USER_VERSION, updated: null, places: {} });
+    function clean(places) {
+      const out = {};
+      for (const [id, e] of Object.entries(places || {})) {
+        if (!id || !e || typeof e !== "object") continue;
+        const k = {};
+        for (const kind of USER_KINDS) if (typeof e[kind] === "string" && e[kind]) k[kind] = e[kind];
+        if (Object.keys(k).length) out[id] = k;
+      }
+      return out;
+    }
+    function migrateUser(d) {
+      if (!d || typeof d !== "object" || typeof d.places !== "object") return null;
+      // Unbekannte Felder (z. B. aus einer neueren Version) bleiben erhalten.
+      return { ...empty(), ...d, v: Math.max(+d.v || 1, USER_VERSION), places: clean(d.places) };
+    }
+    let data = empty();
+    try { data = migrateUser(JSON.parse(store.get(USER_KEY) || "null")) || empty(); } catch {}
+    const save = () => { data.updated = new Date().toISOString(); store.set(USER_KEY, JSON.stringify(data)); };
+    return {
+      has: (id, kind) => !!(data.places[id] && data.places[id][kind]),
+      set(id, kind, on) {
+        const e = data.places[id] || {};
+        if (on) e[kind] = new Date().toISOString(); else delete e[kind];
+        if (Object.keys(e).length) data.places[id] = e; else delete data.places[id];
+        save();
+      },
+      // Neueste zuerst
+      ids: (kind) => Object.entries(data.places).filter(([, e]) => e[kind]).sort((a, b) => b[1][kind].localeCompare(a[1][kind])).map(([id]) => id),
+      exportData: () => ({ ...data, exported: new Date().toISOString() }),
+      // Wiederherstellen führt zusammen: nichts Vorhandenes geht verloren, bei beiden Seiten gilt der ältere Zeitstempel.
+      importData(obj) {
+        const d = migrateUser(obj);
+        if (!d || (obj.app && obj.app !== "sagenhaft")) return -1;
+        let n = 0;
+        for (const [id, e] of Object.entries(d.places)) {
+          const cur = data.places[id] || {};
+          for (const kind of USER_KINDS) if (e[kind] && !cur[kind]) { cur[kind] = e[kind]; n++; }
+          if (Object.keys(cur).length) data.places[id] = cur;
+        }
+        save();
+        return n;
+      },
+    };
+  })();
+  // Was ein Punkt zeigt: Kenn ich vor Merken vor Vorgeschlagen vor der Wichtigkeit aus der Excel.
+  const look = (p) => user.has(p.id, "known") ? "known" : user.has(p.id, "saved") ? "saved" : p.suggested ? "sug" : "";
+  // Priorität beim Platzieren: Gemerktes und Vorgeschlagenes wie Touri 1x1. Bekanntes (0) wird nicht verdrängt, sondern immer klein gezeigt, siehe place().
+  const rank = (p) => { const l = look(p); return l === "known" ? 0 : l ? 3 : p.importance; };
+  const LOOK_TITLE = { known: "Kenn ich", saved: "Gemerkt", sug: "Vorgeschlagen" };
 
   // ---------- Theme ----------
   const prefersDark = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
@@ -565,11 +676,87 @@ button { font: inherit; color: inherit; }
       "#69727a"],
     label: "#d9dde1", roadLabel: "#bcc3c9", waterLabel: "#8eaabf", halo: "#15191c",
   };
-  function tuneDarkStyle() {
-    if (!hasWebGL || theme !== "dark" || !map) return;
+  // Nach jedem Laden des Grundstils: Gewässernamen und Brunnen der Grundkarte ausblenden (Brunnen haben oft eigene Einträge),
+  // Stadtteilflächen einfügen, im Dunkelmodus aufhellen.
+  const HIDE_POI = ["fountain"];
+  // Alte Filter-Syntax (["==", "class", "x"]) und Ausdrücke (["==", ["get", "class"], "x"]) lassen sich nicht mischen.
+  const legacyFilter = (f) => Array.isArray(f) && (["all", "any", "none"].includes(f[0]) ? f.slice(1).some(legacyFilter) : typeof f[1] === "string");
+  function withoutPoi(filter) {
+    if (!filter) return ["!", ["in", ["get", "subclass"], ["literal", HIDE_POI]]];
+    if (legacyFilter(filter)) return ["all", filter, ["!in", "subclass", ...HIDE_POI], ["!in", "class", ...HIDE_POI]];
+    return ["all", filter, ["!", ["in", ["get", "subclass"], ["literal", HIDE_POI]]], ["!", ["in", ["get", "class"], ["literal", HIDE_POI]]]];
+  }
+  function tuneStyle() {
+    if (!hasWebGL || !map) return;
     const style = map.getStyle(); if (!style || !style.layers) return;
+    for (const l of style.layers) {
+      const sl = l["source-layer"] || "";
+      if (l.type !== "symbol") continue;
+      if (sl === "water_name" || sl === "waterway") {
+        try { map.setLayoutProperty(l.id, "visibility", "none"); } catch {}
+      } else if (sl === "poi") {
+        try { map.setFilter(l.id, withoutPoi(l.filter)); } catch {}
+      }
+    }
+    addAreas(style);
+    tuneDarkStyle(style);
+  }
+
+  // ---------- Stadtteilflächen ----------
+  // Hauchzarte Töne, Nachbarn bekommen verschiedene (Farbnummer c aus tools/make_districts.py).
+  const AREA_TONES = ["#c9a477", "#8eae93", "#89a2c4", "#c58e84", "#a399c2", "#c4b266"];
+  const AREA = {
+    light: { fill: 0.10, line: 0.5, lineColor: "tone", label: "#6f6458", halo: "rgba(255,255,255,.85)" },
+    dark: { fill: 0.09, line: 0.45, lineColor: "tone", label: "#b9b0a5", halo: "rgba(20,23,26,.85)" },
+  };
+  let areaData = {};
+  const toneExpr = ["match", ["get", "c"], ...AREA_TONES.flatMap((t, i) => [i, t]), AREA_TONES[0]];
+  function addAreas(style) {
+    const a = AREA[theme];
+    // Unter Straßen und Beschriftungen einfügen, damit die Flächen nur tönen und nichts verdecken.
+    const firstRoad = style.layers.find((l) => l["source-layer"] === "transportation" || l["source-layer"] === "building")?.id;
+    const firstSymbol = style.layers.find((l) => l.type === "symbol")?.id;
+    const font = style.layers.find((l) => l.type === "symbol" && l.layout && l.layout["text-font"])?.layout["text-font"];
+    for (const [rid, data] of Object.entries(areaData)) {
+      const src = "areas-" + rid;
+      if (map.getSource(src)) continue;
+      map.addSource(src, { type: "geojson", data, attribution: data.attribution || "" });
+      const poly = ["==", ["geometry-type"], "Polygon"], multi = ["==", ["geometry-type"], "MultiPolygon"];
+      const isArea = ["any", poly, multi];
+      map.addLayer({ id: src + "-fill", type: "fill", source: src, filter: isArea, maxzoom: 17.5,
+        paint: { "fill-color": toneExpr, "fill-opacity": ["interpolate", ["linear"], ["zoom"], 9, a.fill * 1.2, 14, a.fill, 17.5, 0] } }, firstRoad);
+      map.addLayer({ id: src + "-line", type: "line", source: src, filter: isArea, minzoom: 10,
+        paint: { "line-color": toneExpr, "line-opacity": a.line, "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.8, 15, 1.6] } }, firstSymbol);
+      if (font) map.addLayer({ id: src + "-label", type: "symbol", source: src, filter: ["==", ["get", "label"], 1], minzoom: 11.5, maxzoom: 15.5,
+        layout: { "text-field": ["upcase", ["get", "name"]], "text-font": font, "text-size": ["interpolate", ["linear"], ["zoom"], 11.5, 10, 15, 12.5],
+          "text-letter-spacing": 0.14, "text-max-width": 8, "text-allow-overlap": false, "text-padding": 6 },
+        paint: { "text-color": a.label, "text-halo-color": a.halo, "text-halo-width": 1.4,
+          "text-opacity": ["interpolate", ["linear"], ["zoom"], 11.5, 0, 12, 0.9, 15, 0.9, 15.5, 0] } }, firstSymbol);
+    }
+  }
+  // Einfachmodus (Leaflet): nur Flächen und Grenzen, ohne Beschriftung.
+  let leafletAreas = [];
+  function addLeafletAreas() {
+    if (hasWebGL || !map || !map.L || !window.L) return;
+    leafletAreas.forEach((l) => l.remove()); leafletAreas = [];
+    if (!map.L.getPane("areas")) { map.L.createPane("areas").style.zIndex = 350; map.L.getPane("areas").style.pointerEvents = "none"; }
+    const a = AREA[theme];
+    for (const data of Object.values(areaData)) {
+      const layer = L.geoJSON({ ...data, features: data.features.filter((f) => f.geometry.type !== "Point") }, {
+        pane: "areas", interactive: false,
+        style: (f) => ({ color: AREA_TONES[f.properties.c] || AREA_TONES[0], weight: 1.2, opacity: a.line, fillColor: AREA_TONES[f.properties.c] || AREA_TONES[0], fillOpacity: a.fill }),
+      });
+      layer.addTo(map.L); leafletAreas.push(layer);
+    }
+    const attr = Object.values(areaData).map((d) => d.attribution).filter(Boolean).join(", ");
+    if (attr && map.L.attributionControl) map.L.attributionControl.addAttribution(attr);
+  }
+
+  function tuneDarkStyle(style) {
+    if (theme !== "dark") return;
     const set = (id, prop, val) => { try { map.setPaintProperty(id, prop, val); } catch {} };
     for (const l of style.layers) {
+      if (l.id.startsWith("areas-")) continue;
       const id = l.id, sl = l["source-layer"] || "", lid = id.toLowerCase();
       if (l.type === "background") set(id, "background-color", DARK.background);
       else if (l.type === "fill") {
@@ -592,12 +779,14 @@ button { font: inherit; color: inherit; }
   }
 
   // ---------- Daten ----------
-  // Bilder liegen getrennt in data/images.json (Schlüssel = Orts- oder Geschichten-ID), damit Texte und Bilder unabhängig gepflegt werden können.
+  // Bilder: zuerst die aus der Tabelle (Spalten „Bild 1 (Hauptbild)“, „Bild 2“, stehen als images[] an der Geschichte),
+  // sonst die automatischen Vorschläge aus data/images.json (Schlüssel = Orts- oder Geschichten-ID).
   async function loadData() {
     const inline = $("#lore-data").textContent.trim();
     if (inline && !inline.startsWith("/*")) {
-      const imgs = $("#lore-images").textContent.trim();
-      return { byRegion: JSON.parse(inline), images: imgs && !imgs.startsWith("/*") ? JSON.parse(imgs) : {} };
+      const imgs = $("#lore-images").textContent.trim(), areas = $("#lore-areas").textContent.trim();
+      return { byRegion: JSON.parse(inline), images: imgs && !imgs.startsWith("/*") ? JSON.parse(imgs) : {},
+        areas: areas && !areas.startsWith("/*") ? JSON.parse(areas) : {} };
     }
     const byRegion = {};
     for (const r of REGIONS) {
@@ -607,7 +796,12 @@ button { font: inherit; color: inherit; }
     }
     if (!Object.keys(byRegion).length) throw new Error("Keine Daten gefunden");
     const imgRes = await fetch("data/images.json").catch(() => null);
-    return { byRegion, images: imgRes && imgRes.ok ? await imgRes.json() : {} };
+    const areas = {};
+    for (const r of REGIONS.filter((r) => r.areas && byRegion[r.id])) {
+      const res = await fetch(r.areas).catch(() => null);
+      if (res && res.ok) areas[r.id] = await res.json();
+    }
+    return { byRegion, images: imgRes && imgRes.ok ? await imgRes.json() : {}, areas };
   }
 
   // Ein Feature ist ein Ort (Pin) mit einer oder mehreren Geschichten. Ältere Dateien mit genau
@@ -620,17 +814,20 @@ button { font: inherit; color: inherit; }
     }]).map((s) => ({
       kind: "", teaser: "", period: "", status: "", note: "", ...s,
       story: s.story || [], categories: s.categories || [], epochs: s.epochs || [], tags: s.tags || [], sources: s.sources || [],
-      importance: +s.importance || 1,
+      importance: +s.importance || 1, suggested: !!s.suggested,
     }));
     const place = {
       id: p.id, region: regionId, title: p.title, coord: f.geometry.coordinates,
       importance: Math.max(...stories.map((s) => s.importance)),
+      suggested: !!p.suggested || stories.some((s) => s.suggested),
       place: { stadtteil: "", stadt: "", bundesland: "", ...p.place }, address: p.address || "", precision: p.precision || "genau",
       stories, rand: Math.random(), match: [],
     };
     const seen = new Set();
-    place.images = [p.id, ...stories.map((s) => s.id)].flatMap((k) => images[k] || [])
-      .filter((im) => !seen.has(im.url) && seen.add(im.url));
+    // Tabelle vor Vorschlägen: wichtigste Geschichte zuerst, je Geschichte Bild 1 vor Bild 2.
+    const own = stories.flatMap((s) => [...(s.images || [])].sort((a, b) => (a.slot || 1) - (b.slot || 1)));
+    place.images = (own.length ? own : [p.id, ...stories.map((s) => s.id)].flatMap((k) => images[k] || []))
+      .filter((im) => im && im.url && !seen.has(im.url) && seen.add(im.url));
     for (const s of stories) {
       s.place = place;
       s.hay = `${p.title} ${s.title} ${s.kind} ${s.teaser} ${place.place.stadtteil} ${place.address} ${s.categories.join(" ")} ${s.epochs.join(" ")} ${s.tags.join(" ")} ${s.story.join(" ")}`.toLowerCase();
@@ -641,10 +838,11 @@ button { font: inherit; color: inherit; }
   // ---------- Zustand ----------
   const state = {
     places: [], stories: [], meta: {}, region: REGIONS[0].id, matchCount: 0,
-    cats: new Set(), epochs: new Set(), tags: new Set(), minImp: 1, district: "", q: "",
+    cats: new Set(), epochs: new Set(), tags: new Set(), pick: new Set(), mineOpen: false, mineTab: "saved", minImp: 1, district: "", q: "",
     selected: null, user: null, view: "map", heroShift: 0, tagsOpen: false,
   };
   const F = { cats: "categories", epochs: "epochs", tags: "tags" };
+  const PICK = { sug: "Vorgeschlagen", saved: "Gemerkt" };
 
   // Ohne WebGL (z. B. abgeschaltete Hardwarebeschleunigung) läuft die Karte auf Rasterkacheln mit Leaflet.
   const hasWebGL = (() => {
@@ -657,7 +855,8 @@ button { font: inherit; color: inherit; }
     console.error(e);
   });
 
-  function init({ byRegion, images }) {
+  function init({ byRegion, images, areas = {} }) {
+    areaData = areas;
     regions = REGIONS.filter((r) => byRegion[r.id]);
     const fromUrl = new URLSearchParams(location.search).get("stadt");
     state.region = [fromUrl, store.get("lore-region")].find((r) => r && byRegion[r]) || regions[0].id;
@@ -688,7 +887,8 @@ button { font: inherit; color: inherit; }
     map.on("resize", schedule);
     map.on("moveend", renderList);
     map.on("load", () => { place(); renderList(); });
-    map.on("style.load", tuneDarkStyle);
+    map.on("style.load", tuneStyle);
+    addLeafletAreas();
     // Schlägt das Laden des Kartenstils oder der Kacheln fehl, erst den nächsten Anbieter probieren, dann eine sichtbare Meldung zeigen.
     let errTimer;
     map.on("error", (e) => {
@@ -706,11 +906,14 @@ button { font: inherit; color: inherit; }
         }
       }, 1500);
     });
+    // Am Handy ist das Bottom-Sheet klein: Filter dort eingeklappt starten, am Desktop offen.
+    if (window.innerWidth <= 760) { $("#filters").hidden = true; $("#filterToggle").setAttribute("aria-expanded", "false"); }
     wireUi();
     place(); renderList();
     if (!hasWebGL) toast("WebGL ist in deinem Browser aus. Die Karte läuft im Einfachmodus mit Rasterkacheln.");
     const fromHash = decodeURIComponent(location.hash.slice(1));
     if (fromHash === "entdecken") setView("discover");
+    else if (fromHash === "meine") openMine();
     else if (fromHash) {
       const p = state.places.find((x) => x.id === fromHash) || state.stories.find((s) => s.id === fromHash)?.place;
       if (p) { setRegion(p.region, { fly: false }); openDetail(p.id, { fly: true, story: fromHash !== p.id ? fromHash : null }); }
@@ -735,15 +938,25 @@ button { font: inherit; color: inherit; }
       // Gewählte Themen bleiben auch im eingeklappten Zustand sichtbar.
       const shown = vals.filter(([v], i) => i < limit || set.has(v));
       el.innerHTML = shown.map(([v, n]) =>
-        `<button class="chip" aria-pressed="${set.has(v)}" data-v="${esc(v)}">${esc(v)}<span class="n">${n}</span></button>`).join("")
+        `<button class="chip" aria-pressed="${set.has(v)}" data-v="${esc(v)}" title="${plural(n, "Geschichte", "Geschichten")}">${esc(v)}</button>`).join("")
         + (vals.length > shown.length ? `<button class="more" data-more>+${vals.length - shown.length} weitere</button>`
           : key === "tags" && state.tagsOpen && vals.length > TAGS_VISIBLE ? `<button class="more" data-more>weniger</button>` : "");
       el.closest(".fgroup").hidden = !vals.length;
     }
+    buildPick();
     const r = regionById(state.region);
     $("#districtLabel").textContent = r.districtLabel;
     $("#fDistrict").setAttribute("aria-label", r.districtLabel);
     fillDistricts();
+  }
+  // Auswahl: Vorgeschlagen (aus der Excel) und Gemerkt (Nutzerstatus), nur wenn es in der Stadt welche gibt.
+  function buildPick() {
+    const here = state.places.filter((p) => p.region === state.region);
+    const avail = { sug: here.some((p) => p.suggested), saved: here.some((p) => user.has(p.id, "saved")) };
+    for (const k of [...state.pick]) if (!avail[k]) state.pick.delete(k);
+    const keys = Object.keys(PICK).filter((k) => avail[k]);
+    $("#fPick").innerHTML = keys.map((k) => `<button class="chip" aria-pressed="${state.pick.has(k)}" data-v="${k}">${PICK[k]}</button>`).join("");
+    $("#fPickGroup").hidden = !keys.length;
   }
   function fillDistricts() {
     const r = regionById(state.region);
@@ -760,10 +973,12 @@ button { font: inherit; color: inherit; }
     if (changed) { state.heroShift = 0; buildFilters(); computeMatches(); filterSummary(); }
     if (fly && map) { const r = regionById(id); map.flyTo({ center: r.center, zoom: r.zoom, offset: panelOffset(), duration: changed ? 1200 : 600 }); }
     place(); renderList();
+    if (state.mineOpen && !state.selected) renderMine();
     if (state.view === "discover") { renderDiscover(); $("#discover").scrollTop = 0; }
   }
   function storyPasses(s) {
     if (s.importance < state.minImp) return false;
+    if (state.pick.size && !((state.pick.has("sug") && s.suggested) || (state.pick.has("saved") && user.has(s.place.id, "saved")))) return false;
     if (state.cats.size && !s.categories.some((t) => state.cats.has(t))) return false;
     if (state.epochs.size && !s.epochs.some((t) => state.epochs.has(t))) return false;
     if (state.tags.size && !s.tags.some((t) => state.tags.has(t))) return false;
@@ -782,7 +997,7 @@ button { font: inherit; color: inherit; }
   }
   const passes = (p) => p.match.length > 0;
   function filterSummary() {
-    const parts = [...state.cats, ...state.epochs, ...state.tags];
+    const parts = [...[...state.pick].map((k) => PICK[k]), ...state.cats, ...state.epochs, ...state.tags];
     if (state.minImp > 1) parts.push(state.minImp === 3 ? "nur Touri 1x1" : "Sehenswürdigkeiten+");
     if (state.district) parts.push(state.district);
     $("#filterSummary").textContent = parts.length ? parts.join(", ") : "alle Geschichten";
@@ -793,7 +1008,7 @@ button { font: inherit; color: inherit; }
   const measure = document.createElement("canvas").getContext("2d");
   function labelWidth(p) {
     if (p.lw) return p.lw;
-    measure.font = p.importance === 3 ? "600 13.5px Literata, Georgia, serif" : "500 12.5px 'Public Sans', system-ui, sans-serif";
+    measure.font = rank(p) === 3 ? "600 13.5px Literata, Georgia, serif" : "500 12.5px 'Public Sans', system-ui, sans-serif";
     let w = measure.measureText(p.title).width + 14;
     if (p.stories.length > 1) { measure.font = "500 11px 'Public Sans', system-ui, sans-serif"; w += measure.measureText(String(p.stories.length)).width + 5; }
     return (p.lw = w);
@@ -806,8 +1021,14 @@ button { font: inherit; color: inherit; }
     el.querySelector("button").addEventListener("click", (e) => { e.stopPropagation(); openDetail(p.id, { fly: false }); });
     el.addEventListener("mouseenter", () => highlightRow(p.id, true));
     el.addEventListener("mouseleave", () => highlightRow(p.id, false));
-    p.el = el;
+    p.el = el; pinLook(p);
     p.marker = new GL.Marker({ element: el, anchor: "center" }).setLngLat(p.coord).addTo(map);
+  }
+
+  function pinLook(p) {
+    const l = look(p);
+    for (const c of ["known", "saved", "sug"]) p.el.classList.toggle(c, l === c);
+    p.lw = 0;
   }
 
   // Greedy-Platzierung in Bildschirmkoordinaten: wichtigere (und zufällig gemischte) Orte zuerst,
@@ -823,17 +1044,20 @@ button { font: inherit; color: inherit; }
     // Bei engen Filtern (wenige Treffer) alle Treffer unabhängig von der Zoomstufe zeigen.
     const few = state.matchCount <= 15;
     const cand = state.places
-      .filter((p) => passes(p) && (few || p.id === state.selected || z >= minZoom[p.importance]))
+      .filter((p) => passes(p) && (few || p.id === state.selected || z >= minZoom[Math.max(1, rank(p))]))
       .map((p) => ({ p, s: map.project(p.coord) }))
       .filter(({ s }) => s.x > -60 && s.y > -30 && s.x < w + 60 && s.y < h + 30)
-      .sort((a, b) => (b.p.id === state.selected) - (a.p.id === state.selected) || b.p.importance - a.p.importance || b.p.stories.length - a.p.stories.length || a.p.rand - b.p.rand);
+      .sort((a, b) => (b.p.id === state.selected) - (a.p.id === state.selected) || rank(b.p) - rank(a.p) || b.p.stories.length - a.p.stories.length || a.p.rand - b.p.rand);
     const shown = new Set(), labeled = new Set();
     let farCount = 0;
     for (const { p, s } of cand) {
+      const rk = rank(p);
+      // Bekannte Orte („Kenn ich“) bleiben ab FAR_ZOOM immer als kleine graue Punkte sichtbar, verdrängen aber nichts.
+      if (rk === 0 && p.id !== state.selected) { if (z >= FAR_ZOOM) shown.add(p.id); continue; }
       if (z < FAR_ZOOM && p.id !== state.selected && farCount >= FAR_MAX) continue;
-      const r = p.importance === 3 ? 9 : 7;
+      const r = rk === 3 ? 9 : 7;
       const dot = [s.x - r - pad, s.y - r - pad, s.x + r + pad, s.y + r + pad];
-      const wantLabel = p.id === state.selected || (canHover ? p.importance === 3 : z >= LABEL_ZOOM[p.importance]);
+      const wantLabel = p.id === state.selected || (canHover ? rk === 3 : z >= LABEL_ZOOM[Math.max(1, rk)]);
       const lbl = [s.x + r, s.y - 12, s.x + r + 6 + labelWidth(p), s.y + 12];
       if (wantLabel && !hit(dot) && !hit(lbl)) {
         boxes.push(dot, lbl); shown.add(p.id); labeled.add(p.id);
@@ -846,15 +1070,25 @@ button { font: inherit; color: inherit; }
       p.el.classList.toggle("off", !shown.has(p.id));
       p.el.classList.toggle("nolabel", !labeled.has(p.id));
       p.el.classList.toggle("sel", p.id === state.selected);
-      p.el.style.zIndex = p.id === state.selected ? 3 : p.importance === 3 ? 2 : 1;
+      const rk = rank(p);
+      p.el.style.zIndex = p.id === state.selected ? 3 : rk === 3 ? 2 : rk ? 1 : 0;
     }
   }
 
   // ---------- Liste ----------
   function refPoint() { return state.user || map.getCenter().toArray(); }
   const LIST_MAX = 150;
+  // Die Liste erscheint erst, wenn gefiltert, gesucht oder der Standort genutzt wird; sonst stehen die Filter im Vordergrund.
+  const browsing = () => state.showAll || state.pick.size || state.user || state.q || state.district || state.minImp > 1 || state.cats.size || state.epochs.size || state.tags.size;
   function renderList() {
-    if (!map || state.selected) return;
+    if (!map || state.selected || state.mineOpen) return;
+    if (!browsing()) {
+      const n = state.places.filter(passes).reduce((k, p) => k + p.match.length, 0);
+      $("#listMeta").textContent = "";
+      $("#list").innerHTML = `<li class="hint">Wähle oben eine Kategorie, Epoche oder einen ${esc(regionById(state.region).districtLabel)}, such nach einem Namen oder tippe auf einen Punkt auf der Karte.
+        <button class="reset" data-showall>Alle ${plural(n, "Geschichte", "Geschichten")} als Liste</button></li>`;
+      return;
+    }
     const ref = refPoint();
     const items = state.places.filter(passes).map((p) => ({ p, d: km(ref, p.coord) })).sort((a, b) => a.d - b.d);
     const nStories = items.reduce((n, { p }) => n + p.match.length, 0);
@@ -862,19 +1096,21 @@ button { font: inherit; color: inherit; }
     $("#listMeta").textContent = !items.length ? ""
       : (nStories === items.length ? plural(nStories, "Geschichte", "Geschichten") : `${plural(nStories, "Geschichte", "Geschichten")} an ${plural(items.length, "Ort", "Orten")}`)
         + `, sortiert nach Entfernung zu ${from}`;
-    $("#list").innerHTML = items.length ? items.slice(0, LIST_MAX).map(({ p, d }) => {
-      const s = p.match[0], multi = p.stories.length > 1;
-      const sub = s.title && s.title !== p.title ? `<b>${esc(s.title)}:</b> ${esc(s.teaser)}` : esc(s.teaser);
-      const meta = [p.place.stadtteil, multi ? plural(p.match.length, "Geschichte", "Geschichten") : s.period, s.categories.slice(0, 2).join(", ")].filter(Boolean);
-      return `
+    $("#list").innerHTML = items.length ? items.slice(0, LIST_MAX).map(({ p, d }) => itemHtml(p, fmtDist(d))).join("") + (items.length > LIST_MAX ? `<li class="empty">… und ${items.length - LIST_MAX} weitere Orte weiter weg. Verschieb die Karte oder filtere, um sie zu sehen.</li>` : "")
+      : `<li class="empty">Keine Geschichten für diese Filter. <button class="reset" data-reset>Filter zurücksetzen</button></li>`;
+  }
+  function itemHtml(p, right, extraMeta = []) {
+    const s = p.match[0] || p.stories[0], multi = p.stories.length > 1;
+    const sub = s.title && s.title !== p.title ? `<b>${esc(s.title)}:</b> ${esc(s.teaser)}` : esc(s.teaser);
+    const meta = [...extraMeta, p.place.stadtteil, multi ? plural(p.match.length || p.stories.length, "Geschichte", "Geschichten") : s.period, s.categories.slice(0, 2).join(", ")].filter(Boolean);
+    const l = look(p);
+    return `
       <li><button class="item" data-id="${esc(p.id)}">
-        <i class="mk i${p.importance}" title="${IMPORTANCE[p.importance]}"></i>
-        <h3>${esc(p.title)}</h3><span class="dist">${fmtDist(d)}</span>
+        <i class="mk ${l || "i" + p.importance}" title="${l ? LOOK_TITLE[l] : IMPORTANCE[p.importance]}"></i>
+        <h3>${esc(p.title)}</h3><span class="dist">${right}</span>
         <p>${sub}</p>
         <span class="meta">${meta.map(esc).join(" · ")}</span>
       </button></li>`;
-    }).join("") + (items.length > LIST_MAX ? `<li class="empty">… und ${items.length - LIST_MAX} weitere Orte weiter weg. Verschieb die Karte oder filtere, um sie zu sehen.</li>` : "")
-      : `<li class="empty">Keine Geschichten für diese Filter. <button class="reset" data-reset>Filter zurücksetzen</button></li>`;
   }
   function highlightRow(id, on) {
     const row = document.querySelector(`.item[data-id="${CSS.escape(id)}"]`);
@@ -882,27 +1118,29 @@ button { font: inherit; color: inherit; }
   }
 
   // ---------- Detail ----------
-  const PRECISION = { "ungefähr": "Lage ungefähr", "Straße": "Lage: nur Straße bekannt" };
-  function badges(s) {
-    const out = [];
-    if (s.period) out.push(`<span>${esc(s.period)}</span>`);
-    if (s.importance === 3) out.push(`<span class="badge flag">Touri 1x1</span>`);
-    if (s.status === "Idee") out.push(`<span class="badge idea" title="${esc(s.note ? "Nur eine Idee, noch nicht recherchiert: " + s.note : "Nur eine Idee, noch nicht recherchiert")}">Idee</span>`);
-    if (s.status === "Prüfen") out.push(`<span class="badge check" title="${esc(s.note ? "Wird noch geprüft: " + s.note : "Wird noch geprüft")}">wird geprüft</span>`);
-    return out.length ? `<div class="badges">${out.join("")}</div>` : "";
+  // Detail knapp halten: Titel, eine Kontextzeile, Bilder, Text, Quellen dezent darunter.
+  const norm = (t) => String(t || "").toLowerCase().replace(/^(der|die|das|the)\s+/, "").replace(/[^a-zäöüß0-9]+/g, "");
+  const similar = (a, b) => { const x = norm(a), y = norm(b); return !!x && !!y && (x.includes(y) || y.includes(x)); };
+  // Kontextzeile: Ort und Zeit, dazu nur, was für diesen Eintrag zählt: ob es den Ort noch gibt und ob der Text noch geprüft wird.
+  // Filter-Schlagworte gehören in die Filter, nicht in die Detailansicht.
+  const GONE = /verschwunden|lost place/i;
+  function ctxLine(parts, s) {
+    const items = parts.filter(Boolean).map((t) => `<span>${esc(t)}</span>`);
+    if (s && s.importance === 3) items.push(`<span class="top">Touri 1x1</span>`);
+    if (s && s.suggested) items.push(`<span class="sug">Vorgeschlagen</span>`);
+    if (s && [...s.categories, ...s.tags].some((t) => GONE.test(t))) items.push(`<span class="gone">Verschwunden</span>`);
+    if (s && s.status === "Idee") items.push(`<span class="soft" title="${esc(s.note || "Noch nicht recherchiert")}">Idee</span>`);
+    if (s && s.status === "Prüfen") items.push(`<span class="soft" title="${esc(s.note ? "Wird noch geprüft: " + s.note : "Wird noch geprüft")}">wird geprüft</span>`);
+    return items.length ? `<div class="ctx">${items.join('<span class="dot-sep">·</span>')}</div>` : "";
   }
-  function chipsHtml(s) {
-    const t = (key, v) => `<button class="tag" data-f="${key}" data-v="${esc(v)}" title="Nach ${esc(v)} filtern">${esc(v)}</button>`;
-    return [...s.categories.map((v) => t("cats", v)), ...s.epochs.map((v) => t("epochs", v)), ...s.tags.map((v) => t("tags", v))].join("");
-  }
-  const sourceLinks = (s, prefix = "") => s.sources.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${prefix}${esc(x.label || "Quelle")}</a>`).join("");
+  const sourceLinks = (s) => s.sources.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label || "Quelle")}</a>`).join("");
+  // Ein durchgehender Text in normaler Schrift: Teaser und Volltext werden nicht mehr unterschieden.
+  const textHtml = (s) => { const dup = s.teaser && s.story[0] && s.story[0].startsWith(s.teaser.replace(/[.…]+$/, "")); const ps = [dup ? "" : s.teaser, ...s.story].filter(Boolean); return ps.length ? `<div class="story">${ps.map((x) => `<p>${esc(x)}</p>`).join("")}</div>` : ""; };
   function storyHtml(s, { other = false } = {}) {
     return `<section class="st${other ? " other" : ""}" id="st-${esc(s.id)}">
-      <h3>${esc(s.title)}</h3>
-      ${badges(s)}
-      <p class="teaser">${esc(s.teaser)}</p>
-      ${s.story.length ? `<div class="story">${s.story.map((x) => `<p>${esc(x)}</p>`).join("")}</div>` : ""}
-      <div class="tags">${chipsHtml(s)}</div>
+      ${similar(s.title, s.place.title) ? "" : `<h3>${esc(s.title)}</h3>`}
+      ${ctxLine([s.period], { ...s, importance: 0 })}
+      ${textHtml(s, false)}
       ${s.sources.length ? `<div class="src">${sourceLinks(s)}</div>` : ""}
     </section>`;
   }
@@ -910,43 +1148,38 @@ button { font: inherit; color: inherit; }
     const p = state.places.find((x) => x.id === id); if (!p) return;
     state.selected = id;
     const d = state.user ? km(state.user, p.coord) : null;
-    const osm = `https://www.openstreetmap.org/?mlat=${p.coord[1]}&mlon=${p.coord[0]}#map=18/${p.coord[1]}/${p.coord[0]}`;
-    // Eine Geschichte, die wie ihr Ort heißt (Frankfurt, Hofheim): klassisches Lese-Layout.
-    const classic = p.stories.length === 1 && p.stories[0].title === p.title ? p.stories[0] : null;
-    const facts = [
-      p.address && `<span>${esc(p.address)}</span>`,
-      PRECISION[p.precision] && `<span title="Die Koordinaten sind ${esc(p.precision)}, nicht hausnummerngenau.">${PRECISION[p.precision]}</span>`,
-      d != null && `<span>${fmtDist(d)} entfernt</span>`,
-    ].filter(Boolean).join("");
-    let body;
-    if (classic) {
-      body = `${badges(classic)}<p class="lead">${esc(classic.teaser)}</p>${galleryHtml(p)}
-        ${classic.story.length ? `<div class="story">${classic.story.map((x) => `<p>${esc(x)}</p>`).join("")}</div>` : ""}
-        <div class="tags">${chipsHtml(classic)}</div>`;
+    const dist = d != null ? `${fmtDist(d)} entfernt` : "";
+    const district = similar(p.place.stadtteil, p.title) ? "" : p.place.stadtteil;
+    const single = p.stories.length === 1 ? p.stories[0] : null;
+    let head, body, sources = "";
+    if (single) {
+      // Eine Geschichte: ihr Titel ist die Überschrift, der Ortsname steht nur dabei, wenn er etwas Neues sagt.
+      const placeName = similar(single.title, p.title) ? "" : p.title;
+      head = `<h2>${esc(single.title)}</h2>${ctxLine([placeName, district, single.period, dist], single)}`;
+      body = `${galleryHtml(p)}${textHtml(single, true)}`;
+      sources = sourceLinks(single);
     } else {
       // Treffer der aktuellen Filter zuerst, die übrigen Geschichten des Orts darunter.
       const hits = p.match.length ? p.match : p.stories;
       const rest = p.stories.filter((s) => !hits.includes(s));
+      head = `<h2>${esc(p.title)}</h2>${ctxLine([district, plural(p.stories.length, "Geschichte", "Geschichten"), dist], { importance: p.importance, suggested: p.suggested, categories: [], tags: [] })}`;
       body = `${galleryHtml(p)}
-        ${p.stories.length > 1 ? `<div class="n-stories">${plural(p.stories.length, "Geschichte", "Geschichten")} an diesem Ort</div>` : ""}
         ${hits.map((s) => storyHtml(s)).join("")}
-        ${rest.length ? `<div class="sep-other">Außerdem hier, außerhalb deiner Filter</div>${rest.map((s) => storyHtml(s, { other: true })).join("")}` : ""}`;
+        ${rest.length ? `<div class="sep-other">Außerdem hier</div>${rest.map((s) => storyHtml(s, { other: true })).join("")}` : ""}`;
     }
-    const kind = classic ? (classic.kind || classic.categories[0] || "") : p.place.stadtteil;
     $("#detail").innerHTML = `
-      <button class="back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>Zur Liste</button>
-      <div class="eyebrow"><i class="mk i${p.importance}"></i>${IMPORTANCE[p.importance]}${kind ? ` · ${esc(kind)}` : ""}</div>
-      <h2>${esc(p.title)}</h2>
-      <div class="facts">${facts}</div>
+      <button class="back" id="back" aria-label="Schließen, zurück zur Liste" title="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      ${head}
+      <div class="mine-btns" id="mineBtns">${mineButtons(p)}</div>
       ${body}
-      <div class="tags">
-        ${[p.place.stadtteil, p.place.stadt, p.place.bundesland].filter((v, i, a) => v && a.indexOf(v) === i).map((v) => `<span class="tag loc">${esc(v)}</span>`).join("")}
-      </div>
-      <div class="links">
-        <a href="${osm}" target="_blank" rel="noopener">Auf OpenStreetMap öffnen</a>
-        ${classic ? sourceLinks(classic, "Mehr bei ") : ""}
-      </div>`;
-    $("#listView").hidden = true; $("#detail").hidden = false; $("#body").scrollTop = 0;
+      ${sources ? `<div class="links">${sources}</div>` : ""}`;
+    $("#listView").hidden = true; $("#mine").hidden = true; $("#detail").hidden = false; $("#body").scrollTop = 0;
+    if (!$("#panel").classList.contains("reading")) {
+      // Beim Lesen klappen die Filter ein; über „Filter“ lassen sie sich aufklappen, ohne dass der Eintrag verschwindet.
+      state.filtersWereOpen = !$("#filters").hidden;
+      setFiltersOpen(false);
+    }
+    $("#panel").classList.add("reading");
     wireGallery(p);
     $("#panel").classList.add("expanded");
     try { history.replaceState(null, "", location.pathname + location.search + "#" + encodeURIComponent(story || id)); } catch {}
@@ -983,7 +1216,9 @@ button { font: inherit; color: inherit; }
   }
   const credit = (im) => {
     const lic = im.licenseUrl ? `<a href="${esc(im.licenseUrl)}" target="_blank" rel="noopener">${esc(im.license)}</a>` : esc(im.license || "");
-    return `${im.author ? `${esc(im.author)}, ` : ""}${lic}${lic ? ", " : ""}<a href="${esc(im.source)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
+    const src = im.source ? `<a href="${esc(im.source)}" target="_blank" rel="noopener">${esc(im.sourceLabel || "Wikimedia Commons")}</a>` : "";
+    if (!im.author && !im.license) return src ? `Urheber und Lizenz: ${src}` : "";
+    return [im.author ? esc(im.author) : "", lic, src].filter(Boolean).join(", ");
   };
   function showSlide(p, i) {
     const g = $("#gallery"); if (!g) return;
@@ -1015,11 +1250,101 @@ button { font: inherit; color: inherit; }
       if (Math.abs(dx) > 40) showSlide(p, +g.dataset.i + (dx < 0 ? 1 : -1));
     });
   }
+  function setFiltersOpen(open) {
+    $("#filters").hidden = !open;
+    $("#filterToggle").setAttribute("aria-expanded", open);
+  }
   function closeDetail() {
     state.selected = null;
-    $("#detail").hidden = true; $("#listView").hidden = false;
-    try { history.replaceState(null, "", location.pathname + location.search); } catch {}
+    $("#detail").hidden = true;
+    if (state.mineOpen) { renderMine(); $("#mine").hidden = false; } else $("#listView").hidden = false;
+    if ($("#panel").classList.contains("reading") && state.filtersWereOpen) setFiltersOpen(true);
+    $("#panel").classList.remove("reading");
+    try { history.replaceState(null, "", location.pathname + location.search + (state.mineOpen ? "#meine" : "")); } catch {}
     place(); renderList();
+  }
+
+  // ---------- Merken, Kenn ich, Meine Orte ----------
+  function mineButtons(p) {
+    const saved = user.has(p.id, "saved"), known = user.has(p.id, "known");
+    return `<button class="mine-btn" data-mine="saved" aria-pressed="${saved}" title="${saved ? "Nicht mehr merken" : "Auf die Merkliste"}">${saved ? ICON_BOOKMARK_ON : ICON_BOOKMARK}${saved ? "Gemerkt" : "Merken"}</button>
+      <button class="mine-btn" data-mine="known" aria-pressed="${known}" title="${known ? "Doch nicht bekannt" : "Kenn ich schon: Punkt wird grau"}">${ICON_CHECK}Kenn ich</button>`;
+  }
+  function toggleMine(id, kind) {
+    const p = state.places.find((x) => x.id === id); if (!p) return;
+    const on = !user.has(id, kind);
+    user.set(id, kind, on);
+    pinLook(p);
+    if ($("#mineBtns") && state.selected === id) $("#mineBtns").innerHTML = mineButtons(p);
+    updateMineBtn(); buildPick(); refresh();
+    if (state.mineOpen && !state.selected) renderMine();
+    toast(kind === "saved" ? (on ? "Gemerkt. Der Punkt ist jetzt grün." : "Nicht mehr gemerkt.")
+      : (on ? "Als bekannt markiert. Der Punkt bleibt grau auf der Karte." : "Nicht mehr als bekannt markiert."));
+  }
+  function updateMineBtn() {
+    const n = user.ids("saved").length;
+    $("#mineBtn").innerHTML = ICON_BOOKMARK + (n ? `<span class="cnt">${n > 99 ? "99+" : n}</span>` : "");
+    $("#mineBtn").setAttribute("aria-pressed", state.mineOpen);
+  }
+  function openMine() {
+    if (state.view !== "map") setView("map");
+    if (state.selected) { state.mineOpen = true; closeDetail(); }
+    state.mineOpen = true;
+    $("#listView").hidden = true; $("#mine").hidden = false; $("#body").scrollTop = 0;
+    $("#panel").classList.add("expanded");
+    renderMine(); updateMineBtn();
+    try { history.replaceState(null, "", location.pathname + location.search + "#meine"); } catch {}
+  }
+  function closeMine() {
+    state.mineOpen = false;
+    if (state.selected) closeDetail();
+    $("#mine").hidden = true; $("#listView").hidden = false;
+    updateMineBtn();
+    try { history.replaceState(null, "", location.pathname + location.search); } catch {}
+    renderList();
+  }
+  function renderMine() {
+    const byId = new Map(state.places.map((p) => [p.id, p]));
+    const tabs = { saved: "Gemerkt", known: "Kenne ich" };
+    const ids = (k) => user.ids(k).filter((id) => byId.has(id));
+    const list = ids(state.mineTab).map((id) => byId.get(id));
+    const missing = user.ids(state.mineTab).length - list.length;
+    const multi = regions.length > 1;
+    const ref = state.user;
+    $("#mine").innerHTML = `
+      <button class="back" id="mineClose" aria-label="Schließen, zurück zur Liste" title="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="eyebrow">Meine Orte</div>
+      <h2>${state.mineTab === "saved" ? "Meine gemerkten Einträge" : "Kenne ich"}</h2>
+      <p>${state.mineTab === "saved" ? "Gemerkte Orte leuchten grün auf der Karte." : "Bekannte Orte bleiben als graue Punkte auf der Karte, damit du siehst, wo du nicht mehr suchen musst."}</p>
+      <div class="mine-tabs">${Object.entries(tabs).map(([k, t]) => `<button data-tab="${k}" aria-pressed="${state.mineTab === k}">${t} <span class="n">${ids(k).length}</span></button>`).join("")}</div>
+      <ul class="list">${list.length ? list.map((p) => itemHtml(p, ref ? fmtDist(km(ref, p.coord)) : "", multi && p.region !== state.region ? [regionById(p.region).name] : [])).join("")
+        : `<li class="empty">${state.mineTab === "saved" ? "Noch nichts gemerkt. Öffne einen Ort und tippe auf „Merken“." : "Noch nichts als bekannt markiert. Öffne einen Ort und tippe auf „Kenn ich“."}</li>`}</ul>
+      ${missing > 0 ? `<p class="list-meta" style="padding:6px 0 0">${plural(missing, "weiterer Ort ist", "weitere Orte sind")} gespeichert, aber in den aktuellen Daten nicht enthalten.</p>` : ""}
+      <div class="mine-backup">
+        <p>Deine Markierungen liegen nur in diesem Browser. Leerst du den Browser-Speicher oder wechselst das Gerät, sind sie weg. Sichere sie ab und zu als Datei.</p>
+        <div class="actions">
+          <button class="btn" data-backup="save">Daten sichern</button>
+          <button class="btn" data-backup="load">Wiederherstellen</button>
+          <input type="file" id="mineFile" accept="application/json,.json" hidden>
+        </div>
+      </div>`;
+  }
+  function downloadBackup() {
+    const blob = new Blob([JSON.stringify(user.exportData(), null, 1)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `sagenhaft-meine-orte-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    toast("Sicherung gespeichert. Über „Wiederherstellen“ lässt sie sich wieder einlesen.");
+  }
+  async function restoreBackup(file) {
+    let n = -1;
+    try { n = user.importData(JSON.parse(await file.text())); } catch {}
+    if (n < 0) return toast("Diese Datei ist keine Sicherung von Sagenhaft.");
+    for (const p of state.places) pinLook(p);
+    updateMineBtn(); buildPick(); refresh(); renderMine();
+    toast(n ? `${plural(n, "Markierung", "Markierungen")} wiederhergestellt.` : "Alles aus der Sicherung war schon vorhanden.");
   }
   function panelOffset() {
     return window.innerWidth > 760 ? [(16 + 384) / 2, 0] : [0, -window.innerHeight * 0.22];
@@ -1098,7 +1423,7 @@ button { font: inherit; color: inherit; }
           <div class="kicker">Geschichte des Tages · ${new Date().toLocaleDateString("de-DE", { day: "numeric", month: "long" })}</div>
           <h2>${esc(hero.title)}</h2>
           <p class="lead">${esc(hero.teaser)}</p>
-          ${badges(hero)}
+          ${ctxLine([hero.period], hero)}
           <div class="actions">
             <button class="btn primary" data-place="${esc(hp.id)}" data-story="${esc(hero.id)}">${ICON_PIN}Auf der Karte zeigen</button>
             <button class="btn" data-hero-next>${ICON_SHUFFLE}Andere Geschichte</button>
@@ -1131,7 +1456,7 @@ button { font: inherit; color: inherit; }
 
       ${epochs.length ? `<section>
         <div class="sec-head"><div><h2>Zeitreise</h2><p>Nach Epoche auf die Karte.</p></div></div>
-        <div class="epoch-chips">${epochs.map(([e, n]) => `<button class="chip" data-filter="epochs" data-v="${esc(e)}">${esc(e)}<span class="n">${n}</span></button>`).join("")}</div>
+        <div class="epoch-chips">${epochs.map(([e, n]) => `<button class="chip" data-filter="epochs" data-v="${esc(e)}">${esc(e)}</button>`).join("")}</div>
       </section>` : ""}
 
       <p class="dc-foot">${checking ? `${plural(checking, "Geschichte wird", "Geschichten werden")} noch geprüft und sind mit „wird geprüft“ gekennzeichnet. ` : ""}Kartendaten © OpenStreetMap-Mitwirkende.</p>`;
@@ -1200,7 +1525,7 @@ button { font: inherit; color: inherit; }
   // ---------- UI-Verdrahtung ----------
   function syncImp() { $("#fImp").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", +x.dataset.v === state.minImp)); }
   function resetAll({ silent = false } = {}) {
-    state.cats.clear(); state.epochs.clear(); state.tags.clear(); state.minImp = 1; state.district = ""; state.q = "";
+    state.cats.clear(); state.epochs.clear(); state.tags.clear(); state.pick.clear(); state.minImp = 1; state.district = ""; state.q = ""; state.showAll = false;
     $("#q").value = ""; $("#fDistrict").value = "";
     $$(".filters .chip").forEach((c) => c.setAttribute("aria-pressed", "false"));
     syncImp();
@@ -1211,28 +1536,48 @@ button { font: inherit; color: inherit; }
       theme = theme === "dark" ? "light" : "dark";
       store.set("lore-theme", theme); applyTheme();
       map.setStyle(STYLES[theme]);
+      addLeafletAreas();
     });
     $$("[data-view]").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
+    updateMineBtn();
+    $("#mineBtn").addEventListener("click", () => (state.mineOpen && !state.selected && state.view === "map") ? closeMine() : openMine());
+    $("#mine").addEventListener("click", (e) => {
+      if (e.target.closest("#mineClose")) return closeMine();
+      const t = e.target.closest("[data-tab]"); if (t) { state.mineTab = t.dataset.tab; return renderMine(); }
+      const bk = e.target.closest("[data-backup]");
+      if (bk) return bk.dataset.backup === "save" ? downloadBackup() : $("#mineFile").click();
+      const b = e.target.closest(".item"); if (!b) return;
+      const p = state.places.find((x) => x.id === b.dataset.id); if (!p) return;
+      if (p.region !== state.region) setRegion(p.region, { fly: false });
+      if (!passes(p)) { resetAll({ silent: true }); buildFilters(); }
+      openDetail(p.id, { fly: true });
+    });
+    $("#mine").addEventListener("change", (e) => { if (e.target.id === "mineFile" && e.target.files[0]) { restoreBackup(e.target.files[0]); e.target.value = ""; } });
     $("#logo").addEventListener("click", (e) => { e.preventDefault(); setView(state.view === "map" ? "discover" : "map"); });
     $("#fRegion").addEventListener("change", (e) => { if (state.selected) closeDetail(); setRegion(e.target.value); });
-    $("#q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); if (state.selected) closeDetail(); refresh(); });
+    // Suchen und Filtern führt aus „Meine Orte“ zurück zur Ergebnisliste.
+    const toList = () => { if (state.mineOpen) closeMine(); };
+    $("#q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); toList(); if (state.selected) closeDetail(); refresh(); });
     $("#filterToggle").addEventListener("click", (e) => {
-      const open = $("#filters").hidden; $("#filters").hidden = !open;
-      e.currentTarget.setAttribute("aria-expanded", open);
+      const open = $("#filters").hidden; setFiltersOpen(open);
+      if ($("#panel").classList.contains("reading")) state.filtersWereOpen = open;
       if (open) $("#panel").classList.add("expanded");
     });
     $("#filters").addEventListener("click", (e) => {
       if (e.target.closest("[data-more]")) { state.tagsOpen = !state.tagsOpen; buildFilters(); return; }
       const b = e.target.closest(".chip"); if (!b) return;
+      if (!state.selected) toList();
       const set = state[b.closest("[data-f]").dataset.f], v = b.dataset.v;
       set.has(v) ? set.delete(v) : set.add(v);
       b.setAttribute("aria-pressed", set.has(v)); refresh(); fitIfNoneVisible();
     });
     $("#fImp").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
+      if (!state.selected) toList();
       state.minImp = +b.dataset.v; syncImp(); refresh(); fitIfNoneVisible();
     });
     $("#fDistrict").addEventListener("change", (e) => {
+      if (!state.selected) toList();
       state.district = e.target.value; refresh();
       if (state.district) {
         const pts = state.places.filter((p) => p.region === state.region && p.place.stadtteil === state.district).map((p) => p.coord);
@@ -1243,6 +1588,7 @@ button { font: inherit; color: inherit; }
     $("#reset").addEventListener("click", () => resetAll());
     $("#list").addEventListener("click", (e) => {
       if (e.target.closest("[data-reset]")) return resetAll();
+      if (e.target.closest("[data-showall]")) { state.showAll = true; return renderList(); }
       const b = e.target.closest(".item"); if (b) openDetail(b.dataset.id, { fly: true });
     });
     $("#list").addEventListener("mouseover", (e) => {
@@ -1252,6 +1598,7 @@ button { font: inherit; color: inherit; }
     $("#list").addEventListener("mouseleave", () => state.places.forEach((p) => p.el.querySelector(".dot").style.transform = ""));
     $("#detail").addEventListener("click", (e) => {
       if (e.target.closest("#back")) return closeDetail();
+      const m = e.target.closest("[data-mine]"); if (m) return toggleMine(state.selected, m.dataset.mine);
       const t = e.target.closest(".tag[data-f]"); if (!t) return;
       state[t.dataset.f].add(t.dataset.v);
       if (t.dataset.f === "tags") state.tagsOpen = true;
@@ -1266,16 +1613,14 @@ button { font: inherit; color: inherit; }
       if (b.hasAttribute("data-locate")) locate();
     });
     $("#nearBtn").addEventListener("click", locate);
-    $("#shuffleBtn").addEventListener("click", () => {
-      state.places.forEach((p) => (p.rand = Math.random()));
-      place();
-      toast(map.getZoom() < 14 ? "Neue Auswahl. Zoom hinein, um mehr zu sehen." : "Neue Auswahl.");
-    });
     $("#zin").addEventListener("click", () => map.zoomIn());
     $("#zout").addEventListener("click", () => map.zoomOut());
     $("#handle").addEventListener("click", () => $("#panel").classList.toggle("expanded"));
     map.on("click", () => { if (window.innerWidth <= 760) $("#panel").classList.remove("expanded"); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.selected && state.view === "map") closeDetail(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || state.view !== "map") return;
+      if (state.selected) closeDetail(); else if (state.mineOpen) closeMine();
+    });
   }
 })();
 </script>
