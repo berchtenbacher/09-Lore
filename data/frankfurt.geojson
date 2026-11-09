@@ -40,7 +40,7 @@
    "Spitzname",
    "Jüdisches Leben"
   ],
-  "source": "Lore Tags, Kategorien und Einträge Frankfurt.xlsx"
+  "source": "Lore Tags, Kategorien und Einträge Frankfurt.xlsx"
  },
  "features": [
   {
@@ -106,6 +106,54 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.440271,
+     50.09504
+    ]
+   },
+   "properties": {
+    "id": "Hofheim-exerzitienhaus",
+    "title": "Exerzitienhaus",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "Hofheim-exerzitienhaus",
+      "title": "Exerzitienhaus",
+      "teaser": "Franziskanern auf den Höhen des Kapellenbergs errichtet, entwickelte sich das Anwesen am Kreuzweg zu einer Hochburg für christliche Meditation. Die Nationalsozialisten schlossen die Einrichtung 1939 gewaltsam und funktionierten die Anlage in ein Militärlazarett sowie eine Lungenheilstätte um. Nach der Rückgabe 1955 wurde das Haus ein Zentrum der Franziskaner, bevor sich der Orden Ende 2022 nach knapp einhundert Jahren aus Hofheim verabschiedete.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.6869,
      50.1052
     ]
@@ -116,10 +164,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Große Rittergasse",
     "precision": "genau",
@@ -128,10 +176,7 @@
       "id": "aeppelwoi",
       "title": "Apfelwein in Alt-Sachsenhausen",
       "teaser": "Bembel, Geripptes und Handkäs mit Musik: In den Gassen von Sachsenhausen schlägt das Herz der Apfelweinkultur.",
-      "story": [
-       "In Sachsenhausen gab es früher viele Weinbauern. Als der Weinbau zurückging, wurde Apfelwein zum Getränk der Stadt. In den Apfelweinwirtschaften wird er bis heute aus dem grauen, blau bemalten Steinzeugkrug, dem Bembel, ins „Gerippte“ eingeschenkt.",
-       "Ein grüner Kranz über der Tür zeigt traditionell, dass frischer Apfelwein ausgeschenkt wird. Dazu gibt es Handkäs mit Musik oder Grüne Soße."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik",
        "Frankfurt-Ikonen"
@@ -165,7 +210,7 @@
      {
       "id": "idee-beruehmte-kneipen-in-alt-sachsenhausen",
       "title": "Berühmte Kneipen in Alt-Sachsenhausen",
-      "teaser": "Idee, noch ohne Text.",
+      "teaser": "",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -174,20 +219,20 @@
       "importance": 1,
       "period": "",
       "year": null,
-      "status": "Idee",
+      "status": "Entwurf",
       "note": "",
       "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      },
      {
       "id": "idee-apfelweinkontor",
       "title": "Apfelweinkontor",
-      "teaser": "Idee, noch ohne Text.",
+      "teaser": "",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -196,15 +241,15 @@
       "importance": 1,
       "period": "",
       "year": null,
-      "status": "Idee",
+      "status": "Entwurf",
       "note": "",
       "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -338,8 +383,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67205,
-     50.1159
+     8.672394,
+     50.116054
     ]
    },
    "properties": {
@@ -472,7 +517,7 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "",
+     "stadtteil": "Westend",
      "stadt": "Frankfurt",
      "kreis": "",
      "bundesland": ""
@@ -499,8 +544,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "",
-      "updated": ""
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -636,8 +681,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68666,
-     50.11084
+     8.68663,
+     50.110826
     ]
    },
    "properties": {
@@ -693,8 +738,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6438,
-     50.1048
+     8.641968,
+     50.104366
     ]
    },
    "properties": {
@@ -1843,7 +1888,7 @@
      "bundesland": "Hessen"
     },
     "address": "Kaiserstraße / Weserstraße",
-    "precision": "Straße",
+    "precision": "genau",
     "stories": [
      {
       "id": "bahnhofsviertel-kaiserstrasse-ein-viertel-auf-alten-gleisen",
@@ -1886,8 +1931,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -1913,7 +1958,7 @@
      "bundesland": "Hessen"
     },
     "address": "Niddastraße / Moselstraße",
-    "precision": "Straße",
+    "precision": "genau",
     "stories": [
      {
       "id": "bahnhofsviertel-niddastrasse-der-frankfurter-weg",
@@ -1932,7 +1977,7 @@
       "importance": 1,
       "period": "seit 1990",
       "year": 1992,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -1952,8 +1997,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -2017,8 +2062,56 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.667585,
+     50.116033
+    ]
+   },
+   "properties": {
+    "id": "beer-sondheimer-co",
+    "title": "Beer, Sondheimer & Co.",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "beer-sondheimer-co",
+      "title": "Beer, Sondheimer & Co.",
+      "teaser": "Dieses Neoklassizismus-Palais von 1916 wurde ursprünglich für das Metall- und Erzunternehmen Beer, Sonderheimer & Co. gebaut. Im rückwärtigen Gebäudeteil tüftelten Chemiker in eigens eingebauten Laboratorien an Erzananalysen, während im Dachgeschoss ein privater jüdischer Betsaal eingerichtet war. Das Haus überstand die Bombenangriffe des Zweiten Weltkriegs fast unbeschadet, wodurch im Inneren die prachtvolle historische Treppenrotunde und originale Holzvertäfelungen bis heute erhalten geblieben sind.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -2463,8 +2556,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67793,
-     50.11517
+     8.677691,
+     50.115248
     ]
    },
    "properties": {
@@ -2630,7 +2723,7 @@
      "bundesland": "Hessen"
     },
     "address": "Ernst-May-Platz",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "bornheim-bornheimer-hang-ernst-mays-siedlung-am-hang",
@@ -2651,7 +2744,7 @@
       "importance": 1,
       "period": "1926–1930",
       "year": 1926,
-      "status": "Entwurf",
+      "status": "Prüfen",
       "note": "",
       "sources": [
        {
@@ -2671,7 +2764,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-04"
      }
     ]
@@ -2698,11 +2791,11 @@
      "bundesland": "Hessen"
     },
     "address": "Friedberger Landstraße / Homburger Landstraße",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "bornheim-friedberger-warte-der-wachturm-auf-dem-eulenberg",
-      "title": "Der Wachturm auf dem Eulenberg",
+      "title": "Friedberger Warte",
       "teaser": "Die Friedberger Warte steht auf dem Eulenberg, dem höchsten Punkt Bornheims, wo die Straße nach Friedberg die Frankfurter Landwehr verließ. Schon um 1350 stand hier ein Wachturm, der heutige spätgotische Turm stammt von 1478.",
       "story": [],
       "categories": [
@@ -2734,7 +2827,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-04"
      }
     ]
@@ -2799,7 +2892,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-04"
      },
      {
@@ -2836,7 +2929,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-04"
      }
     ]
@@ -2863,7 +2956,7 @@
      "bundesland": "Hessen"
     },
     "address": "Berger Straße / Arnsburger Straße",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "bornheim-uhrtuermchen-das-lustige-dorf",
@@ -2905,7 +2998,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-04"
      }
     ]
@@ -2916,8 +3009,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68406,
-     50.11465
+     8.684269,
+     50.114669
     ]
    },
    "properties": {
@@ -3062,8 +3155,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6475,
-     50.1115
+     8.653569,
+     50.11198
     ]
    },
    "properties": {
@@ -3072,10 +3165,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Ludwig-Erhard-Anlage 1",
     "precision": "genau",
@@ -3187,8 +3280,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67849,
-     50.11497
+     8.679457,
+     50.115064
     ]
    },
    "properties": {
@@ -3370,8 +3463,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.66777,
-     50.11387
+     8.668206,
+     50.113864
     ]
    },
    "properties": {
@@ -3380,10 +3473,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Taunusanlage 12",
     "precision": "genau",
@@ -3723,8 +3816,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68216,
-     50.10814
+     8.682858,
+     50.108255
     ]
    },
    "properties": {
@@ -4225,8 +4318,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67972,
-     50.11714
+     8.679622,
+     50.117005
     ]
    },
    "properties": {
@@ -4298,8 +4391,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67369,
-     50.10914
+     8.67434,
+     50.109276
     ]
    },
    "properties": {
@@ -4357,8 +4450,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6737,
-     50.109
+     8.673951,
+     50.109735
     ]
    },
    "properties": {
@@ -4438,8 +4531,8 @@
     "stories": [
      {
       "id": "falkenstein-heilanstalt-die-lungenheilanstalt-falkenstein",
-      "title": "Die Lungenheilanstalt Falkenstein",
-      "teaser": "1875 eröffneten Frankfurter Ärzte in Falkenstein eine Heilanstalt für Tuberkulose. Unter Peter Dettweiler wurde sie berühmt: Liegekuren an frischer Luft und der Taschenspucknapf „Blauer Heinrich“. Zu den Patienten gehörte der Maler Ernst Ludwig Kirchner. Heute ist das Haus ein Hotel.",
+      "title": "Sanatorium Falkenstein",
+      "teaser": "1875 eröffneten Frankfurter Ärzte in Falkenstein eine Heilanstalt für Tuberkulose. Unter Peter Dettweiler wurde sie berühmt: Liegekuren an frischer Luft und der Taschenspucknapf „Blauer Heinrich“. Zu den Patienten gehörte der Maler Ernst Ludwig Kirchner. Heute ist das Haus ein Hotel.; Peter Dettweiler",
       "story": [],
       "categories": [
        "Persönlichkeiten",
@@ -4471,7 +4564,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
      }
     ]
@@ -4482,8 +4575,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68599,
-     50.11896
+     8.668,
+     50.1075
     ]
    },
    "properties": {
@@ -4492,12 +4585,12 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Innenstadt",
+     "stadtteil": "Bahnhofsviertel",
      "stadt": "Frankfurt am Main",
      "kreis": "Kreisfreie Stadt Frankfurt am Main",
      "bundesland": "Hessen"
     },
-    "address": "Wallanlagen",
+    "address": "Münchener Straße 32",
     "precision": "genau",
     "stories": [
      {
@@ -4520,7 +4613,7 @@
       "importance": 1,
       "period": "seit dem 19. Jh.",
       "year": 1870,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -4536,8 +4629,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max / claude",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -4656,8 +4749,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68752,
-     50.10952
+     8.687594,
+     50.109517
     ]
    },
    "properties": {
@@ -5016,6 +5109,54 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.666446,
+     50.155215
+    ]
+   },
+   "properties": {
+    "id": "frankfurt-eschersheim",
+    "title": "Wasserturm",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Eschersheim",
+     "stadt": "Frankfurt am Main",
+     "kreis": "Kreisfreie Stadt Frankfurt am Main",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "frankfurt-eschersheim",
+      "title": "Wasserturm",
+      "teaser": "Am Lindenbaum; Turmbau von 1901 in barockisierenden Formen mit kegelförmigem Schaft,",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.675321,
      50.11248
     ]
@@ -5066,7 +5207,55 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.675155,
+     50.128611
+    ]
+   },
+   "properties": {
+    "id": "frankfurter-diakonissenhaus",
+    "title": "Frankfurter Diakonissenhaus",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "frankfurter-diakonissenhaus",
+      "title": "Frankfurter Diakonissenhaus",
+      "teaser": "Als Antwort auf das rapide Wachstum der Industriestadt rief der Frankfurter Frauenverein 1870 eine eigene Pflegeschwesternschaft ins Leben. Das neugotische Mutterhaus, das kombinierte Wohnheim, Bildungszentrum und die Zentrale der Diakonissen,",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -5086,10 +5275,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "",
-     "stadt": "Frankfurt",
-     "kreis": "",
-     "bundesland": ""
+     "stadtteil": "Altstadt",
+     "stadt": "Frankfurt am Main",
+     "kreis": "Kreisfreie Stadt Frankfurt am Main",
+     "bundesland": "Hessen"
     },
     "address": "",
     "precision": "genau",
@@ -5118,8 +5307,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "",
-      "updated": ""
+      "author": "redaktion",
+      "updated": "2026-11-01"
      }
     ]
    }
@@ -5139,10 +5328,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Klappergasse",
     "precision": "genau",
@@ -5151,10 +5340,7 @@
       "id": "frau-rauscher",
       "title": "Frau-Rauscher-Brunnen",
       "teaser": "Eine Brunnenfigur aus einem Fastnachtslied, die unaufmerksame Passanten nass spritzt.",
-      "story": [
-       "„Frau Rauscher aus de Klappergass, die hat e Beul am Ei“: Das Lied über die streitbare Frau aus der Klappergasse ist ein bekannter Frankfurter Fastnachtsschlager.",
-       "Der Brunnen zeigt eine füllige Frau mit Beule am Kopf. In unregelmäßigen Abständen spuckt sie einen kräftigen Wasserstrahl auf den Gehweg, zur Freude aller, die nicht getroffen werden."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik",
        "Frankfurt-Ikonen"
@@ -5180,7 +5366,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -5250,8 +5436,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6866,
-     50.11085
+     8.687117,
+     50.110281
     ]
    },
    "properties": {
@@ -5686,10 +5872,7 @@
       "id": "gerbermuehle",
       "title": "Gerbermühle",
       "teaser": "Hier verliebte sich Goethe in Marianne von Willemer, die Suleika seines West-östlichen Divans.",
-      "story": [
-       "Die Gerbermühle am Main war der Sommersitz des Bankiers Johann Jakob von Willemer. 1814 und 1815 war Goethe hier zu Gast.",
-       "Zwischen ihm und Willemers junger Frau Marianne entstand eine tiefe Zuneigung, die in den „West-östlichen Divan“ einging. Erst lange nach ihrem Tod wurde bekannt, dass einige der schönsten Suleika-Gedichte von Marianne selbst stammen."
-      ],
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -5726,8 +5909,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67736,
-     50.11148
+     8.677705,
+     50.111354
     ]
    },
    "properties": {
@@ -5795,10 +5978,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Am Goetheturm",
     "precision": "genau",
@@ -5807,10 +5990,7 @@
       "id": "goetheturm",
       "title": "Goetheturm",
       "teaser": "Ein Holzturm am Rand des Stadtwalds, 2017 abgebrannt und von den Frankfurtern zurückgeholt.",
-      "story": [
-       "Der Goetheturm wurde 1931 aus Holz gebaut und war mit 43 Metern ein hoher Holzturm. Von oben sieht man über den Stadtwald auf die Skyline.",
-       "Im Oktober 2017 brannte der Turm durch Brandstiftung vollständig ab. Nach Spenden und viel Engagement aus der Stadt wurde er bis 2020 originalgetreu neu errichtet."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -5838,7 +6018,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -5901,8 +6081,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6844,
-     50.11075
+     8.684617,
+     50.11062
     ]
    },
    "properties": {
@@ -5961,8 +6141,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67855,
-     50.11313
+     8.678551,
+     50.113135
     ]
    },
    "properties": {
@@ -6085,8 +6265,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68264,
-     50.11056
+     8.682763,
+     50.110571
     ]
    },
    "properties": {
@@ -6146,8 +6326,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68,
-     50.1118
+     8.678785,
+     50.111261
     ]
    },
    "properties": {
@@ -6210,8 +6390,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.7025,
-     50.1097
+     8.705716,
+     50.109774
     ]
    },
    "properties": {
@@ -6296,10 +6476,7 @@
       "id": "gruene-sosse",
       "title": "Grüne-Soße-Denkmal",
       "teaser": "Sieben kleine Gewächshäuser, eins für jedes Kraut der Frankfurter Grie Soß.",
-      "story": [
-       "In Oberrad werden seit Generationen die Kräuter für die Frankfurter Grüne Soße angebaut. Am Rand der Felder steht seit 2007 ein Denkmal für das Leibgericht der Stadt.",
-       "Es besteht aus sieben Gewächshäusern in verschiedenen Grüntönen: Schnittlauch, Petersilie, Kresse, Kerbel, Pimpinelle, Sauerampfer und Borretsch. Genau diese sieben Kräuter gehören in die echte Frankfurter Grüne Soße, dazu Eier und Kartoffeln."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik",
        "Frankfurt-Ikonen"
@@ -6398,8 +6575,56 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.663,
-     50.1195
+     8.69183,
+     50.126141
+    ]
+   },
+   "properties": {
+    "id": "gudes-frankfurt",
+    "title": "Gudes Frankfurt",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "gudes-frankfurt",
+      "title": "Gudes Frankfurt",
+      "teaser": "Wasserhäuschen des Jahres 2015",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.664612,
+     50.120117
     ]
    },
    "properties": {
@@ -6408,10 +6633,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Eppsteiner Straße 47",
     "precision": "genau",
@@ -6455,8 +6680,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6545,
-     50.1115
+     8.652877,
+     50.112898
     ]
    },
    "properties": {
@@ -6465,10 +6690,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Friedrich-Ebert-Anlage 49",
     "precision": "genau",
@@ -6505,7 +6730,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-10-31"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -6584,10 +6809,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Nordend-West",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Eckenheimer Landstraße 194",
     "precision": "genau",
@@ -6595,11 +6820,8 @@
      {
       "id": "hauptfriedhof",
       "title": "Hauptfriedhof",
-      "teaser": "Auf dem parkartigen Friedhof liegen Schopenhauer, Heinrich Hoffmann und Theodor W. Adorno.",
-      "story": [
-       "Der Hauptfriedhof wurde 1828 eröffnet und gehört zu den großen historischen Friedhöfen in Deutschland.",
-       "Zwischen alten Bäumen liegen zahlreiche bekannte Frankfurter, darunter Arthur Schopenhauer, Struwwelpeter-Erfinder Heinrich Hoffmann und der Philosoph Theodor W. Adorno."
-      ],
+      "teaser": "Der Hauptfriedhof gehört zu den großen historischen Friedhöfen in Deutschland. Zwischen alten Bäumen liegen zahlreiche bekannte Frankfurter, darunter Arthur Schopenhauer, Struwwelpeter-Erfinder Heinrich Hoffmann und der Philosoph Theodor W. Adorno.",
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -6619,7 +6841,7 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Hauptfriedhof+Frankfurt"
+        "url": "https://de.wikipedia.org/wiki/Hauptfriedhof_(Frankfurt_am_Main)"
        }
       ],
       "imageQuery": "",
@@ -6637,8 +6859,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67867,
-     50.11351
+     8.678612,
+     50.113514
     ]
    },
    "properties": {
@@ -6701,8 +6923,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6826,
-     50.1104
+     8.681761,
+     50.110098
     ]
    },
    "properties": {
@@ -6773,8 +6995,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68205,
-     50.10953
+     8.681988,
+     50.109506
     ]
    },
    "properties": {
@@ -6923,10 +7145,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Hainer Weg",
     "precision": "genau",
@@ -6935,11 +7157,7 @@
       "id": "henninger",
       "title": "Henninger Turm",
       "teaser": "Ein Getreidesilo mit Drehrestaurant gab einem der großen Radrennen der Welt seinen Namen.",
-      "story": [
-       "Die Henninger-Brauerei baute 1959 bis 1961 ein knapp 120 Meter hohes Getreidesilo mit Aussichtsplattform und Drehrestaurant. Er war damals ein hohes Bauwerk für die Stadt.",
-       "1962 erfanden die Brüder Erwin und Hermann Moos als Werbeaktion ein Radrennen: „Rund um den Henninger Turm“. Daraus wurde ein Klassiker, der seit Jahrzehnten am 1. Mai Hunderttausende an die Strecke lockt und heute Eschborn–Frankfurt heißt.",
-       "2013 wurde der alte Turm abgerissen. An seiner Stelle steht ein 140 Meter hohes Wohnhochhaus, das die alte Silhouette mit dem Fass auf dem Schaft aufnimmt."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik",
        "Frankfurt-Ikonen"
@@ -6969,7 +7187,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -6979,8 +7197,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68136,
-     50.11043
+     8.682674,
+     50.110594
     ]
    },
    "properties": {
@@ -7036,8 +7254,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6898,
-     50.11971
+     8.689558,
+     50.119759
     ]
    },
    "properties": {
@@ -7094,6 +7312,54 @@
         "slot": 1
        }
       ],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.695711,
+     50.11472
+    ]
+   },
+   "properties": {
+    "id": "hochbunker-nordend-frankfurt",
+    "title": "Hochbunker Nordend",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hochbunker-nordend-frankfurt",
+      "title": "Hochbunker Nordend",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
@@ -7544,8 +7810,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.684,
-     50.11085
+     8.684169,
+     50.11102
     ]
    },
    "properties": {
@@ -7629,7 +7895,7 @@
     "stories": [
      {
       "id": "hofeckweg-showdown-am-hofeckweg",
-      "title": "Showdown am Hofeckweg",
+      "title": "RAF am Hofeckweg",
       "teaser": "Am 1. Juni 1972 wartete die Polizei an einer Garage am Hofeckweg. Als Andreas Baader, Holger Meins und Jan-Carl Raspe kamen, gab es einen Schusswechsel. Baader wurde ins Bein getroffen, die erste RAF-Generation war gefasst.",
       "story": [],
       "categories": [
@@ -7644,7 +7910,7 @@
       "importance": 1,
       "period": "1972",
       "year": 1972,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -7660,8 +7926,56 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.447233,
+     50.086591
+    ]
+   },
+   "properties": {
+    "id": "hofheim-alte-burg",
+    "title": "Alte Burg",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-alte-burg",
+      "title": "Alte Burg",
+      "teaser": "Am Kellereiplatz stand die Alte Burg der Stadt, von ihr sind Mauer- und Brückenreste erhalten.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "",
+      "updated": ""
      }
     ]
    }
@@ -7735,28 +8049,28 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4412,
-     50.0962
+     8.438361,
+     50.095943
     ]
    },
    "properties": {
     "id": "hofheim-bergkapelle",
     "title": "Bergkapelle und das Pestgelübde",
-    "importance": 3,
+    "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kapellenberg",
     "precision": "genau",
     "stories": [
      {
       "id": "hofheim-bergkapelle",
-      "title": "Bergkapelle und das Pestgelübde",
-      "teaser": "Als 1666 die Pest wütete, zog die ganze Gemeinde auf den Berg und legte ein Gelübde ab. Danach soll niemand mehr an der Pest gestorben sein. Im Pestjahr 1666 führte Pfarrer Johannes Gleidener die Hofheimer am Himmelfahrtstag in einer Prozession auf den Rabberg, wie der Berg damals hieß. Sie gelobten, dort eine Kapelle zu bauen und jedes Jahr dorthin zu pilgern, wenn die Stadt verschont bliebe.\n\nIn den Kirchenbüchern ist nach diesem Tag kein weiterer Pesttoter verzeichnet. 1667 wurde die Kapelle geweiht. Weil immer mehr Pilger kamen, ersetzte man den Fachwerkbau später durch die heutige größere Steinkapelle, und aus dem Rabberg wurde der Kapellenberg.\n\nDie Wallfahrt gibt es bis heute. Das Königsteiner Kreuz von 1792 am Weg markiert die Stelle, an der sich früher die Pilger aus Königstein den Hofheimern anschlossen.",
+      "title": "Kapelle",
+      "teaser": "Als 1666 die Pest wütete, führte der Pfarrer die Hofheimer am Himmelfahrtstag in einer Prozession auf den Rabberg. Sie gelobten, dort eine Kapelle zu bauen und jedes Jahr dorthin zu pilgern, auf dass die Stadt verschont bliebe und ein Jahr später wurde die Kapelle geweiht.\n\nIn den Kirchenbüchern ist nach diesem Tag kein weiterer Pesttoter verzeichnet. Weil immer mehr Pilger kamen, ersetzte man den Fachwerkbau später durch die heutige größere Steinkapelle, und aus dem Rabberg wurde der Kapellenberg. Die Wallfahrt gibt es bis heute.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -7767,18 +8081,13 @@
       "tags": [
        "Religion"
       ],
-      "flag": "Touri 1x1",
-      "importance": 3,
+      "flag": "Lokal",
+      "importance": 1,
       "period": "1666",
       "year": 1666,
       "status": "Entwurf",
       "note": "",
-      "sources": [
-       {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Bergkapelle+und+das+Pestgelübde+Hofheim"
-       }
-      ],
+      "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
@@ -7794,8 +8103,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.444,
-     50.0925
+     8.438003,
+     50.090705
     ]
    },
    "properties": {
@@ -7804,10 +8113,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kapellenstraße",
     "precision": "genau",
@@ -7815,7 +8124,7 @@
      {
       "id": "hofheim-blaues-haus",
       "title": "Das Blaue Haus",
-      "teaser": "In diesem Haus am Kapellenberg zeigte Hanna Bekker vom Rath Kunst, die die Nazis verboten hatten. Die Sammlerin und Kunsthändlerin Hanna Bekker vom Rath erwarb das Landhaus 1921. Die Malerin Ida Kerkovius gab ihm den Namen „Blaues Haus“. Es wurde ein Treffpunkt der Moderne, Alexej von Jawlensky war eng mit Bekker vom Rath befreundet.\n\n1933 verboten die Nationalsozialisten eine geplante Ausstellung von Karl Schmidt-Rottluff in Frankfurt. Bekker vom Rath zeigte die Bilder kurzerhand in ihrem Haus in Hofheim. Auch später vermittelte sie heimlich Werke verfemter Künstler.\n\nNach dem Krieg holte sie den Maler Ernst Wilhelm Nay nach Hofheim, dessen Berliner Atelier zerbombt war. Er arbeitete hier bis 1951 im früheren Atelier der Malerin Ottilie Roederstein, die seit 1909 mit der Chirurgin Elisabeth Winterhalter in Hofheim gelebt hatte. Das Blaue Haus ist heute in Privatbesitz.",
+      "teaser": "Die Kunsthändlerin Hanna Bekker vom Rath erwarb das Landhaus 1921 und wurde kurz danach ein Treffpunkt der Moderne Kunstszene. Als die Nationalsozialisten eine geplante Ausstellung von Karl Schmidt-Rottluff in Frankfurt verboten, zeigte Hanna die Bilder in ihrem Haus in Hofheim. Auch später vermittelte sie heimlich Werke verfemter Künstler. Nach dem Krieg holte sie den Maler Ernst Wilhelm Nay nach Hofheim, dessen Berliner Atelier zerbombt war, der hier im Atelier bis 1951 arbeitete.",
       "story": [],
       "categories": [
        "Persönlichkeiten",
@@ -7836,7 +8145,60 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Das+Blaue+Haus+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Blaues_Haus_(Hofheim_am_Taunus)"
+       }
+      ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.445649,
+     50.086869
+    ]
+   },
+   "properties": {
+    "id": "hofheim-buettelturm",
+    "title": "Büttelturm",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-buettelturm",
+      "title": "Büttelturm",
+      "teaser": "Der im Zuge der Stadtbefestigung ab 1352 errichtete Befestigungsturm verdankt seinen Namen dem städtischen Gerichtsdiener, dem Büttel, der den Oberbau im 18. Jahrhundert als Dienstwohnung nutzte. Um 1800 erwarb die jüdische Gemeinde Hofheims das Bauwerk und baute den Turm zur prägenden Synagoge um, ehe der Sakralraum in der Pogromnacht 1938 von den Nationalsozialisten verwüstet wurde.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [
+       {
+        "label": "Wikipedia",
+        "url": "https://historisches-hofheim.de/31-Buettelturm/"
        }
       ],
       "imageQuery": "",
@@ -7855,19 +8217,19 @@
     "type": "Point",
     "coordinates": [
      8.4335,
-     50.0952
+     50.095262
     ]
    },
    "properties": {
     "id": "hofheim-cohausentempel",
     "title": "Cohausentempel",
-    "importance": 1,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Westhang des Kapellenbergs",
     "precision": "genau",
@@ -7875,11 +8237,8 @@
      {
       "id": "hofheim-cohausentempel",
       "title": "Cohausentempel",
-      "teaser": "Ein kleiner Tempel für den Mann, der als Erster den Ringwall erforschte.",
-      "story": [
-       "Der Aussichtspunkt in den Formen des späten Jugendstils erinnert an Karl August von Cohausen. Der nassauische Konservator untersuchte im 19. Jahrhundert zahlreiche Altertümer im Taunus, darunter den Limes und den Ringwall auf dem Kapellenberg.",
-       "Vom Tempel blickt man über das Main-Taunus-Vorland bis zur Frankfurter Skyline."
-      ],
+      "teaser": "Der Aussichtspunkt in den Formen des späten Jugendstils erinnert an Karl August von Cohausen. Der nassauische Konservator untersuchte im 19. Jahrhundert zahlreiche Altertümer im Taunus, darunter den Limes und den Ringwall auf dem Kapellenberg.",
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -7887,16 +8246,16 @@
       "tags": [
        "Natur"
       ],
-      "flag": "Lokal",
-      "importance": 1,
-      "period": "Jugendstil",
-      "year": null,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "1910",
+      "year": 1910,
       "status": "Entwurf",
       "note": "",
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Cohausentempel+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Cohausen-Tempel"
        }
       ],
       "imageQuery": "",
@@ -7914,28 +8273,76 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.45,
-     50.088
+     8.43616,
+     50.086774
+    ]
+   },
+   "properties": {
+    "id": "hofheim-haus-georgi",
+    "title": "Haus Georgi",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-haus-georgi",
+      "title": "Haus Georgi",
+      "teaser": "Wo sich im 19. Jahrhundert noch eine ertragreiche Ziegelbrennerei befand, verwandelten die Frankfurter Geschwister Elisabeth und Emilie Georgi das Areal ab 1901 in eine fortschrittliche Bildungs- und Pflegestätte. Das 1903 eröffnete Erziehungsheim diente zeitgleich als Heim und Privatschule für körperlich sowie geistig beeinträchtigte Kinder aus dem Bürgertum, bot in sozialen Notlagen aber auch einkommensschwachen Familien Zuflucht und Tagesbetreuung.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.447753,
+     50.086974
     ]
    },
    "properties": {
     "id": "hofheim-hexenturm",
     "title": "Hexenturm an der Kellerei",
-    "importance": 3,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kellereiplatz",
     "precision": "genau",
     "stories": [
      {
       "id": "hofheim-hexenturm",
-      "title": "Hexenturm an der Kellerei",
-      "teaser": "In diesem Turm der alten Stadtmauer saßen Frauen gefangen, die als Hexen angeklagt waren. Der runde Turm am östlichen Eck des Kellereigebäudes ist einer der wenigen erhaltenen Türme der Stadtmauer aus dem 14. Jahrhundert. Die barocke Haube bekam er erst später.\n\nSeinen Namen verdankt er einem dunklen Kapitel: Während der Hexenverfolgung in der Frühen Neuzeit wurden hier Frauen eingesperrt, denen Hexerei vorgeworfen wurde. Gedenktafeln am Turm erinnern an die Verfolgten.\n\nIn den 2010er Jahren wurde in Hofheim über die Rehabilitierung der Opfer diskutiert. Der Pfarrer und Forscher Hartmut Hegeler hat dazu im Jahrbuch des Main-Taunus-Kreises 2013 geschrieben.",
+      "title": "Hexenturm",
+      "teaser": "Der runde Turm am östlichen Eck des Kellereigebäudes ist einer der Türme der Stadtmauer aus dem 14. Jahrhundert. Während der Hexenverfolgung in der Frühen Neuzeit wurden hier Frauen eingesperrt, denen Hexerei vorgeworfen wurde. Gedenktafeln am Turm erinnern an die Verfolgten.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -7947,16 +8354,16 @@
       "tags": [
        "Erinnerung"
       ],
-      "flag": "Touri 1x1",
-      "importance": 3,
-      "period": "14. Jahrhundert",
-      "year": null,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "1352",
+      "year": 1352,
       "status": "Entwurf",
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Hexenturm+an+der+Kellerei+Hofheim"
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/5-Hexenturm/"
        }
       ],
       "imageQuery": "",
@@ -7974,8 +8381,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4496,
-     50.0882
+     8.447015,
+     50.086766
     ]
    },
    "properties": {
@@ -7984,18 +8391,18 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kellereiplatz",
     "precision": "genau",
     "stories": [
      {
       "id": "hofheim-kellerei",
-      "title": "Kellerei und Alte Burg",
-      "teaser": "Hier saß der Mainzer Keller, der für den Kurfürsten die Abgaben eintrieb. Am Kellereiplatz stand die Alte Burg der Stadt, von ihr sind Mauer- und Brückenreste erhalten. Daneben entstand die Kellerei, der Verwaltungssitz für den Amtmann, der Steuern und Naturalabgaben einzog. Daher der Name: Im Keller lagerte, was abgeliefert wurde.\n\nTeile des Kellereigebäudes stammen von 1425/26. Der Mainzer Kurfürst Lothar Franz von Schönborn ließ es 1717 bis 1719 ausbauen.",
+      "title": "Kellerei",
+      "teaser": "Hier saß der Mainzer Keller, der für den Kurfürsten die Steuern und Abgaben eintrieb; Im Keller lagerte, was abgeliefert wurde.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -8015,8 +8422,8 @@
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Kellerei+und+Alte+Burg+Hofheim"
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/4-Kellereigebaeude/"
        }
       ],
       "imageQuery": "",
@@ -8034,20 +8441,20 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4495,
-     50.0893
+     8.445985,
+     50.0881
     ]
    },
    "properties": {
     "id": "hofheim-kirche",
     "title": "St. Peter und Paul",
-    "importance": 1,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kirchplatz",
     "precision": "genau",
@@ -8055,7 +8462,7 @@
      {
       "id": "hofheim-kirche",
       "title": "St. Peter und Paul",
-      "teaser": "Die Pfarrkirche mit dem Stadtpatron Petrus, der auch das Hofheimer Wappen ziert.Mit dem Bau der heutigen Kirche wurde 1481 begonnen, Seitenchor und Teile des Turms stammen noch aus dieser Zeit. Die geschwungene Turmhaube kam 1926 dazu.\n\nDer heilige Petrus ist der Stadtpatron. Er steht auch im Stadtwappen, das auf die Gerichtssiegel zurückgeht, die seit 1368 belegt sind.",
+      "teaser": "Die Pfarrkirche mit dem Stadtpatron Petrus, der auch das Hofheimer Wappen ziert.Mit dem Bau der heutigen Kirche wurde 1481 begonnen, Seitenchor und Teile des Turms stammen noch aus dieser Zeit. Die geschwungene Turmhaube kam 1926 dazu.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -8067,16 +8474,16 @@
        "Religion",
        "Architektur"
       ],
-      "flag": "Lokal",
-      "importance": 1,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
       "period": "ab 1481",
       "year": 1481,
       "status": "Entwurf",
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=St.+Peter+und+Paul+Hofheim"
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/15-Peter-und-Paul/"
        }
       ],
       "imageQuery": "",
@@ -8116,10 +8523,7 @@
       "id": "hofheim-lorsbach-leder",
       "title": "Lederfabrik Lorsbach",
       "teaser": "Im engen Schwarzbachtal trieb das Wasser erst Mühlen und dann eine Lederindustrie an.",
-      "story": [
-       "Lorsbach liegt im schmalen Tal des Schwarzbachs, umgeben von bewaldeten Taunushängen. Über Jahrhunderte nutzten Mühlen die Wasserkraft.",
-       "1881 entstand in der Trutzmühle die erste Lederfabrik, das Dorf wurde zum Gerberort. Nach dem Zweiten Weltkrieg ging die Lederindustrie zurück. Die Gebäude der früheren Lederfabrik stehen heute unter Denkmalschutz."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -8156,20 +8560,68 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4362,
-     50.0987
+     8.430342,
+     50.070427
+    ]
+   },
+   "properties": {
+    "id": "hofheim-marxheim-pfarrhof",
+    "title": "Pfarrhof",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-marxheim-pfarrhof",
+      "title": "Pfarrhof",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.437147,
+     50.09852
     ]
    },
    "properties": {
     "id": "hofheim-meisterturm",
     "title": "Meisterturm",
-    "importance": 1,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kapellenberg",
     "precision": "genau",
@@ -8177,11 +8629,8 @@
      {
       "id": "hofheim-meisterturm",
       "title": "Meisterturm",
-      "teaser": "Benannt nach einem Landrat, der Vorgänger aus Holz fiel einem Blitz zum Opfer.",
-      "story": [
-       "Auf dem höchsten Punkt des Kapellenbergs stand ab 1895 ein hölzerner Aussichtsturm. Er soll am Ende durch einen Blitzschlag zerstört worden sein.",
-       "1929 ersetzte ihn ein Turm aus Stahl. Er wurde nach Wilhelm von Meister benannt, dem ersten Landrat des Kreises Höchst. Daneben lädt ein Ausflugslokal zur Rast ein."
-      ],
+      "teaser": "Auf dem höchsten Punkt des Kapellenbergs stand ab 1895 ein hölzerner Aussichtsturm, welcher durch einen Blitzschlag zerstört wurde. 1929 ersetzte ihn ein Turm aus Stahl. Er wurde nach Wilhelm von Meister benannt, dem ersten Landrat des Kreises Höchst.",
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -8192,8 +8641,8 @@
       "tags": [
        "Natur"
       ],
-      "flag": "Lokal",
-      "importance": 1,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
       "period": "1895 / 1929",
       "year": 1895,
       "status": "Entwurf",
@@ -8201,7 +8650,7 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Meisterturm+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Meisterturm"
        }
       ],
       "imageQuery": "",
@@ -8219,20 +8668,68 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4483,
-     50.0886
+     8.44617,
+     50.08459
+    ]
+   },
+   "properties": {
+    "id": "hofheim-pfaelzer-hof",
+    "title": "Pfälzer Hof",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-pfaelzer-hof",
+      "title": "Pfälzer Hof",
+      "teaser": "1878 direkt gegenüber dem neu erbaueten Bahnhof errichtet, erlangte der Pfälzer Hof Kultstatus für feuchtfröhliche Stammtischabende und legendäre Aktionstage wie ein historisches Kostümrennen im Ort. Nach der Schließung im Ersten Weltkrieg kaufte die Stadt Hofheim den Bau 1920 auf und baute ihn kurzerhand zum städtischen Sitz um, wo fortan die Stadtverordneten tagten.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.444587,
+     50.087772
     ]
    },
    "properties": {
     "id": "hofheim-rathaus",
     "title": "Altes Rathaus",
-    "importance": 1,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Hauptstraße",
     "precision": "genau",
@@ -8240,7 +8737,7 @@
      {
       "id": "hofheim-rathaus",
       "title": "Altes Rathaus",
-      "teaser": "Erst Kaufhaus, dann Rathaus: Fachwerk auf Bruchstein aus dem Jahr 1529. Das Haus wurde 1529 unter den Grafen von Eppstein-Königstein gebaut, ursprünglich als Kaufhaus. Später zog die Stadtverwaltung ein.\n\nDas Erdgeschoss ist aus Bruchstein gemauert, darüber steht Fachwerk. Der verzierte Westgiebel kam erst 1901 dazu.",
+      "teaser": "Das Haus wurde 1529 unter den Grafen von Eppstein-Königstein als Rathaus gebaut ursprünglich mit Kaufhalle im Erdgeschoss. Das Erdgeschoss ist aus Bruchstein gemauert, darüber steht Fachwerk. Der verzierte Westgiebel kam erst 1901 dazu.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -8251,16 +8748,16 @@
       "tags": [
        "Architektur"
       ],
-      "flag": "Lokal",
-      "importance": 1,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
       "period": "1529",
       "year": 1529,
       "status": "Entwurf",
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Altes+Rathaus+Hofheim"
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/10-Altes-Rathaus/"
        }
       ],
       "imageQuery": "",
@@ -8278,20 +8775,20 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.439,
-     50.0978
+     8.438192,
+     50.098778
     ]
    },
    "properties": {
     "id": "hofheim-ringwall",
     "title": "Ringwall auf dem Kapellenberg",
-    "importance": 3,
+    "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Kapellenberg, Archäologischer Rundweg",
     "precision": "genau",
@@ -8299,7 +8796,7 @@
      {
       "id": "hofheim-ringwall",
       "title": "Ringwall auf dem Kapellenberg",
-      "teaser": "Lange vor Hofheim lebten hier oben Hunderte Menschen hinter Wall und Palisade, vor fast 6.000 Jahren. Der bewaldete Kapellenberg über Hofheim trägt ein altes, noch sichtbares Bodendenkmal. In der Jungsteinzeit, zur Zeit der Michelsberger Kultur, war der Bergrücken eine befestigte Siedlung. Der äußere Wall ist gut drei Kilometer lang und umschließt rund 45 Hektar.\n\nDie Innenfläche von etwa 24 Hektar war um 3750 bis 3650 v. Chr. bewohnt, geschätzt von mehreren hundert Menschen. Schon zu Beginn dieser Zeit entstand ein gewaltiger Grabhügel, heute noch 90 Meter breit und 6 Meter hoch. In seiner Grabkammer lagen zwei Steinbeile, eines davon aus Jadeit.\n\nAuf der höchsten Stelle liegen zwei jüngere Gräber der Schnurkeramik (um 2800 bis 2200 v. Chr.). Wer genau hinsieht, erkennt die Wälle beim Spaziergang noch im Gelände.",
+      "teaser": "Der bewaldete Kapellenberg trägt ein altes, noch sichtbares Bodendenkmal. Denn vor fast 6000 Jahren lebten hier Hunderte Menschen in einer befestigten Siedlung hinter einen 3km langen Wall und Palisade. \n\nSchon zu Beginn dieser Zeit entstand ein gewaltiger Grabhügel, heute noch 90 Meter breit und 6 Meter hoch. In seiner Grabkammer lagen zwei Steinbeile, eines davon aus grünlichem Jadeit. Auf der höchsten Stelle liegen zwei jüngere Gräber mit Funden aus der Zeit der Schnurkeramik.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -8308,8 +8805,8 @@
        "Mittelalter & früher"
       ],
       "tags": [],
-      "flag": "Touri 1x1",
-      "importance": 3,
+      "flag": "Lokal",
+      "importance": 1,
       "period": "um 3700 v. Chr.",
       "year": null,
       "status": "Entwurf",
@@ -8317,7 +8814,7 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Ringwall+auf+dem+Kapellenberg+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Siedlungsgeschichte_Kapellenberg_(Taunus)"
        }
       ],
       "imageQuery": "",
@@ -8335,8 +8832,56 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.445,
-     50.0915
+     8.414188,
+     50.118945
+    ]
+   },
+   "properties": {
+    "id": "hofheim-ringwall-lorsbach",
+    "title": "Ringwall Lorsbach",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-ringwall-lorsbach",
+      "title": "Ringwall Lorsbach",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.43728,
+     50.092216
     ]
    },
    "properties": {
@@ -8345,22 +8890,20 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Hofheim am Taunus (Lage prüfen)",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
-      "id": "hofheim-roederstein-die-malerin-und-die-chirurgin",
-      "title": "Die Malerin und die Chirurgin",
-      "teaser": "Um 1909 zogen die Malerin Ottilie Roederstein und die Ärztin Elisabeth Winterhalter, die erste Chirurgin Deutschlands, von Frankfurt nach Hofheim in ein eigens gebautes Haus. Die beiden lebten jahrzehntelang zusammen und liegen in einem gemeinsamen Ehrengrab.",
+      "id": "hofheim-roederstein",
+      "title": "Haus Roederstein-Winterhalter",
+      "teaser": "1909 bezogen die renommierte Porträtmalerin Ottilie Roederstein, sowie Deutschlands erste Chirurgin Dr. Elisabeth Winterhalter ihre gemeinsam entworfene Villa am Hofheimer Kapellenberg. Das Lebens- und Arbeitsbündnis der beiden Pionierinnen wurde rasch zum kulturellen sowie sozialen Herzstück der Stadt: Sie stifteten die Hofheimer Stadtbibliothek, gründeten einen Volksbildungsverein und engagierten sich unermüdlich für Frauenrechte und soziale Projekte. Für ihren prägenden Einsatz verlieh Hofheim den beiden Partnerinnen 1929 das gemeinsame Ehrenbürgerrecht.",
       "story": [],
-      "categories": [
-       "Persönlichkeiten"
-      ],
+      "categories": [],
       "epochs": [
        "Kaiserreich"
       ],
@@ -8372,7 +8915,7 @@
       "importance": 1,
       "period": "1909–1952",
       "year": 1909,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -8380,65 +8923,8 @@
         "url": "https://en.wikipedia.org/wiki/Ottilie_Roederstein"
        },
        {
-        "label": "Städel Archiv",
-        "url": "https://staedelmuseum.de/en/roederstein-jughenn-archive"
-       }
-      ],
-      "imageQuery": "",
-      "images": [],
-      "suggested": false,
-      "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-10-31"
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     8.457,
-     50.0848
-    ]
-   },
-   "properties": {
-    "id": "hofheim-roemerkastell",
-    "title": "Römerkastell unter dem Landratsamt",
-    "importance": 2,
-    "suggested": false,
-    "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
-    },
-    "address": "Am Kreishaus, Hochfeld",
-    "precision": "genau",
-    "stories": [
-     {
-      "id": "hofheim-roemerkastell",
-      "title": "Römerkastell unter dem Landratsamt",
-      "teaser": "Wo heute der Main-Taunus-Kreis verwaltet wird, standen vor fast 2.000 Jahren rund 500 römische Soldaten. Spätestens um 40 n. Chr. legten die Römer auf dem Hochfeld ein erstes Erdlager an. Es wurde später durch ein Kastell mit Holztürmen und Rasenmauer und schließlich durch ein Steinkastell ersetzt. Von hier aus führten die Römer Feldzüge gegen die Chatten.\n\nSüdlich des Lagers lag ein Dorf mit Handwerkern und Händlern, die die Soldaten versorgten. Um 110 n. Chr. wurde das Kastell aufgegeben.\n\nAuf dem Gelände steht seit 1987 das Landratsamt. Bei Grabungen 2021 für einen Erweiterungsbau stieß man wieder auf einen Graben des alten Erdlagers.",
-      "story": [],
-      "categories": [
-       "Geschichte & Politik"
-      ],
-      "epochs": [
-       "Mittelalter & früher"
-      ],
-      "tags": [],
-      "flag": "Sehenswürdigkeit",
-      "importance": 2,
-      "period": "1. Jahrhundert",
-      "year": null,
-      "status": "Entwurf",
-      "note": "",
-      "sources": [
-       {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Römerkastell+unter+dem+Landratsamt+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Elisabeth_Winterhalter"
        }
       ],
       "imageQuery": "",
@@ -8456,8 +8942,65 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4476,
-     50.0889
+     8.448546,
+     50.080096
+    ]
+   },
+   "properties": {
+    "id": "hofheim-roemerkastell",
+    "title": "Römerkastell unter dem Landratsamt",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "Am Kreishaus, Hochfeld",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-roemerkastell",
+      "title": "Römerkastell",
+      "teaser": "Wo heute der Main-Taunus-Kreis verwaltet wird, standen vor fast 2.000 Jahren rund 500 römische Soldaten. Spätestens um 40 n. Chr. legten die Römer auf dem Hochfeld ein erstes Erdlager an. Es wurde später durch ein Kastell mit Holztürmen und Rasenmauer und schließlich durch ein Steinkastell ersetzt. Von hier aus führten die Römer Feldzüge gegen die Chatten.",
+      "story": [],
+      "categories": [
+       "Geschichte & Politik"
+      ],
+      "epochs": [
+       "Mittelalter & früher"
+      ],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "1. Jahrhundert",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [
+       {
+        "label": "Wikipedia",
+        "url": "https://de.wikipedia.org/wiki/Kastell_Hofheim"
+       }
+      ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.446774,
+     50.088561
     ]
    },
    "properties": {
@@ -8466,18 +9009,18 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Bärengasse / Mauergasse",
     "precision": "genau",
     "stories": [
      {
       "id": "hofheim-stadtrechte",
-      "title": "Stadtmauer in der Bärengasse",
-      "teaser": "Kaiser Karl IV. machte das Dorf 1352 zur Stadt, und die Bürger durften sich eine Mauer bauen. Am 21. März 1352 verlieh Kaiser Karl IV. Hofheim die Stadtrechte. Damit durfte es sich mit Mauern, Toren und Brücken befestigen, ein eigenes Gericht halten und einen Wochenmarkt abhalten.\n\nDie Mauer aus der Mitte des 14. Jahrhunderts ist in der Bärengasse und der Mauergasse noch zu sehen. Die Gassen folgen bis heute ihrem Verlauf um die Altstadt.",
+      "title": "Hofheimer Stadtmauer",
+      "teaser": "Mit dem Stadtrecht von 1352 durften sich Hofheim mit Mauern, Toren und Brücken befestigen, ein eigenes Gericht halten und einen Wochenmarkt abhalten. Die Mauer aus der Mitte des 14. Jahrhunderts ist in der Bärengasse und der Mauergasse noch zu sehen. Die Gassen folgen bis heute ihrem Verlauf um die Altstadt.",
       "story": [],
       "categories": [
        "Geschichte & Politik"
@@ -8494,8 +9037,8 @@
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Stadtmauer+in+der+Bärengasse+Hofheim"
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/21-Stadtmauerreste/"
        }
       ],
       "imageQuery": "",
@@ -8535,10 +9078,7 @@
       "id": "hofheim-wallau-kelten",
       "title": "Keltengräber von Wallau",
       "teaser": "Beim Bauen stieß man 1959 auf reiche Gräber der Kelten.",
-      "story": [
-       "1959 wurden am westlichen Ortsrand von Wallau reich ausgestattete keltische Gräber entdeckt. Sie zeigen, dass die Gegend lange vor den Römern besiedelt war.",
-       "Wallau selbst wird 950 als „Wanaloha“ in einer Schenkung Ottos I. erwähnt. Von 1643 bis 1817 war es Hauptort des evangelischen „Ländchens“. Heute kennt man Wallau vor allem wegen des Wiesbadener Kreuzes, das auf seiner Gemarkung liegt."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -8573,20 +9113,20 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.4518,
-     50.0874
+     8.447241,
+     50.086214
     ]
    },
    "properties": {
     "id": "hofheim-wasserschloss",
     "title": "Wasserschloss",
-    "importance": 1,
+    "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Kernstadt",
-     "stadt": "Hofheim am Taunus",
-     "kreis": "Main-Taunus-Kreis",
-     "bundesland": "Hessen"
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "östlich der Altstadt",
     "precision": "genau",
@@ -8594,11 +9134,8 @@
      {
       "id": "hofheim-wasserschloss",
       "title": "Wasserschloss",
-      "teaser": "Ein Adelssitz im Wassergraben, vor den Toren der mittelalterlichen Stadt.",
-      "story": [
-       "Schon im 13. Jahrhundert ist ein Geschlecht „von Hofheim“ belegt, das eine Wasserburg als Lehen hielt. Das heutige Wasserschloss entstand vermutlich um 1352 bis 1356, also in den Jahren, als Hofheim Stadt wurde.",
-       "1356 wird das „Slois zu Hofheim“ erwähnt, besetzt mit Burgmannen. Es lag außerhalb der Stadtmauer und ist heute in Privatbesitz."
-      ],
+      "teaser": "Direkt nach der Verleihung der Stadtrechte 1352 errichteten die Grafen von Falkenstein die Burg knapp südlich der ersten Stadtmauer. Als die Bauleute damals die Ringmauer hochzogen, griffen sie pragmatisch auf antik-römisches Baumaterial zurück: Bis heute lässt sich im Mauerwerk der verbliebenen Ruine das Relikt eines römischen Grabsteins mit der Abbildung eines berittenen Bogenschützen entdecken.",
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -8608,8 +9145,8 @@
       "tags": [
        "Architektur"
       ],
-      "flag": "Lokal",
-      "importance": 1,
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
       "period": "um 1352–1356",
       "year": 1352,
       "status": "Entwurf",
@@ -8617,7 +9154,7 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Wasserschloss+Hofheim"
+        "url": "https://de.wikipedia.org/wiki/Wasserschloss_Hofheim"
        }
       ],
       "imageQuery": "",
@@ -8635,8 +9172,104 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6808,
-     50.12575
+     8.434642,
+     50.093015
+    ]
+   },
+   "properties": {
+    "id": "hofheim-wassertank",
+    "title": "Aussicht auf dem Wassertank",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-wassertank",
+      "title": "Aussicht auf dem Wassertank",
+      "teaser": "Dieser Wassertank von 1901 erhielt eine Verschönerung im Jugendstil durch den Taunusklub-Verschönerungsvereins.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.429569,
+     50.072671
+    ]
+   },
+   "properties": {
+    "id": "hofheim-zum-gruenen-wald",
+    "title": "Gasthaus „Zum Grünen Wald“",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "hofheim-zum-gruenen-wald",
+      "title": "Gasthaus „Zum Grünen Wald“",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.67862,
+     50.126298
     ]
    },
    "properties": {
@@ -8645,10 +9278,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Nordend-West",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Justinianstraße 5",
     "precision": "genau",
@@ -8656,11 +9289,8 @@
      {
       "id": "holzhausen",
       "title": "Holzhausenschlösschen",
-      "teaser": "Ein kleines Wasserschloss im Park, einst Landsitz einer alten Patrizierfamilie.",
-      "story": [
-       "Die Familie von Holzhausen war über Jahrhunderte ein einflussreiches Geschlecht der Stadt. An der Stelle einer mittelalterlichen Wasserburg ließ sie 1727 bis 1729 das heutige barocke Schlösschen bauen.",
-       "Heute nutzt die Frankfurter Bürgerstiftung das Haus für Konzerte, Lesungen und Ausstellungen."
-      ],
+      "teaser": "Die Familie von Holzhausen war über Jahrhunderte ein einflussreiches Geschlecht der Stadt. An der Stelle einer mittelalterlichen Wasserburg ließ sie 1729 das heutige barocke Schlösschen bauen. Heute nutzt die Frankfurter Bürgerstiftung das Haus für Konzerte, Lesungen und Ausstellungen.",
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -8679,7 +9309,7 @@
       "sources": [
        {
         "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/w/index.php?search=Holzhausenschlösschen+Frankfurt"
+        "url": "https://de.wikipedia.org/wiki/Holzhausenschl%C3%B6sschen"
        }
       ],
       "imageQuery": "",
@@ -8789,8 +9419,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6522,
-     50.1207
+     8.654256,
+     50.118573
     ]
    },
    "properties": {
@@ -8799,10 +9429,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Senckenberganlage 26",
     "precision": "genau",
@@ -8858,10 +9488,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Norbert-Wollheim-Platz 1",
     "precision": "genau",
@@ -8869,12 +9499,8 @@
      {
       "id": "ig-farben",
       "title": "IG-Farben-Haus",
-      "teaser": "Konzernzentrale, US-Hauptquartier, Universität: Ein Gebäude, drei Epochen.",
-      "story": [
-       "Hans Poelzig entwarf das riesige Verwaltungsgebäude für die IG Farben, das 1931 fertig wurde. Der Konzern war tief in die Verbrechen des NS-Regimes verstrickt, unter anderem durch das Werk bei Auschwitz-Monowitz.",
-       "Nach 1945 war das Haus das Hauptquartier der amerikanischen Militärregierung, Dwight D. Eisenhower hatte hier sein Büro.",
-       "Seit 2001 gehört es zur Goethe-Universität. Der Platz davor ist nach Norbert Wollheim benannt, einem Überlebenden, der die IG Farben auf Entschädigung verklagte."
-      ],
+      "teaser": "1931 als gigantische Konzernzentrale des weltgrößten Chemie-Kartells fertiggestellt, diente der monumentale Poelzig-Bau den Nationalsozialisten als industrielle Machtzentrale. Nach 1945 übernahm General Eisenhower den unbeschädigten Komplex als Hauptquartier der US-Streitkräfte in Europa, von wo aus unter anderem der Marshallplan zur Wiederaufbau-Hilfe koordiniert wurde. Seit 2001 gehört das geschichtsträchtige Areal der Goethe-Universität.",
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -9076,7 +9702,7 @@
      {
       "id": "irrenschloss-frankfurt",
       "title": "Irrenschloss",
-      "teaser": "",
+      "teaser": "Die 1864 errichtete Anstalt für Irre und Epileptische, von Frankfurtern auch das „Irrenschloss“ genannt, setzte auf eine für die damalige Zeit revolutionäre Philosophie: den strikten Verzicht auf Zwangsjacken, Fixierungen und Isolationshaft. Unter dem Klinikleiter Heinrich Hoffmann (dem Autor des Struwwelpeter) und später Forschern wie Alois Alzheimer setzten die Ärzte auf Beschäftigungstherapie und freie Bewegung im parkähnlichen Anwesen.",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -9092,8 +9718,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "",
-      "updated": ""
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -9103,8 +9729,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6896,
-     50.1118
+     8.68938,
+     50.112454
     ]
    },
    "properties": {
@@ -9408,8 +10034,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68235,
-     50.1104
+     8.68219,
+     50.110441
     ]
    },
    "properties": {
@@ -9516,8 +10142,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67817,
-     50.10938
+     8.678203,
+     50.109382
     ]
    },
    "properties": {
@@ -9622,8 +10248,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68147,
-     50.11364
+     8.680624,
+     50.11352
     ]
    },
    "properties": {
@@ -9694,8 +10320,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.67997,
-     50.11436
+     8.679988,
+     50.114372
     ]
    },
    "properties": {
@@ -10066,7 +10692,7 @@
     "stories": [
      {
       "id": "koenigstein-burg-die-festung-in-der-caroline-sass",
-      "title": "Die Festung, in der Caroline saß",
+      "title": "Burg Königstein",
       "teaser": "1793 wurde Caroline Böhmer, später als Caroline Schlegel-Schelling eine kluge Frau der Romantik, wegen ihrer Nähe zur Mainzer Republik auf der Festung Königstein eingesperrt. Drei Jahre später sprengten französische Truppen die Festung, danach diente sie als Steinbruch.",
       "story": [],
       "categories": [
@@ -10097,30 +10723,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-01"
-     },
-     {
-      "id": "idee-luxemburgisches-schloss-in-koenigstein",
-      "title": "Luxemburgisches Schloss in Königstein",
-      "teaser": "Idee, noch ohne Text.",
-      "story": [],
-      "categories": [],
-      "epochs": [],
-      "tags": [],
-      "flag": "Lokal",
-      "importance": 1,
-      "period": "",
-      "year": null,
-      "status": "Idee",
-      "note": "",
-      "sources": [],
-      "imageQuery": "",
-      "images": [],
-      "suggested": false,
-      "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-10-31"
      }
     ]
    }
@@ -10150,7 +10754,7 @@
     "stories": [
      {
       "id": "koenigstein-villa-rothschild-das-haus-der-laender",
-      "title": "Das Haus der Länder",
+      "title": "Villa Rothschild",
       "teaser": "In der Villa der Bankiersfamilie Rothschild trafen sich 1948 und 1949 die Ministerpräsidenten der Westzonen. Am 24. März 1949 berieten sie hier über das Grundgesetz. Die Villa gilt deshalb als ein Geburtsort der Bundesrepublik.",
       "story": [],
       "categories": [
@@ -10180,12 +10784,12 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
      },
      {
       "id": "koenigstein-villa-rothschild-der-koenigsteiner-schluessel",
-      "title": "Der Königsteiner Schlüssel",
+      "title": "Königsteiner Schlüssel",
       "teaser": "1949 einigten sich die Länder in Königstein, wie sie gemeinsame Forschung bezahlen. Der Verteilschlüssel nach Steuerkraft und Einwohnern gilt bis heute und regelt inzwischen sogar, welches Bundesland wie viele Asylsuchende aufnimmt.",
       "story": [],
       "categories": [
@@ -10217,8 +10821,56 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.437951,
+     50.101947
+    ]
+   },
+   "properties": {
+    "id": "koenigsteiner-kreuz-hofheim",
+    "title": "Königsteiner Kreuz",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "koenigsteiner-kreuz-hofheim",
+      "title": "Königsteiner Kreuz",
+      "teaser": "Das Kreuz aus rotem Sandstein von 1792 am Weg markiert die Stelle, an der sich früher die Pilger aus Königstein den Hofheimern zu ihrer jährlichen Wallfahrt zur Kapelle anschlossen.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "",
+      "updated": ""
      }
     ]
    }
@@ -10281,8 +10933,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68344,
-     50.11058
+     8.683618,
+     50.110598
     ]
    },
    "properties": {
@@ -10346,6 +10998,150 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.513481,
+     50.180731
+    ]
+   },
+   "properties": {
+    "id": "kronberg-academy",
+    "title": "Kronberg Academy",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "Schloßstraße",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-academy",
+      "title": "Kronberg Academy",
+      "teaser": "Als Kammermusik-Initiative gegründet, entwickelte sich die Kronberg Academy zu einer weltweit führenden Kaderschmiede für den Streichernachwuchs. Die Studierenden leben meist bei Kronberger Gastfamilien und werden von internationalen Virtuosen auf Konzertkarrieren vorbereitet. Mit der Eröffnung des hochmodernen Casals Forums im Jahr 2022 erhielt die Akademie zudem ein architektonisch wie akustisch spektakuläres Konzerthaus direkt am Bahnhof Kronberg.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.464455,
+     50.18729
+    ]
+   },
+   "properties": {
+    "id": "kronberg-andreae",
+    "title": "Villa Andreae",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-andreae",
+      "title": "Villa Andreae",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.520482,
+     50.184135
+    ]
+   },
+   "properties": {
+    "id": "kronberg-baunach",
+    "title": "Villa Baunach",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-baunach",
+      "title": "Villa Baunach",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.5085,
      50.1798
     ]
@@ -10366,7 +11162,7 @@
     "stories": [
      {
       "id": "kronberg-burg-die-ritter-die-frankfurt-besiegten",
-      "title": "Die Ritter, die Frankfurt besiegten",
+      "title": "Burg Kronberg",
       "teaser": "Von ihrer Burg aus kontrollierten die Ritter von Kronberg den Weg in den Taunus. Nach der Schlacht bei Eschborn 1389 saßen hier die gefangenen Frankfurter Ratsherren und Bürger, bis die Stadt das Lösegeld zahlte.",
       "story": [],
       "categories": [
@@ -10396,13 +11192,39 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
-     },
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.506366,
+     50.180587
+    ]
+   },
+   "properties": {
+    "id": "kronberg-eichentor",
+    "title": "Eichentor",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
      {
-      "id": "idee-kronberg-academy",
-      "title": "Kronberg Academy",
-      "teaser": "Idee, noch ohne Text.",
+      "id": "kronberg-eichentor",
+      "title": "Eichentor",
+      "teaser": "",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -10411,14 +11233,14 @@
       "importance": 1,
       "period": "",
       "year": null,
-      "status": "Idee",
+      "status": "Prüfen",
       "note": "",
       "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
      }
     ]
@@ -10449,7 +11271,7 @@
     "stories": [
      {
       "id": "kronberg-friedrichshof-der-witwensitz-der-kaiserin",
-      "title": "Der Witwensitz der Kaiserin",
+      "title": "Friedrichshof",
       "teaser": "Nach dem Tod Kaiser Friedrichs III. nach nur 99 Tagen auf dem Thron ließ sich seine Witwe Victoria, Tochter der Queen, 1889 bis 1894 Schloss Friedrichshof bauen. Hier lebte sie bis 1901. Heute ist das Schloss ein Hotel.",
       "story": [],
       "categories": [
@@ -10482,7 +11304,151 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.488673,
+     50.188301
+    ]
+   },
+   "properties": {
+    "id": "kronberg-gans",
+    "title": "Villa Gans",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-gans",
+      "title": "Villa Gans",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.511327,
+     50.178806
+    ]
+   },
+   "properties": {
+    "id": "kronberg-hartmut",
+    "title": "Ritter Hartmurt",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-hartmut",
+      "title": "Ritter Hartmurt",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.511668,
+     50.186563
+    ]
+   },
+   "properties": {
+    "id": "kronberg-kaiser-friedrich",
+    "title": "Kaiser Friedrich-Denkmal",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-kaiser-friedrich",
+      "title": "Kaiser Friedrich-Denkmal",
+      "teaser": "Das Denkmal wurde 1902 in Anwesenheit von Kaiser Wilhelm II. feierlich enthüllt.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
       "updated": "2026-10-31"
      }
     ]
@@ -10513,7 +11479,7 @@
     "stories": [
      {
       "id": "kronberg-malerkolonie-die-kronberger-malerkolonie",
-      "title": "Die Kronberger Malerkolonie",
+      "title": "Kronberger Malerkolonie",
       "teaser": "1858 zog der Frankfurter Maler Anton Burger nach Kronberg, andere folgten. Nach dem Vorbild von Barbizon malten sie draußen Landschaft und Dorfleben. Die Kolonie war eine frühe in Deutschland, und auch die Kaiserin Friedrich malte gern hier.",
       "story": [],
       "categories": [
@@ -10533,25 +11499,47 @@
       "note": "",
       "sources": [
        {
-        "label": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Anton_Burger_(artist)"
-       },
-       {
-        "label": "Städel Sammlung",
-        "url": "https://sammlung.staedelmuseum.de/en/person/kronberg-artists-colony"
+        "label": "Kronberg.de",
+        "url": "https://www.kronberg.de/kultur-freizeit-tourismus/kultur/museen/museum-kronberger-malerkolonie/"
        }
       ],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-01"
-     },
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.511731,
+     50.169586
+    ]
+   },
+   "properties": {
+    "id": "kronberg-quellenpark",
+    "title": "Quellenpark",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
      {
-      "id": "idee-braun-und-dieter-rams-in-kronberg",
-      "title": "Braun und Dieter Rams in Kronberg",
-      "teaser": "Idee, noch ohne Text.",
+      "id": "kronberg-quellenpark",
+      "title": "Kronthaler Quellen",
+      "teaser": "Fürstenbergquelle; Nymphenquelle; Wilhelmsquelle und Theodorusquelle von 1568",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -10560,14 +11548,158 @@
       "importance": 1,
       "period": "",
       "year": null,
-      "status": "Idee",
+      "status": "Prüfen",
       "note": "",
       "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.509231,
+     50.180036
+    ]
+   },
+   "properties": {
+    "id": "kronberg-streitkirche",
+    "title": "Streitkirche",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-streitkirche",
+      "title": "Streitkirche",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.498194,
+     50.185917
+    ]
+   },
+   "properties": {
+    "id": "kronberg-ter-meer",
+    "title": "Villa ter Meer",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-ter-meer",
+      "title": "Villa ter Meer",
+      "teaser": "Für Fritz ter Meer , Nazi-verbrecher",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-31"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.512144,
+     50.183122
+    ]
+   },
+   "properties": {
+    "id": "kronberg-victoriapark",
+    "title": "Victoriapark",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Kronberg im Taunus",
+     "stadt": "Kronberg im Taunus",
+     "kreis": "Hochtaunuskreis",
+     "bundesland": "Hessen"
+    },
+    "address": "",
+    "precision": "ungefähr",
+    "stories": [
+     {
+      "id": "kronberg-victoriapark",
+      "title": "Victoriapark",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Prüfen",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
       "updated": "2026-10-31"
      }
     ]
@@ -10588,10 +11720,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Alt-Sachsenhausen, am Mainufer",
     "precision": "genau",
@@ -10600,10 +11732,7 @@
       "id": "kuhhirtenturm",
       "title": "Kuhhirtenturm",
       "teaser": "Im letzten erhaltenen Turm der Sachsenhäuser Befestigung wohnte einst der Komponist Paul Hindemith.",
-      "story": [
-       "Der Turm gehörte zur Befestigung von Sachsenhausen und ist als einziger Teil davon erhalten. Seinen Namen hat er vom Kuhhirten, der hier zeitweise wohnte.",
-       "Von 1923 bis 1927 lebte der Komponist Paul Hindemith im Turm. Heute erinnert eine Ausstellung an ihn."
-      ],
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -10624,6 +11753,59 @@
        {
         "label": "Wikipedia",
         "url": "https://de.wikipedia.org/w/index.php?search=Kuhhirtenturm+Frankfurt"
+       }
+      ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.438946,
+     50.088412
+    ]
+   },
+   "properties": {
+    "id": "kurhaus-hofheim",
+    "title": "Kaltwasseranstalt",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "kurhaus-hofheim",
+      "title": "Kaltwasseranstalt",
+      "teaser": "1840 eröffnete am Nordrand der Stadt die Kaltwasserheilanstalt, die Hofheim für knapp zwei Jahrzehnte in ein mondänes Kurbad verwandelte. Begünstigt durch das Klima des Vordertaunus und das kalkfreie Quellwasser setzten die Ärzte auf kalte Güsse, Wickel und ausgedehnte Waldspaziergänge, um die die Frankfurter Elite von Gicht, Rheuma oder Nervenschwäche zu kurieren. Das imposante Kurhaus wurde schnell zum gesellschaftlichen Mittelpunkt, wo berühmte Persönlichkeiten wie der Komponist Felix Mendelssohn Bartholdy einkehrten.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [
+       {
+        "label": "Historisches Hofheim",
+        "url": "https://historisches-hofheim.de/A4-Kurhaus/"
        }
       ],
       "imageQuery": "",
@@ -10757,8 +11939,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6806,
-     50.10925
+     8.680551,
+     50.109018
     ]
    },
    "properties": {
@@ -10877,6 +12059,54 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.665702,
+     50.115236
+    ]
+   },
+   "properties": {
+    "id": "livingstonsche-pferdestall",
+    "title": "Livingstonsche Pferdestall",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "livingstonsche-pferdestall",
+      "title": "Livingstonsche Pferdestall",
+      "teaser": "Was auf den ersten Blick wie ein herrschaftliches Palais aussieht, ließ der Bankier Marx Löwe Livingston 1880 in Wahrheit als reinen Luxus-Stall für seine Pferde errichten. Da der Platz auf dem Grundstück im Westend begrenzt war, verbaute man  einen massiven Lastenaufzug, um die Kutschen wie in einem modernen Parkhaus im ersten Stock abstellen zu können.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.7345,
      50.1502
     ]
@@ -10899,10 +12129,7 @@
       "id": "lohrberg",
       "title": "Lohrberg",
       "teaser": "Frankfurts einziger Weinberg, mit Blick über die ganze Stadt.",
-      "story": [
-       "Früher wurde rund um Frankfurt viel Wein angebaut. Übrig geblieben ist der Lohrberger Hang in Seckbach, die einzige Weinlage innerhalb der Stadtgrenze.",
-       "Der Lohrberg-Park auf der Kuppe ist ein beliebtes Ausflugsziel, von hier aus liegt die Skyline wie ein Modell vor einem."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -11074,8 +12301,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.672,
-     50.1125
+     8.672259,
+     50.112568
     ]
    },
    "properties": {
@@ -11186,6 +12413,59 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.434027,
+     50.070942
+    ]
+   },
+   "properties": {
+    "id": "marxheimer-kapellchen",
+    "title": "Marxheimer Kapellchen",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Hofheim",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "marxheimer-kapellchen",
+      "title": "Marxheimer Kapellchen",
+      "teaser": "Das Kapellchen entstand 1777 als Altar für die Fronleichnamsprozession mit einem Altar aus dem Kloster Marienhausen aus Rüdesheim am Rhein.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [
+       {
+        "label": "VHG Marxheim",
+        "url": "https://vhg-marxheim.de/project/kapellchen-an-der-unterpforte/"
+       }
+      ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.68223,
      50.119138
     ]
@@ -11196,7 +12476,7 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "",
+     "stadtteil": "Nordend",
      "stadt": "Frankfurt",
      "kreis": "",
      "bundesland": ""
@@ -11239,8 +12519,104 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6533,
-     50.1124
+     8.688923,
+     50.137543
+    ]
+   },
+   "properties": {
+    "id": "mausoleum-gans-frankfurt",
+    "title": "Mausoleum Gans",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "mausoleum-gans-frankfurt",
+      "title": "Mausoleum Gans",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.685575,
+     50.134267
+    ]
+   },
+   "properties": {
+    "id": "mausoleum-reichenbach-frankfurt",
+    "title": "Mausoleum Reichenbach-Lessonitz",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "mausoleum-reichenbach-frankfurt",
+      "title": "Mausoleum Reichenbach-Lessonitz",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.653563,
+     50.112591
     ]
    },
    "properties": {
@@ -11249,10 +12625,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Friedrich-Ebert-Anlage 49",
     "precision": "genau",
@@ -11308,7 +12684,7 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "",
+     "stadtteil": "Westend",
      "stadt": "Frankfurt",
      "kreis": "",
      "bundesland": ""
@@ -11335,8 +12711,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "",
-      "updated": ""
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -11356,13 +12732,13 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Stadtwald",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "monte-scherbelino-monte-scherbelino",
@@ -11385,7 +12761,7 @@
       "importance": 1,
       "period": "1925–1968",
       "year": 1925,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -11397,8 +12773,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -11408,7 +12784,7 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68151,
+     8.681508,
      50.11266
     ]
    },
@@ -11467,8 +12843,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68385,
-     50.11068
+     8.684405,
+     50.110631
     ]
    },
    "properties": {
@@ -11723,7 +13099,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-03"
      }
     ]
@@ -11788,7 +13164,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-03"
      }
     ]
@@ -11974,7 +13350,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
+      "author": "redaktion",
       "updated": "2026-11-03"
      }
     ]
@@ -11985,8 +13361,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.683,
-     50.10985
+     8.682421,
+     50.109979
     ]
    },
    "properties": {
@@ -12045,8 +13421,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6835,
-     50.1158
+     8.680189,
+     50.116869
     ]
    },
    "properties": {
@@ -12114,10 +13490,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Nordend-Ost",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Friedberger Landstraße / Berger Straße",
     "precision": "genau",
@@ -12139,7 +13515,7 @@
       "importance": 1,
       "period": "1813",
       "year": 1813,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -12155,12 +13531,38 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
-     },
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.6908,
+     50.11899
+    ]
+   },
+   "properties": {
+    "id": "nordend-bethmannpark-frankfurt",
+    "title": "Chinesischer Garten im Bethmannpark",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "Friedberger Landstraße / Berger Straße",
+    "precision": "genau",
+    "stories": [
      {
-      "id": "nordend-bethmannpark-ein-chinesischer-garten-im-nordend",
-      "title": "Ein chinesischer Garten im Nordend",
+      "id": "nordend-bethmannpark-frankfurt",
+      "title": "Chinesischer Garten im Bethmannpark",
       "teaser": "Hinter einer Mauer im Bethmannpark liegt seit 1989 ein chinesischer Garten mit Pavillon, Wasserlauf und Felsen. Der Park selbst ist der alte Garten der Bankiersfamilie Bethmann und steht seit 1976 unter Denkmalschutz.",
       "story": [],
       "categories": [
@@ -12177,7 +13579,7 @@
       "importance": 1,
       "period": "seit 1989",
       "year": 1989,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -12193,8 +13595,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
+      "author": "redaktion",
+      "updated": "2026-11-01"
      }
     ]
    }
@@ -12209,22 +13611,22 @@
     ]
    },
    "properties": {
-    "id": "nordend-guenthersburgpark",
-    "title": "Günthersburgpark und Orangerie",
+    "id": "nordend-guenthersburgpark-frankfurt",
+    "title": "Günthersburgpark",
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Nordend-Ost",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Günthersburgallee",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
-      "id": "nordend-guenthersburgpark-der-park-der-rothschilds",
-      "title": "Der Park der Rothschilds",
+      "id": "nordend-guenthersburgpark-frankfurt",
+      "title": "Günthersburgpark",
       "teaser": "Der Park geht auf den Gutshof Günthersburg zurück, der einst von Wassergräben umgeben war. 1837 kaufte ihn Carl von Rothschild, sein Sohn Mayer Carl ließ das alte Schlösschen 1855 abreißen und baute eine Sommervilla. Er starb 1886 ohne Söhne und vermachte das Anwesen der Stadt, seit 1892 ist der Park öffentlich. Von der Rothschild-Zeit blieb nur die Orangerie.",
       "story": [],
       "categories": [
@@ -12242,7 +13644,7 @@
       "importance": 1,
       "period": "1837–1892",
       "year": 1837,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -12262,8 +13664,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
+      "author": "redaktion",
+      "updated": "2026-11-01"
      }
     ]
    }
@@ -12283,10 +13685,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Nordend-West",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Adickesallee 1",
     "precision": "genau",
@@ -12326,8 +13728,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-11-04"
+      "author": "redaktion",
+      "updated": "2026-11-01"
      }
     ]
    }
@@ -12347,13 +13749,13 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Stadtwald",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "oberforsthaus-waeldchestag",
@@ -12374,7 +13776,7 @@
       "importance": 1,
       "period": "seit dem 18. Jh.",
       "year": 1792,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -12386,8 +13788,56 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "claude",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.668811,
+     50.116896
+    ]
+   },
+   "properties": {
+    "id": "oddo-bhf-turm",
+    "title": "Oddo BHF (Central Parx)",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "oddo-bhf-turm",
+      "title": "Oddo BHF (Central Parx)",
+      "teaser": "Dieser unter Denkmalschutz stehende Glas-Stahlbeton-Bau von 1965 markiert den Beginn der Frankfurter Wolkenkratzer-Ära im Westend. Errichtet für die Berliner Handels-Gesellschaft (später BHF-Bank, heute ODDO BHF), war er eines der ersten Hochhäuser der Stadt und birgt am Vorplatz das originale Eisenportal des 1944 zerstörten Rothschild-Palais.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -12531,8 +13981,8 @@
     "precision": "ungefähr",
     "stories": [
      {
-      "id": "opel-zoo-georg-von-opels-freigehege",
-      "title": "Georg von Opels Freigehege",
+      "id": "opel-zoo",
+      "title": "Opel-Zoo",
       "teaser": "1956 richtete der Unternehmer Georg von Opel am Taunushang ein „Freigehege für Tierforschung“ ein. 1960 gelang hier weltweit die erste Zucht des Mesopotamischen Damhirschs. 2025 kam das erste Elefantenkalb seit 57 Jahren zur Welt.",
       "story": [],
       "categories": [
@@ -12576,8 +14026,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6705,
-     50.1155
+     8.67049,
+     50.116113
     ]
    },
    "properties": {
@@ -12586,18 +14036,18 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
-    "address": "Bockenheimer Landstraße 2",
+    "address": "",
     "precision": "genau",
     "stories": [
      {
       "id": "opernturm",
       "title": "Opernturm",
-      "teaser": "Eigene Postleitzahl 60306.  Gemälde auf Segeltuch mit dem Titel Ahab. Vorher stand hier da Zürich-Haus, eines der ersten Hochhäuser Frankfurts.",
+      "teaser": "Der 170 Meter hohe Opernturm ist so massiv dimensioniert, dass dem Gebäude mit der 60306 sogar eine völlig eigene Postleitzahl zugewiesen wurde. Wo bis 2002 mit dem Zürich-Haus eines der allerersten Nachkriegshochhäuser Frankfurts stand, dominiert heute ein riesiges Kunstwerk das Foyer: Das 16 Meter hohe Gemälde Ahab von Julian Schnabel, gemalt auf einem echten Schiffs-Segeltuch.",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -12613,8 +14063,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "",
-      "updated": ""
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -12624,8 +14074,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6815,
-     50.115
+     8.680359,
+     50.115248
     ]
    },
    "properties": {
@@ -12644,7 +14094,7 @@
     "stories": [
      {
       "id": "palais-thurn-und-taxis",
-      "title": "Palais Thurn und Taxis",
+      "title": "",
       "teaser": "Das barocke Palais war ab 1816 Sitz des Deutschen Bundestags. Die Kriegsruine musste der Post weichen, die dort ihr Fernmeldehochhaus baute. Nach dessen Abriss 2004 wurde das Palais als Teil des PalaisQuartiers rekonstruiert, mit dem MyZeil daneben.",
       "story": [],
       "categories": [
@@ -12694,10 +14144,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Siesmayerstraße 61",
     "precision": "genau",
@@ -12705,11 +14155,8 @@
      {
       "id": "palmengarten",
       "title": "Palmengarten",
-      "teaser": "Die Pflanzen des abgesetzten Herzogs von Nassau wurden zum Grundstock eines Bürgergartens.",
-      "story": [
-       "Nach der Annexion des Herzogtums Nassau durch Preußen 1866 verkaufte Herzog Adolph seine Pflanzensammlung aus Biebrich. Der Gärtner Heinrich Siesmayer und Frankfurter Bürger kauften sie und gründeten eine Aktiengesellschaft.",
-       "1871 öffnete der Palmengarten mit dem großen Palmenhaus. Er ist bis heute einer der größten botanischen Gärten Deutschlands."
-      ],
+      "teaser": "Nach der Annexion des Herzogtums Nassau durch Preußen 1866 verkaufte Herzog Adolph seine Pflanzensammlung aus Biebrich. Der Gärtner Heinrich Siesmayer und Frankfurter Bürger kauften sie und gründeten eine Aktiengesellschaft.\n\n1871 öffnete der Palmengarten mit dem großen Palmenhaus. Er ist bis heute einer der größten botanischen Gärten Deutschlands.",
+      "story": [],
       "categories": [
        "Geschichte & Politik"
       ],
@@ -12756,10 +14203,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Paul-Ehrlich-Straße 42–44",
     "precision": "genau",
@@ -12768,10 +14215,7 @@
       "id": "paul-ehrlich",
       "title": "Paul Ehrlich und die Zauberkugel",
       "teaser": "Im Georg-Speyer-Haus entwickelte Paul Ehrlich das erste moderne Medikament gegen Syphilis.",
-      "story": [
-       "Der Mediziner Paul Ehrlich erhielt 1908 den Nobelpreis. Er suchte nach einer „Zauberkugel“, einem Stoff, der Krankheitserreger gezielt angreift, ohne den Körper zu schädigen.",
-       "1909 fanden er und der Chemiker Alfred Bertheim im Georg-Speyer-Haus das „Präparat 606“, später Salvarsan genannt. Es war das erste wirksame Mittel gegen Syphilis und gilt als Beginn der modernen Chemotherapie."
-      ],
+      "story": [],
       "categories": [
        "Persönlichkeiten",
        "Erfindungen"
@@ -12900,7 +14344,7 @@
      {
       "id": "petrihaus-das-petrihaus-und-goethes-ginkgo",
       "title": "Das Petrihaus und Goethes Ginkgo",
-      "teaser": "Das Fachwerkhaus an der Nidda entstand um 1720. 1819 kaufte es der Bankier Georg Brentano als Rückzugsort, hier trafen sich Clemens Brentano, die Brüder Grimm und Marianne von Willemer. Der fast 200 Jahre alte Ginkgo daneben soll Goethe zu seinem Gedicht „Ginkgo biloba“ angeregt haben.",
+      "teaser": "Das Fachwerkhaus an der Nidda entstand um 1720. 1819 kaufte es der Bankier Georg Brentano als Rückzugsort, hier trafen sich Clemens Brentano, die Brüder Grimm und Marianne von Willemer. Der fast 200 Jahre alte Ginkgo daneben soll Goethe zu seinem Gedicht „Ginkgo biloba“ angeregt haben.;  Johann Wolfgang von Goethe, Clemens Brentano und Bettina von Arnim hielten sich in dieser Zeit regelmäßig zu Besuch dort auf.",
       "story": [],
       "categories": [
        "Persönlichkeiten",
@@ -12933,7 +14377,7 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max / claude",
+      "author": "redaktion",
       "updated": "2026-10-31"
      }
     ]
@@ -13045,68 +14489,6 @@
       "photosImportant": false,
       "author": "",
       "updated": ""
-     }
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     8.689,
-     50.129
-    ]
-   },
-   "properties": {
-    "id": "polizeipraesidium",
-    "title": "Polizeipräsidium Frankfurt",
-    "importance": 1,
-    "suggested": false,
-    "place": {
-     "stadtteil": "Nordend-West",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
-    },
-    "address": "Adickesallee 70",
-    "precision": "Straße",
-    "stories": [
-     {
-      "id": "polizeipraesidium-der-fall-metzler-und-die-folterdrohung",
-      "title": "Der Fall Metzler und die Folterdrohung",
-      "teaser": "2002 entführte der Jurastudent Magnus Gäfgen den elfjährigen Bankierssohn Jakob von Metzler und tötete ihn. Im Präsidium drohte der Vizepolizeipräsident Wolfgang Daschner dem Festgenommenen Schmerzen an, um das Kind noch zu retten. Darüber stritt danach ganz Deutschland: Darf der Staat mit Folter drohen?",
-      "story": [],
-      "categories": [
-       "Verbrechen & Skandale",
-       "Geschichte & Politik"
-      ],
-      "epochs": [
-       "Wende & Gegenwart"
-      ],
-      "tags": [],
-      "flag": "Lokal",
-      "importance": 1,
-      "period": "2002–2004",
-      "year": 2002,
-      "status": "Prüfen",
-      "note": "",
-      "sources": [
-       {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/wiki/Entführung_von_Jakob_von_Metzler"
-       },
-       {
-        "label": "Wikipedia",
-        "url": "https://de.wikipedia.org/wiki/Wolfgang_Daschner"
-       }
-      ],
-      "imageQuery": "",
-      "images": [],
-      "suggested": false,
-      "photosImportant": false,
-      "author": "Max / claude",
-      "updated": "2026-10-31"
      }
     ]
    }
@@ -13233,8 +14615,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68238,
-     50.10923
+     8.682381,
+     50.109239
     ]
    },
    "properties": {
@@ -13305,8 +14687,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68114,
-     50.11067
+     8.681977,
+     50.110601
     ]
    },
    "properties": {
@@ -13523,8 +14905,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6735,
-     50.1075
+     8.684503,
+     50.114957
     ]
    },
    "properties": {
@@ -13577,6 +14959,54 @@
       "photosImportant": false,
       "author": "redaktion",
       "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.669856,
+     50.116799
+    ]
+   },
+   "properties": {
+    "id": "rothschild-park-frankfurt",
+    "title": "Rothschildpark",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "rothschild-park-frankfurt",
+      "title": "Rothschildpark",
+      "teaser": "Die einst private Gartenanlage der Bankiersfamilie Rothschild beherbergte im 19. Jahrhundert riesige Gewächshäuser, die sogar exotische Orangenbäume und seltene tropische Pflanzen mitten im Frankfurter Winter blühen ließen. Das dazugehörige neugotische Palais der Familie wurde 1944 bei Bombenangriffen komplett zerstört, woraufhin die Rothschild-Erben das Areal nach dem Krieg der Stadt Frankfurt zur Nutzung als öffentlichen Park überließen.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -13689,8 +15119,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6818,
-     50.1096
+     8.68221,
+     50.109346
     ]
    },
    "properties": {
@@ -13760,8 +15190,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6824,
-     50.11075
+     8.681883,
+     50.11071
     ]
    },
    "properties": {
@@ -13881,8 +15311,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6878,
-     50.1091
+     8.688293,
+     50.109641
     ]
    },
    "properties": {
@@ -13938,8 +15368,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6519,
-     50.1175
+     8.652405,
+     50.117636
     ]
    },
    "properties": {
@@ -13948,10 +15378,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Senckenberganlage 25",
     "precision": "genau",
@@ -13984,6 +15414,54 @@
         "url": "https://de.wikipedia.org/wiki/Senckenberg_Naturmuseum"
        }
       ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.658866,
+     50.120581
+    ]
+   },
+   "properties": {
+    "id": "siesmayer-21-frankfurt",
+    "title": "Ehemaliges US-Generalkonsulat",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "siesmayer-21-frankfurt",
+      "title": "Ehemaliges US-Generalkonsulat",
+      "teaser": "Das 1956 direkt gegenüber dem Palmengarten errichtete US-Generalkonsulat war ein Paradebeispiel transparenter Nachkriegsarchitektur. Über Jahrzehnte hinweg war die Siesmayerstraße der zentrale Schauplatz Frankfurter Proteste von den Großdemonstrationen gegen den Vietnamkrieg in den 60ern bis zu den weltweiten Antikriegs-Demos der 80er und 2000er Jahre.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
@@ -14074,7 +15552,7 @@
      "bundesland": "Hessen"
     },
     "address": "Düsseldorfer Straße",
-    "precision": "Straße",
+    "precision": "genau",
     "stories": [
      {
       "id": "sparkasse-duesseldorfer-schliessfach-coup-am-hauptbahnhof",
@@ -14093,7 +15571,7 @@
       "importance": 1,
       "period": "2019",
       "year": 2019,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -14105,8 +15583,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max / claude",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -14126,10 +15604,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Schaumainkai 63",
     "precision": "genau",
@@ -14138,10 +15616,7 @@
       "id": "staedel",
       "title": "Städel Museum",
       "teaser": "Ein Kaufmann vermachte der Stadt seine Sammlung und sein Vermögen, daraus wurde ein bedeutendes Kunstmuseum.",
-      "story": [
-       "Der Bankier und Kaufmann Johann Friedrich Städel verfügte in seinem Testament, dass aus seiner Kunstsammlung und seinem Vermögen eine Stiftung entstehen solle. Er starb 1816, das Testament von 1815 ist die Gründungsurkunde des Museums.",
-       "Nach einem langen Erbstreit konnte das Städel seine Arbeit aufnehmen. Heute zeigt es Kunst aus sieben Jahrhunderten, darunter Werke von Dürer, Rembrandt und Tischbeins „Goethe in der Campagna“."
-      ],
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -14168,12 +15643,12 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
      },
      {
       "id": "idee-museen-durch-stifter-ergaenzung-zu-staedel-und-sen",
       "title": "Museen durch Stifter (Ergänzung zu Städel und Senckenberg)",
-      "teaser": "Idee, noch ohne Text.",
+      "teaser": "",
       "story": [],
       "categories": [],
       "epochs": [],
@@ -14182,15 +15657,15 @@
       "importance": 1,
       "period": "",
       "year": null,
-      "status": "Idee",
+      "status": "Entwurf",
       "note": "",
       "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -14339,8 +15814,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6838,
-     50.11085
+     8.682811,
+     50.111014
     ]
    },
    "properties": {
@@ -14399,8 +15874,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6841,
-     50.1108
+     8.684368,
+     50.110911
     ]
    },
    "properties": {
@@ -14459,8 +15934,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.684,
-     50.111
+     8.683706,
+     50.11105
     ]
    },
    "properties": {
@@ -14504,6 +15979,54 @@
         "url": "https://de.wikipedia.org/wiki/Struwwelpeter-Museum"
        }
       ],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.695789,
+     50.117593
+    ]
+   },
+   "properties": {
+    "id": "synagoge-baumweg-frankfurt",
+    "title": "Synagoge Baumweg",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "synagoge-baumweg-frankfurt",
+      "title": "Synagoge Baumweg",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
       "imageQuery": "",
       "images": [],
       "suggested": false,
@@ -14572,8 +16095,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6845,
-     50.111
+     8.683587,
+     50.111233
     ]
    },
    "properties": {
@@ -14690,8 +16213,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6683,
-     50.1118
+     8.667932,
+     50.112948
     ]
    },
    "properties": {
@@ -14700,10 +16223,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Mainzer Landstraße 16",
     "precision": "genau",
@@ -14711,7 +16234,7 @@
      {
       "id": "trianon",
       "title": "Trianon",
-      "teaser": "Ein Turm mit dreieckigem Grundriss und einer auf dem Kopf stehenden Pyramide auf dem Dach.",
+      "teaser": "",
       "story": [],
       "categories": [
        "Frankfurt-Ikonen"
@@ -14749,6 +16272,294 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     8.670143,
+     50.117911
+    ]
+   },
+   "properties": {
+    "id": "turm-rothschild-park",
+    "title": "Zierturm im Rotschildpark",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "turm-rothschild-park",
+      "title": "Zierturm im Rotschildpark",
+      "teaser": "Der im 19. Jahrhundert errichtete neugotische Zierturm gehört zu den letzten originalen Überbleibseln des einstigen Rothschild-Anwesens, die den Zweiten Weltkrieg überstanden haben. Er diente ursprünglich als romantisches Dekorationselement in der privaten Parklandschaft der Bankiersfamilie.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.658311,
+     50.119824
+    ]
+   },
+   "properties": {
+    "id": "villa-102-frankfurt",
+    "title": "Villa 102",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "villa-102-frankfurt",
+      "title": "Villa 102",
+      "teaser": "Die prachtvolle Villa 102 an der Bockenheimer Landstraße atmet tiefe Stadtgeschichte, die vom großbürgerlichen Leben der jüdischen Familie Sondheimer bis zu deren Vertreibung im Jahr 1932 reicht. Kultstatus erlangte das Gebäude später bei den Frankfurtern als das ursprüngliche \"Literaturhaus\", in dessen legendärem Café sich jahrzehntelang die lokale Bohème und Kulturszene bei Wein und Zigaretten drängte.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.659993,
+     50.120313
+    ]
+   },
+   "properties": {
+    "id": "villa-bonn-frankfurt",
+    "title": "Villa Bonn",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "villa-bonn-frankfurt",
+      "title": "Villa Bonn",
+      "teaser": "Die 1897 erbaute Villa in der Siesmayerstraße ist eines der wenigen bis heute fast komplett erhaltenen großbürgerlichen Palais aus der Frankfurter Kaiserzeit. Heute ist sie Heimat der Frankfurter Gesellschaft und öffnet ihre prachtvollen Säle regelmäßig für klassische Konzerte.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.667216,
+     50.116384
+    ]
+   },
+   "properties": {
+    "id": "villa-may-frankfurt",
+    "title": "Villa May",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "villa-may-frankfurt",
+      "title": "Villa May",
+      "teaser": "Das in den Formen des Spätklassizismus 1871 entworfene Gebäude verdankt seinen Namen der Familie des berühmten Frankfurter Stadtplaners und Architekten Ernst May. Die historische Villa überstand den Zweiten Weltkrieg, erlebte jedoch eine bewegte Verwandlung: Über Jahrzehnte diente das innen stark umgebaute Erdgeschoss den Westend-Bewohnern ganz pragmatisch als belebte Postfiliale.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.653575,
+     50.127209
+    ]
+   },
+   "properties": {
+    "id": "villa-merton-frankurt",
+    "title": "Villa Merton",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "villa-merton-frankurt",
+      "title": "Villa Merton",
+      "teaser": "Die 1927 für den jüdischen Metall-Unternehmer und Stifter Richard Merton erbaute Villa im Diplomatenviertel galt schon in den 1920er-Jahren als Symbol für liberalen Geist und Weltoffenheit. Seit 1956 dient das denkmalgeschützte Anwesen dem Union International Club e.V. als Sitz zur Förderung der Völkerverständigung und beherbergt heute ein mit einem Michelin-Stern ausgezeichnetes Gourmetrestaurant.",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.679167,
+     50.118246
+    ]
+   },
+   "properties": {
+    "id": "volksbildungsheim-frankfurt",
+    "title": "Volksbildungsheim",
+    "importance": 2,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "volksbildungsheim-frankfurt",
+      "title": "Volksbildungsheim",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Sehenswürdigkeit",
+      "importance": 2,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      8.6455,
      50.0686
     ]
@@ -14759,10 +16570,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Sachsenhausen-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Sachsenhausen",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Mörfelder Landstraße 362",
     "precision": "genau",
@@ -14771,10 +16582,7 @@
       "id": "waldstadion",
       "title": "Waldstadion und Eintracht",
       "teaser": "Im Stadtwald spielt die Eintracht, deren Fans 2022 halb Europa in Weiß tauchten.",
-      "story": [
-       "Das Waldstadion wurde 1925 mitten im Frankfurter Stadtwald eröffnet. Hier fanden Spiele der Fußball-Weltmeisterschaften 1974 und 2006 statt.",
-       "Eintracht Frankfurt wurde 1959 Deutscher Meister und gewann 1980 und 2022 den UEFA-Pokal beziehungsweise die Europa League. Beim Viertelfinale 2022 in Barcelona sollen rund 30.000 Frankfurter Fans im Camp Nou gewesen sein, ein Abend, der in der Stadt längst zur Legende geworden ist."
-      ],
+      "story": [],
       "categories": [
        "Geschichte & Politik",
        "Frankfurt-Ikonen"
@@ -14804,6 +16612,54 @@
       "photosImportant": false,
       "author": "redaktion",
       "updated": "2026-10-20"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.69955,
+     50.137446
+    ]
+   },
+   "properties": {
+    "id": "wasserpark-frankfurt",
+    "title": "Wasserpark",
+    "importance": 1,
+    "suggested": false,
+    "place": {
+     "stadtteil": "Nordend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
+    },
+    "address": "",
+    "precision": "genau",
+    "stories": [
+     {
+      "id": "wasserpark-frankfurt",
+      "title": "Wasserpark",
+      "teaser": "",
+      "story": [],
+      "categories": [],
+      "epochs": [],
+      "tags": [],
+      "flag": "Lokal",
+      "importance": 1,
+      "period": "",
+      "year": null,
+      "status": "Entwurf",
+      "note": "",
+      "sources": [],
+      "imageQuery": "",
+      "images": [],
+      "suggested": false,
+      "photosImportant": false,
+      "author": "redaktion",
+      "updated": "2026-11-01"
      }
     ]
    }
@@ -14888,7 +16744,7 @@
      "bundesland": "Hessen"
     },
     "address": "Weseler Werft",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "weseler-werft-iron-sky-mondnazis-in-mainhattan",
@@ -14909,7 +16765,7 @@
       "importance": 1,
       "period": "2010–2011",
       "year": 2010,
-      "status": "Prüfen",
+      "status": "Entwurf",
       "note": "",
       "sources": [
        {
@@ -14925,8 +16781,8 @@
       "images": [],
       "suggested": false,
       "photosImportant": false,
-      "author": "Max / claude",
-      "updated": "2026-10-31"
+      "author": "redaktion",
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -14974,7 +16830,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": ""
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -14984,8 +16840,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.666,
-     50.1195
+     8.661982,
+     50.12076
     ]
    },
    "properties": {
@@ -14994,13 +16850,13 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Myliusstraße 32",
-    "precision": "Straße",
+    "precision": "genau",
     "stories": [
      {
       "id": "westend-clara-schumann-clara",
@@ -15033,7 +16889,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-04"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -15086,7 +16942,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": ""
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -15106,13 +16962,13 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Grüneburgweg / August-Siebert-Straße",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "westend-grueneburgpark",
@@ -15147,7 +17003,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-04"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -15157,8 +17013,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.66395,
-     50.12129
+     8.664774,
+     50.121245
     ]
    },
    "properties": {
@@ -15167,10 +17023,10 @@
     "importance": 2,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Freiherr-vom-Stein-Straße 30",
     "precision": "genau",
@@ -15209,7 +17065,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-04"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -15219,8 +17075,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.6657,
-     50.111
+     8.662367,
+     50.110752
     ]
    },
    "properties": {
@@ -15229,10 +17085,10 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Süd",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Westendplatz",
     "precision": "genau",
@@ -15278,8 +17134,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.666,
-     50.1248
+     8.665163,
+     50.125159
     ]
    },
    "properties": {
@@ -15288,13 +17144,13 @@
     "importance": 1,
     "suggested": false,
     "place": {
-     "stadtteil": "Westend-Nord",
-     "stadt": "Frankfurt am Main",
-     "kreis": "Kreisfreie Stadt Frankfurt am Main",
-     "bundesland": "Hessen"
+     "stadtteil": "Westend",
+     "stadt": "Frankfurt",
+     "kreis": "",
+     "bundesland": ""
     },
     "address": "Norbert-Wollheim-Platz 1",
-    "precision": "ungefähr",
+    "precision": "genau",
     "stories": [
      {
       "id": "westend-wollheim-memorial",
@@ -15330,7 +17186,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-04"
+      "updated": "2026-10-20"
      }
     ]
    }
@@ -15543,10 +17399,7 @@
       "id": "zoo",
       "title": "Zoo Frankfurt",
       "teaser": "Von hier aus machte Bernhard Grzimek die Serengeti weltberühmt.",
-      "story": [
-       "Der Frankfurter Zoo wurde 1858 gegründet und ist ein alter Zoo. Im Krieg wurde er fast vollständig zerstört.",
-       "Im Mai 1945 wurde Bernhard Grzimek Direktor und baute den Zoo wieder auf. Mit seiner Fernsehsendung „Ein Platz für Tiere“ wurde er in ganz Deutschland bekannt. Sein Film „Serengeti darf nicht sterben“ gewann 1960 als erster deutscher Film nach dem Krieg einen Oscar. Sein Sohn Michael war während der Dreharbeiten bei einem Flugzeugabsturz ums Leben gekommen."
-      ],
+      "story": [],
       "categories": [
        "Persönlichkeiten"
       ],
@@ -15573,7 +17426,7 @@
       "suggested": false,
       "photosImportant": false,
       "author": "redaktion",
-      "updated": "2026-11-01"
+      "updated": "2026-10-20"
      }
     ]
    }

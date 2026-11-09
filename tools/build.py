@@ -20,6 +20,12 @@ def inline(m):
 
 base = re.sub(r'<link rel="stylesheet" href="([^"]+)"><!--INLINE-->|<script src="([^"]+)"></script><!--INLINE-->', inline, html)
 base = base.replace("/*LORE_IMAGES*/", pack(images), 1)
+# Anzeige-Tags (welche Tags die Nutzer sehen und woraus sie entstehen), siehe data/tags.json.
+tags_path = root / "data" / "tags.json"
+if tags_path.exists():
+    base = base.replace("/*LORE_TAGS*/", pack(json.loads(tags_path.read_text(encoding="utf-8"))), 1)
+else:
+    print("Hinweis: data/tags.json fehlt, die Filter bleiben leer.")
 # Stadtteilflächen (REGIONS-Eintrag mit areas: "...") je Region einbetten.
 area_files = dict(re.findall(r'\{ id: "([a-z0-9-]+)",[^}]*?areas: "([^"]+)"', html))
 areas = {rid: json.loads((root / f).read_text(encoding="utf-8")) for rid, f in area_files.items() if (root / f).exists()}

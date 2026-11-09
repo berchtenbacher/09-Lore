@@ -119,9 +119,16 @@ button { font: inherit; color: inherit; }
 .filter-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 
 .filters { display: grid; gap: 14px; max-height: 52vh; overflow-y: auto; margin: 0 -20px; padding: 2px 20px; }
-.fgroup { display: grid; gap: 7px; }
-.fgroup > span { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.filters { gap: 10px; }
+.chips:empty, .chips[hidden] { display: none; }
+/* Vorgeschlagen trägt die Punktfarbe der Karte, damit klar ist, dass es den Punkten entspricht. */
+.chips.pick .chip { display: inline-flex; align-items: center; gap: 6px; }
+.chips.pick .chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sug); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+/* Im Filter laufen Vorgeschlagen, Zeit- und Themen-Tags ohne Umbruch in einem Fluss. */
+.tagflow { display: flex; flex-wrap: wrap; gap: 6px; }
+.tagflow > .chips { display: contents; }
+.tagflow > .chips[hidden] { display: none; }
 .chip {
   height: 28px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
   cursor: pointer; font-size: 12.5px; color: var(--ink); white-space: nowrap;
@@ -129,10 +136,6 @@ button { font: inherit; color: inherit; }
 .chip:hover { border-color: var(--muted); }
 .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
 .more { height: 28px; padding: 0 6px; border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 12.5px; font-weight: 500; }
-.seg { display: grid; grid-template-columns: 1fr 1.7fr 1.2fr; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
-.seg button { height: 30px; border: 0; background: var(--surface); cursor: pointer; font-size: 12.5px; border-left: 1px solid var(--line); white-space: nowrap; }
-.seg button:first-child { border-left: 0; }
-.seg button[aria-pressed="true"] { background: var(--chip); font-weight: 600; }
 .select { height: 34px; width: 100%; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 0 10px; font: inherit; font-size: 13px; }
 .reset { justify-self: start; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: 12.5px; font-weight: 500; }
 
@@ -148,12 +151,10 @@ button { font: inherit; color: inherit; }
 .item:hover, .item.hl { background: var(--chip); }
 .item .mk { align-self: center; justify-self: center; }
 .item h3 { margin: 0; font: 500 15px/1.3 var(--font-display); min-width: 0; }
-.item .dist { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .item p { grid-column: 2 / 4; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
 .item p b { color: var(--ink); font-weight: 500; }
 .item .meta { grid-column: 2 / 4; font-size: 11.5px; color: var(--muted); letter-spacing: .01em; }
 .empty { padding: 28px 20px; color: var(--muted); }
-.hint { display: grid; gap: 10px; padding: 18px 12px 8px; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
 /* Wichtigkeits-Marker (auch in Listen) */
 .mk { display: inline-block; border-radius: 50%; flex: none; }
@@ -174,7 +175,7 @@ button { font: inherit; color: inherit; }
 .back:hover { color: var(--ink); border-color: var(--muted); }
 .back svg { width: 15px; height: 15px; }
 .eyebrow { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-.detail h2 { margin: 4px 0 6px; font: 600 27px/1.15 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
+.detail h2 { margin: 4px 0 6px; font: 600 23px/1.2 var(--font-display); letter-spacing: -0.015em; text-wrap: balance; }
 .facts { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 18px; color: var(--muted); font-size: 13px; }
 .lead { font: 500 17px/1.5 var(--font-display); margin: 0 0 16px; }
 .story p { font: 400 15.5px/1.68 var(--font-display); margin: 0 0 14px; max-width: 62ch; }
@@ -188,18 +189,19 @@ button { font: inherit; color: inherit; }
 .ctx { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; margin: 0 0 14px; color: var(--muted); font-size: 13px; }
 .ctx .gone, .ctx .top { color: var(--accent); font-weight: 500; }
 .ctx .sug { color: var(--sug); font-weight: 500; }
-/* Nutzerstatus im Detail */
-.mine-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
-.mine-btn { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink); }
+/* Kopfzeile im Detail: Merken, Kenn ich und Schließen als runde Icon-Knöpfe nebeneinander, bleiben beim Scrollen sichtbar. */
+.dacts { position: sticky; top: 10px; z-index: 2; float: right; display: flex; gap: 6px; margin: 2px -8px 0 10px; }
+.dacts .back { position: static; float: none; margin: 0; }
+.mine-btns { display: contents; }
+.mine-btn { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); cursor: pointer; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
 .mine-btn:hover { border-color: var(--muted); }
 .mine-btn svg { width: 15px; height: 15px; }
 .mine-btn[data-mine="saved"][aria-pressed="true"] { background: var(--saved); border-color: var(--saved); color: #fff; }
-.mine-btn[data-mine="known"][aria-pressed="true"] { background: var(--chip); border-color: var(--known); color: var(--muted); }
+.mine-btn[data-mine="known"][aria-pressed="true"] { background: var(--known); border-color: var(--known); color: #fff; }
 :root[data-theme="dark"] .mine-btn[data-mine="saved"][aria-pressed="true"] { color: #0f2618; }
 /* Meine Orte */
 .mine-view { padding: 16px 20px 28px; }
-.mine-view h2 { margin: 2px 0 4px; font: 600 24px/1.2 var(--font-display); letter-spacing: -0.015em; }
-.mine-view > p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.mine-view h2 { margin: 2px 0 14px; font: 600 24px/1.2 var(--font-display); letter-spacing: -0.015em; }
 .mine-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; margin-bottom: 6px; }
 .mine-tabs button { height: 34px; border: 0; background: var(--surface); cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
 .mine-tabs button + button { border-left: 1px solid var(--line); }
@@ -253,7 +255,6 @@ button { font: inherit; color: inherit; }
 .g-cap { padding: 8px 24px 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
 .g-cap a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 .g-cap a:hover { color: var(--ink); }
-.g-cap .g-title { color: var(--ink); }
 @media (max-width: 760px) { .gallery { margin: 0 -18px 20px; } .g-cap { padding: 8px 18px 0; } }
 
 /* ---------- Karten-Steuerung ---------- */
@@ -409,7 +410,7 @@ button { font: inherit; color: inherit; }
   .handle::after { content: ""; position: absolute; left: 14px; right: 14px; top: 7px; height: 4px; border-radius: 4px; background: var(--line); }
   .filters { max-height: 34vh; }
   .detail { padding: 4px 18px 24px; }
-  .detail h2 { font-size: 23px; }
+  .detail h2 { font-size: 20px; }
   .mapctl { top: calc(var(--top) + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }
   .pill .txt { display: none; }
   .pill { width: 40px; height: 40px; padding: 0; justify-content: center; }
@@ -465,22 +466,18 @@ button { font: inherit; color: inherit; }
       <input id="q" type="search" placeholder="Suchen: Ort, Person, Sage …" autocomplete="off" aria-label="Suchen">
     </label>
     <button class="filter-toggle" id="filterToggle" aria-expanded="true" aria-controls="filters">
-      <span><strong>Filter</strong> <span id="filterSummary">alle Geschichten</span></span>
+      <span><strong>Filter</strong> <span id="filterSummary"></span></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
     </button>
     <div class="filters" id="filters">
-      <div class="fgroup" id="fPickGroup"><span>Auswahl</span><div class="chips" id="fPick" data-f="pick"></div></div>
-      <div class="fgroup"><span>Kategorie</span><div class="chips" id="fCats" data-f="cats"></div></div>
-      <div class="fgroup"><span>Epoche</span><div class="chips" id="fEpochs" data-f="epochs"></div></div>
-      <div class="fgroup"><span>Thema</span><div class="chips" id="fTags" data-f="tags"></div></div>
-      <div class="fgroup"><span>Wichtigkeit</span>
-        <div class="seg" id="fImp">
-          <button data-v="1" aria-pressed="true">Alle</button>
-          <button data-v="2" aria-pressed="false">Sehenswürdigkeiten</button>
-          <button data-v="3" aria-pressed="false">Touri 1x1</button>
-        </div>
+      <!-- Oben der Stadtteil, darunter alle Tags in einem Fluss: Vorgeschlagen, Zeit-Tags, Themen-Tags (data/tags.json).
+           Gemerktes findet sich unter „Meine Orte“, deshalb gibt es dafür hier kein Tag. -->
+      <select class="select" id="fDistrict" aria-label="Stadtteil"></select>
+      <div class="tagflow">
+        <div class="chips pick" id="fPick" data-f="pick"></div>
+        <div class="chips" id="fEpochs" data-f="epochs"></div>
+        <div class="chips" id="fTags" data-f="tags"></div>
       </div>
-      <div class="fgroup"><span id="districtLabel">Stadtteil</span><select class="select" id="fDistrict" aria-label="Stadtteil"></select></div>
       <button class="reset" id="reset">Filter zurücksetzen</button>
     </div>
   </div>
@@ -521,6 +518,7 @@ button { font: inherit; color: inherit; }
 <script id="lore-data" type="application/json">/*LORE_DATA*/</script>
 <script id="lore-images" type="application/json">/*LORE_IMAGES*/</script>
 <script id="lore-areas" type="application/json">/*LORE_AREAS*/</script>
+<script id="lore-tags" type="application/json">/*LORE_TAGS*/</script>
 <script>
 (() => {
   "use strict";
@@ -544,18 +542,14 @@ button { font: inherit; color: inherit; }
   // Ab welchem Zoom eine Stufe erscheint (je Stadt in REGIONS als minZoom überschreibbar). Steht alles auf 0,
   // regelt allein die Überlappung die Dichte: im vollen Zentrum gewinnen die wichtigen Orte, in dünn besetzten
   // Gegenden erscheinen auch lokale Punkte schon weit draußen. Wird es mit mehr Daten zu voll, hier Schwellen setzen,
-  // z. B. { 3: 0, 2: 11, 1: 12 }. Beschriftung: auf Touch-Geräten ab LABEL_ZOOM, mit Maus nur Touri 1x1 fest, der Rest beim Darüberfahren.
+  // z. B. { 3: 0, 2: 11, 1: 12 }. Beschriftung: Namen stehen erst ab LABEL_ZOOM fest neben dem Punkt (Stufe 3 = Touri 1x1,
+  // Vorgeschlagen, Gemerkt). Mit Maus steht nur Stufe 3 fest, der Rest erscheint beim Darüberfahren; auf Touch-Geräten
+  // gelten alle drei Werte. Weiter draußen sieht man nur Punkte, damit die Karte nicht wie ein Standard-Reiseführer wirkt.
   const MIN_ZOOM = { 3: 0, 2: 0, 1: 0 };
-  const LABEL_ZOOM = { 3: 0, 2: 14, 1: 15.3 };
+  const LABEL_ZOOM = { 3: 14, 2: 14, 1: 15.3 };
   const canHover = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
   // Weit herausgezoomt: nur eine Handvoll zufälliger Wahrzeichen statt Zählblasen.
   const FAR_ZOOM = 10, FAR_MAX = 4;
-  // Reihenfolge der Filter für ältere Dateien ohne eigene Angabe (Frankfurt, Hofheim).
-  const DEFAULT_ORDER = {
-    categories: ["Geschichte", "Sage", "Legende", "Persönlichkeit", "Architektur", "Bankentürme", "Kultur", "Religion", "Erinnerung", "Natur"],
-    epochs: ["Vorgeschichte", "Antike", "Mittelalter", "Frühe Neuzeit", "19. Jahrhundert", "20. Jahrhundert", "Gegenwart"],
-    tags: [],
-  };
   const TAGS_VISIBLE = 12;
 
   // ---------- Hilfen ----------
@@ -572,7 +566,6 @@ button { font: inherit; color: inherit; }
     const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[1] * r) * Math.cos(b[1] * r) * Math.sin(dLon / 2) ** 2;
     return 2 * R * Math.asin(Math.sqrt(h));
   }
-  const fmtDist = (d) => d < 1 ? `${Math.round(d * 1000 / 10) * 10} m` : `${d.toLocaleString("de-DE", { maximumFractionDigits: 1 })} km`;
   const plural = (n, one, many) => `${n.toLocaleString("de-DE")} ${n === 1 ? one : many}`;
   const hash = (s) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
   const today = () => { const d = new Date(); return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`; };
@@ -784,9 +777,9 @@ button { font: inherit; color: inherit; }
   async function loadData() {
     const inline = $("#lore-data").textContent.trim();
     if (inline && !inline.startsWith("/*")) {
-      const imgs = $("#lore-images").textContent.trim(), areas = $("#lore-areas").textContent.trim();
+      const imgs = $("#lore-images").textContent.trim(), areas = $("#lore-areas").textContent.trim(), tags = $("#lore-tags").textContent.trim();
       return { byRegion: JSON.parse(inline), images: imgs && !imgs.startsWith("/*") ? JSON.parse(imgs) : {},
-        areas: areas && !areas.startsWith("/*") ? JSON.parse(areas) : {} };
+        areas: areas && !areas.startsWith("/*") ? JSON.parse(areas) : {}, tags: tags && !tags.startsWith("/*") ? JSON.parse(tags) : null };
     }
     const byRegion = {};
     for (const r of REGIONS) {
@@ -801,7 +794,9 @@ button { font: inherit; color: inherit; }
       const res = await fetch(r.areas).catch(() => null);
       if (res && res.ok) areas[r.id] = await res.json();
     }
-    return { byRegion, images: imgRes && imgRes.ok ? await imgRes.json() : {}, areas };
+    const tagRes = await fetch("data/tags.json").catch(() => null);
+    if (!tagRes || !tagRes.ok) console.warn("data/tags.json nicht gefunden, die Filter bleiben leer.");
+    return { byRegion, images: imgRes && imgRes.ok ? await imgRes.json() : {}, areas, tags: tagRes && tagRes.ok ? await tagRes.json() : null };
   }
 
   // Ein Feature ist ein Ort (Pin) mit einer oder mehreren Geschichten. Ältere Dateien mit genau
@@ -830,19 +825,56 @@ button { font: inherit; color: inherit; }
       .filter((im) => im && im.url && !seen.has(im.url) && seen.add(im.url));
     for (const s of stories) {
       s.place = place;
-      s.hay = `${p.title} ${s.title} ${s.kind} ${s.teaser} ${place.place.stadtteil} ${place.address} ${s.categories.join(" ")} ${s.epochs.join(" ")} ${s.tags.join(" ")} ${s.story.join(" ")}`.toLowerCase();
+      s.time = timeTags(s); s.topics = topicTags(s);
+      s.hay = `${p.title} ${s.title} ${s.kind} ${s.teaser} ${place.place.stadtteil} ${place.address} ${s.categories.join(" ")} ${s.epochs.join(" ")} ${s.tags.join(" ")} ${s.time.join(" ")} ${s.topics.join(" ")} ${s.story.join(" ")}`.toLowerCase();
     }
     return place;
+  }
+
+  // ---------- Anzeige-Tags ----------
+  // Nutzer sehen nur Tags: Zeit-Tags (Frühzeit bis Gegenwart) und Themen-Tags. Woraus sie entstehen, steht in data/tags.json;
+  // die Kategorien, Epochen und Themen aus der Excel bleiben unverändert in den Daten (Suche, Hinweise, spätere Nutzung).
+  let TAGCFG = { zeit: [], themen: [], minGeschichten: 1 };
+  // Jahr der Geschichte: Spalte Jahr, sonst grob aus dem Zeitraum („um 400 v. Chr.“, „14. Jh.“, „1.–3. Jahrhundert“).
+  function storyYear(s) {
+    if (Number.isFinite(s.year)) return s.year;
+    const t = String(s.period || ""), bc = /v\.\s*Chr/.test(t);
+    let m = t.match(/(\d{1,2})\.(?:\s*[–-]\s*\d{1,2}\.)?\s*(?:Jh|Jahrhundert)/);
+    if (m) return bc ? -(+m[1] * 100 - 50) : +m[1] * 100 - 50;
+    m = t.match(/\d{3,4}/);
+    return m ? (bc ? -m[0] : +m[0]) : null;
+  }
+  // Teilen sich mehrere Zeit-Tags eine Epoche (Mittelalter & früher), entscheidet das Jahr über bisJahr; ohne Jahr gilt der letzte.
+  // Geschichten ohne Epoche bekommen ihren Zeit-Tag allein über das Jahr.
+  function timeTags(s) {
+    const year = storyYear(s), Z = TAGCFG.zeit;
+    const byYear = (list) => year == null ? list[list.length - 1] : list.find((z) => z.bisJahr == null || year <= z.bisJahr) || list[list.length - 1];
+    const out = new Set();
+    for (const e of s.epochs) { const c = Z.filter((z) => z.aus.includes(e)); if (c.length) out.add(byYear(c).tag); }
+    if (!s.epochs.length && year != null && Z.length) out.add(byYear(Z).tag);
+    return Z.map((z) => z.tag).filter((t) => out.has(t));
+  }
+  const wordRx = (words) => new RegExp(`(?<![A-Za-zÄÖÜäöüß])(?:${words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`);
+  function topicTags(s) {
+    const own = new Set([...s.categories, ...s.epochs, ...s.tags]);
+    return TAGCFG.themen.filter((t) => (t.aus || []).some((x) => own.has(x))
+      || (t.rx && (!t.woerterNurMit || t.woerterNurMit.some((x) => own.has(x))) && t.rx.test(`${s.title} ${s.teaser}`))).map((t) => t.tag);
+  }
+  function setTagConfig(cfg) {
+    if (!cfg) return;
+    TAGCFG = { minGeschichten: cfg.minGeschichten || 1, zeit: cfg.zeit || [],
+      themen: (cfg.themen || []).map((t) => ({ ...t, rx: t.woerter && t.woerter.length ? wordRx(t.woerter) : null })) };
   }
 
   // ---------- Zustand ----------
   const state = {
     places: [], stories: [], meta: {}, region: REGIONS[0].id, matchCount: 0,
-    cats: new Set(), epochs: new Set(), tags: new Set(), pick: new Set(), mineOpen: false, mineTab: "saved", minImp: 1, district: "", q: "",
+    epochs: new Set(), tags: new Set(), pick: new Set(), mineOpen: false, mineTab: "saved", minImp: 1, district: "", q: "",
     selected: null, user: null, view: "map", heroShift: 0, tagsOpen: false,
   };
-  const F = { cats: "categories", epochs: "epochs", tags: "tags" };
-  const PICK = { sug: "Vorgeschlagen", saved: "Gemerkt" };
+  // epochs = Zeit-Tags, tags = Themen-Tags (beide aus data/tags.json abgeleitet).
+  const F = { epochs: "time", tags: "topics" };
+  const PICK = { sug: "Vorgeschlagen" };
 
   // Ohne WebGL (z. B. abgeschaltete Hardwarebeschleunigung) läuft die Karte auf Rasterkacheln mit Leaflet.
   const hasWebGL = (() => {
@@ -855,8 +887,9 @@ button { font: inherit; color: inherit; }
     console.error(e);
   });
 
-  function init({ byRegion, images, areas = {} }) {
+  function init({ byRegion, images, areas = {}, tags }) {
     areaData = areas;
+    setTagConfig(tags);
     regions = REGIONS.filter((r) => byRegion[r.id]);
     const fromUrl = new URLSearchParams(location.search).get("stadt");
     state.region = [fromUrl, store.get("lore-region")].find((r) => r && byRegion[r]) || regions[0].id;
@@ -925,12 +958,11 @@ button { font: inherit; color: inherit; }
   function facetValues(key) {
     const counts = new Map();
     for (const s of regionStories()) for (const v of s[F[key]]) counts.set(v, (counts.get(v) || 0) + 1);
-    const order = (state.meta[state.region] || {})[F[key]] || DEFAULT_ORDER[F[key]];
-    const rank = (v) => { const i = order.indexOf(v); return i < 0 ? 999 : i; };
-    return [...counts].sort((a, b) => rank(a[0]) - rank(b[0]) || b[1] - a[1] || a[0].localeCompare(b[0], "de"));
+    const order = (key === "epochs" ? TAGCFG.zeit : TAGCFG.themen).map((t) => t.tag);
+    return [...counts].filter(([, n]) => n >= TAGCFG.minGeschichten).sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
   }
   function buildFilters() {
-    for (const key of ["cats", "epochs", "tags"]) {
+    for (const key of ["epochs", "tags"]) {
       const vals = facetValues(key), set = state[key];
       for (const v of [...set]) if (!vals.some(([x]) => x === v)) set.delete(v);
       const el = $(`.filters [data-f="${key}"]`);
@@ -941,22 +973,20 @@ button { font: inherit; color: inherit; }
         `<button class="chip" aria-pressed="${set.has(v)}" data-v="${esc(v)}" title="${plural(n, "Geschichte", "Geschichten")}">${esc(v)}</button>`).join("")
         + (vals.length > shown.length ? `<button class="more" data-more>+${vals.length - shown.length} weitere</button>`
           : key === "tags" && state.tagsOpen && vals.length > TAGS_VISIBLE ? `<button class="more" data-more>weniger</button>` : "");
-      el.closest(".fgroup").hidden = !vals.length;
+      el.hidden = !vals.length;
     }
     buildPick();
-    const r = regionById(state.region);
-    $("#districtLabel").textContent = r.districtLabel;
-    $("#fDistrict").setAttribute("aria-label", r.districtLabel);
+    $("#fDistrict").setAttribute("aria-label", regionById(state.region).districtLabel);
     fillDistricts();
   }
-  // Auswahl: Vorgeschlagen (aus der Excel) und Gemerkt (Nutzerstatus), nur wenn es in der Stadt welche gibt.
+  // Auswahl: Vorgeschlagen (aus der Excel), nur wenn es in der Stadt welche gibt. Gemerktes zeigt „Meine Orte“.
   function buildPick() {
     const here = state.places.filter((p) => p.region === state.region);
-    const avail = { sug: here.some((p) => p.suggested), saved: here.some((p) => user.has(p.id, "saved")) };
+    const avail = { sug: here.some((p) => p.suggested) };
     for (const k of [...state.pick]) if (!avail[k]) state.pick.delete(k);
     const keys = Object.keys(PICK).filter((k) => avail[k]);
     $("#fPick").innerHTML = keys.map((k) => `<button class="chip" aria-pressed="${state.pick.has(k)}" data-v="${k}">${PICK[k]}</button>`).join("");
-    $("#fPickGroup").hidden = !keys.length;
+    $("#fPick").hidden = !keys.length;
   }
   function fillDistricts() {
     const r = regionById(state.region);
@@ -978,10 +1008,10 @@ button { font: inherit; color: inherit; }
   }
   function storyPasses(s) {
     if (s.importance < state.minImp) return false;
-    if (state.pick.size && !((state.pick.has("sug") && s.suggested) || (state.pick.has("saved") && user.has(s.place.id, "saved")))) return false;
-    if (state.cats.size && !s.categories.some((t) => state.cats.has(t))) return false;
-    if (state.epochs.size && !s.epochs.some((t) => state.epochs.has(t))) return false;
-    if (state.tags.size && !s.tags.some((t) => state.tags.has(t))) return false;
+    if (state.pick.has("sug") && !s.suggested) return false;
+    // Innerhalb der Zeit-Tags und innerhalb der Themen-Tags reicht einer (oder), beide zusammen müssen passen (und).
+    if (state.epochs.size && !s.time.some((t) => state.epochs.has(t))) return false;
+    if (state.tags.size && !s.topics.some((t) => state.tags.has(t))) return false;
     if (state.q && !state.q.split(/\s+/).every((w) => s.hay.includes(w))) return false;
     return true;
   }
@@ -997,10 +1027,10 @@ button { font: inherit; color: inherit; }
   }
   const passes = (p) => p.match.length > 0;
   function filterSummary() {
-    const parts = [...[...state.pick].map((k) => PICK[k]), ...state.cats, ...state.epochs, ...state.tags];
+    const parts = [...[...state.pick].map((k) => PICK[k]), ...state.epochs, ...state.tags];
     if (state.minImp > 1) parts.push(state.minImp === 3 ? "nur Touri 1x1" : "Sehenswürdigkeiten+");
     if (state.district) parts.push(state.district);
-    $("#filterSummary").textContent = parts.length ? parts.join(", ") : "alle Geschichten";
+    $("#filterSummary").textContent = parts.join(", ");
   }
   function refresh() { computeMatches(); filterSummary(); place(); renderList(); }
 
@@ -1057,7 +1087,7 @@ button { font: inherit; color: inherit; }
       if (z < FAR_ZOOM && p.id !== state.selected && farCount >= FAR_MAX) continue;
       const r = rk === 3 ? 9 : 7;
       const dot = [s.x - r - pad, s.y - r - pad, s.x + r + pad, s.y + r + pad];
-      const wantLabel = p.id === state.selected || (canHover ? rk === 3 : z >= LABEL_ZOOM[Math.max(1, rk)]);
+      const wantLabel = p.id === state.selected || ((!canHover || rk === 3) && z >= LABEL_ZOOM[Math.max(1, rk)]);
       const lbl = [s.x + r, s.y - 12, s.x + r + 6 + labelWidth(p), s.y + 12];
       if (wantLabel && !hit(dot) && !hit(lbl)) {
         boxes.push(dot, lbl); shown.add(p.id); labeled.add(p.id);
@@ -1076,38 +1106,35 @@ button { font: inherit; color: inherit; }
   }
 
   // ---------- Liste ----------
-  function refPoint() { return state.user || map.getCenter().toArray(); }
+  function refPoint() { return map.getCenter().toArray(); }
   const LIST_MAX = 150;
-  // Die Liste erscheint erst, wenn gefiltert, gesucht oder der Standort genutzt wird; sonst stehen die Filter im Vordergrund.
-  const browsing = () => state.showAll || state.pick.size || state.user || state.q || state.district || state.minImp > 1 || state.cats.size || state.epochs.size || state.tags.size;
+  // Die Liste erscheint erst, wenn gefiltert, gesucht oder der Standort genutzt wird; sonst bleibt sie leer und die Filter stehen im Vordergrund.
+  const browsing = () => state.pick.size || state.q || state.district || state.minImp > 1 || state.epochs.size || state.tags.size;
   function renderList() {
     if (!map || state.selected || state.mineOpen) return;
     if (!browsing()) {
-      const n = state.places.filter(passes).reduce((k, p) => k + p.match.length, 0);
       $("#listMeta").textContent = "";
-      $("#list").innerHTML = `<li class="hint">Wähle oben eine Kategorie, Epoche oder einen ${esc(regionById(state.region).districtLabel)}, such nach einem Namen oder tippe auf einen Punkt auf der Karte.
-        <button class="reset" data-showall>Alle ${plural(n, "Geschichte", "Geschichten")} als Liste</button></li>`;
+      $("#list").innerHTML = "";
       return;
     }
     const ref = refPoint();
     const items = state.places.filter(passes).map((p) => ({ p, d: km(ref, p.coord) })).sort((a, b) => a.d - b.d);
     const nStories = items.reduce((n, { p }) => n + p.match.length, 0);
-    const from = state.user ? "deinem Standort" : "der Kartenmitte";
     $("#listMeta").textContent = !items.length ? ""
       : (nStories === items.length ? plural(nStories, "Geschichte", "Geschichten") : `${plural(nStories, "Geschichte", "Geschichten")} an ${plural(items.length, "Ort", "Orten")}`)
-        + `, sortiert nach Entfernung zu ${from}`;
-    $("#list").innerHTML = items.length ? items.slice(0, LIST_MAX).map(({ p, d }) => itemHtml(p, fmtDist(d))).join("") + (items.length > LIST_MAX ? `<li class="empty">… und ${items.length - LIST_MAX} weitere Orte weiter weg. Verschieb die Karte oder filtere, um sie zu sehen.</li>` : "")
+        + ", sortiert nach Nähe zur Kartenmitte";
+    $("#list").innerHTML = items.length ? items.slice(0, LIST_MAX).map(({ p }) => itemHtml(p)).join("") + (items.length > LIST_MAX ? `<li class="empty">… und ${items.length - LIST_MAX} weitere Orte weiter weg. Verschieb die Karte oder filtere, um sie zu sehen.</li>` : "")
       : `<li class="empty">Keine Geschichten für diese Filter. <button class="reset" data-reset>Filter zurücksetzen</button></li>`;
   }
-  function itemHtml(p, right, extraMeta = []) {
+  function itemHtml(p, extraMeta = []) {
     const s = p.match[0] || p.stories[0], multi = p.stories.length > 1;
     const sub = s.title && s.title !== p.title ? `<b>${esc(s.title)}:</b> ${esc(s.teaser)}` : esc(s.teaser);
-    const meta = [...extraMeta, p.place.stadtteil, multi ? plural(p.match.length || p.stories.length, "Geschichte", "Geschichten") : s.period, s.categories.slice(0, 2).join(", ")].filter(Boolean);
+    const meta = [...extraMeta, p.place.stadtteil, multi ? plural(p.match.length || p.stories.length, "Geschichte", "Geschichten") : s.period, s.topics.slice(0, 2).join(", ")].filter(Boolean);
     const l = look(p);
     return `
       <li><button class="item" data-id="${esc(p.id)}">
         <i class="mk ${l || "i" + p.importance}" title="${l ? LOOK_TITLE[l] : IMPORTANCE[p.importance]}"></i>
-        <h3>${esc(p.title)}</h3><span class="dist">${right}</span>
+        <h3>${esc(p.title)}</h3>
         <p>${sub}</p>
         <span class="meta">${meta.map(esc).join(" · ")}</span>
       </button></li>`;
@@ -1147,30 +1174,30 @@ button { font: inherit; color: inherit; }
   function openDetail(id, { fly = true, story = null } = {}) {
     const p = state.places.find((x) => x.id === id); if (!p) return;
     state.selected = id;
-    const d = state.user ? km(state.user, p.coord) : null;
-    const dist = d != null ? `${fmtDist(d)} entfernt` : "";
     const district = similar(p.place.stadtteil, p.title) ? "" : p.place.stadtteil;
     const single = p.stories.length === 1 ? p.stories[0] : null;
     let head, body, sources = "";
     if (single) {
       // Eine Geschichte: ihr Titel ist die Überschrift, der Ortsname steht nur dabei, wenn er etwas Neues sagt.
       const placeName = similar(single.title, p.title) ? "" : p.title;
-      head = `<h2>${esc(single.title)}</h2>${ctxLine([placeName, district, single.period, dist], single)}`;
+      head = `<h2>${esc(single.title)}</h2>${ctxLine([placeName, district, single.period], single)}`;
       body = `${galleryHtml(p)}${textHtml(single, true)}`;
       sources = sourceLinks(single);
     } else {
       // Treffer der aktuellen Filter zuerst, die übrigen Geschichten des Orts darunter.
       const hits = p.match.length ? p.match : p.stories;
       const rest = p.stories.filter((s) => !hits.includes(s));
-      head = `<h2>${esc(p.title)}</h2>${ctxLine([district, plural(p.stories.length, "Geschichte", "Geschichten"), dist], { importance: p.importance, suggested: p.suggested, categories: [], tags: [] })}`;
+      head = `<h2>${esc(p.title)}</h2>${ctxLine([district, plural(p.stories.length, "Geschichte", "Geschichten")], { importance: p.importance, suggested: p.suggested, categories: [], tags: [] })}`;
       body = `${galleryHtml(p)}
         ${hits.map((s) => storyHtml(s)).join("")}
         ${rest.length ? `<div class="sep-other">Außerdem hier</div>${rest.map((s) => storyHtml(s, { other: true })).join("")}` : ""}`;
     }
     $("#detail").innerHTML = `
-      <button class="back" id="back" aria-label="Schließen, zurück zur Liste" title="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="dacts">
+        <span class="mine-btns" id="mineBtns">${mineButtons(p)}</span>
+        <button class="back" id="back" aria-label="Schließen, zurück zur Liste" title="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
       ${head}
-      <div class="mine-btns" id="mineBtns">${mineButtons(p)}</div>
       ${body}
       ${sources ? `<div class="links">${sources}</div>` : ""}`;
     $("#listView").hidden = true; $("#mine").hidden = true; $("#detail").hidden = false; $("#body").scrollTop = 0;
@@ -1228,7 +1255,7 @@ button { font: inherit; color: inherit; }
     img.src = im.url; img.alt = im.alt || im.title || p.title;
     $("#gCount").textContent = n > 1 ? `${i + 1} / ${n}` : "";
     $("#gCount").hidden = n < 2;
-    $("#gCap").innerHTML = `${im.title ? `<span class="g-title">${esc(im.title)}</span><br>` : ""}${credit(im)}`;
+    $("#gCap").innerHTML = credit(im);
     // nächstes Bild vorladen
     if (n > 1) new Image().src = p.images[(i + 1) % n].url;
   }
@@ -1267,8 +1294,9 @@ button { font: inherit; color: inherit; }
   // ---------- Merken, Kenn ich, Meine Orte ----------
   function mineButtons(p) {
     const saved = user.has(p.id, "saved"), known = user.has(p.id, "known");
-    return `<button class="mine-btn" data-mine="saved" aria-pressed="${saved}" title="${saved ? "Nicht mehr merken" : "Auf die Merkliste"}">${saved ? ICON_BOOKMARK_ON : ICON_BOOKMARK}${saved ? "Gemerkt" : "Merken"}</button>
-      <button class="mine-btn" data-mine="known" aria-pressed="${known}" title="${known ? "Doch nicht bekannt" : "Kenn ich schon: Punkt wird grau"}">${ICON_CHECK}Kenn ich</button>`;
+    // Nur Icons; was sie tun, sagen Tooltip und aria-label.
+    const sl = saved ? "Gemerkt: nicht mehr merken" : "Merken", kl = known ? "Kenn ich: doch nicht bekannt" : "Kenn ich: Punkt wird grau";
+    return `<button class="mine-btn" data-mine="saved" aria-pressed="${saved}" aria-label="${sl}" title="${sl}">${saved ? ICON_BOOKMARK_ON : ICON_BOOKMARK}</button><button class="mine-btn" data-mine="known" aria-pressed="${known}" aria-label="${kl}" title="${kl}">${ICON_CHECK}</button>`;
   }
   function toggleMine(id, kind) {
     const p = state.places.find((x) => x.id === id); if (!p) return;
@@ -1310,15 +1338,13 @@ button { font: inherit; color: inherit; }
     const list = ids(state.mineTab).map((id) => byId.get(id));
     const missing = user.ids(state.mineTab).length - list.length;
     const multi = regions.length > 1;
-    const ref = state.user;
     $("#mine").innerHTML = `
       <button class="back" id="mineClose" aria-label="Schließen, zurück zur Liste" title="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       <div class="eyebrow">Meine Orte</div>
       <h2>${state.mineTab === "saved" ? "Meine gemerkten Einträge" : "Kenne ich"}</h2>
-      <p>${state.mineTab === "saved" ? "Gemerkte Orte leuchten grün auf der Karte." : "Bekannte Orte bleiben als graue Punkte auf der Karte, damit du siehst, wo du nicht mehr suchen musst."}</p>
       <div class="mine-tabs">${Object.entries(tabs).map(([k, t]) => `<button data-tab="${k}" aria-pressed="${state.mineTab === k}">${t} <span class="n">${ids(k).length}</span></button>`).join("")}</div>
-      <ul class="list">${list.length ? list.map((p) => itemHtml(p, ref ? fmtDist(km(ref, p.coord)) : "", multi && p.region !== state.region ? [regionById(p.region).name] : [])).join("")
-        : `<li class="empty">${state.mineTab === "saved" ? "Noch nichts gemerkt. Öffne einen Ort und tippe auf „Merken“." : "Noch nichts als bekannt markiert. Öffne einen Ort und tippe auf „Kenn ich“."}</li>`}</ul>
+      <ul class="list">${list.length ? list.map((p) => itemHtml(p, multi && p.region !== state.region ? [regionById(p.region).name] : [])).join("")
+        : `<li class="empty">${state.mineTab === "saved" ? "Noch nichts gemerkt. Öffne einen Ort und tippe auf das Lesezeichen." : "Noch nichts als bekannt markiert. Öffne einen Ort und tippe auf den Haken."}</li>`}</ul>
       ${missing > 0 ? `<p class="list-meta" style="padding:6px 0 0">${plural(missing, "weiterer Ort ist", "weitere Orte sind")} gespeichert, aber in den aktuellen Daten nicht enthalten.</p>` : ""}
       <div class="mine-backup">
         <p>Deine Markierungen liegen nur in diesem Browser. Leerst du den Browser-Speicher oder wechselst das Gerät, sind sie weg. Sichere sie ab und zu als Datei.</p>
@@ -1379,14 +1405,14 @@ button { font: inherit; color: inherit; }
     pool.sort((a, b) => a.id.localeCompare(b.id));
     return pool[(hash(today() + state.region) + state.heroShift) % pool.length];
   }
-  function card(s, ref) {
+  function card(s) {
     const p = s.place;
-    const eyebrow = s.categories[0] || s.kind || IMPORTANCE[s.importance];
+    const eyebrow = s.topics[0] || s.kind || IMPORTANCE[s.importance];
     return `<button class="card" data-place="${esc(p.id)}" data-story="${esc(s.id)}">
       <span class="eyebrow">${esc(eyebrow)}</span>
       <h3>${esc(s.title)}</h3>
       <p>${esc(s.teaser)}</p>
-      <span class="foot"><span>${esc(p.title !== s.title ? p.title : p.place.stadtteil)}</span><span>${ref ? fmtDist(km(ref, p.coord)) : ""}</span></span>
+      <span class="foot"><span>${esc(p.title !== s.title ? p.title : p.place.stadtteil)}</span></span>
     </button>`;
   }
   function renderDiscover() {
@@ -1397,17 +1423,15 @@ button { font: inherit; color: inherit; }
     const seed = hash(today());
     const daily = (a, b) => (hash(a.id) ^ seed) - (hash(b.id) ^ seed);
     const hero = storyOfDay(), hp = hero.place, img = hp.images[0];
-    const ref = state.user && km(state.user, r.center) < r.radiusKm ? state.user : null;
-    const from = ref || r.center;
-    const near = places.map((p) => ({ p, d: km(from, p.coord) })).sort((a, b) => a.d - b.d)
+    const near = places.map((p) => ({ p, d: km(r.center, p.coord) })).sort((a, b) => a.d - b.d)
       .map(({ p }) => p.stories[0]).filter((s) => s !== hero).slice(0, 12);
     const must = stories.filter((s) => s.importance === 3 && s !== hero).sort(daily).slice(0, 12);
-    const cats = facetValues("cats"), epochs = facetValues("epochs");
+    const cats = facetValues("tags"), epochs = facetValues("epochs");
     const checking = stories.filter((s) => s.status === "Prüfen").length;
     const others = hp.stories.length - 1;
     const facts = [
       ["Ort", hp.title !== hero.title ? hp.title : ""], [r.districtLabel, hp.place.stadtteil], ["Adresse", hp.address],
-      ["Zeit", hero.period], ["Kategorie", hero.categories.join(", ")],
+      ["Zeit", hero.period], ["Tags", [...hero.time, ...hero.topics].join(", ")],
     ].filter(([, v]) => v);
     const city = r.name.split(" ")[0];
     $("#dc").innerHTML = `
@@ -1434,28 +1458,27 @@ button { font: inherit; color: inherit; }
       </article>
 
       <section>
-        <div class="sec-head"><div><h2>${ref ? "In deiner Nähe" : "Rund um die Mitte"}</h2>
-          <p>${ref ? "Die nächsten Orte, sortiert nach Entfernung zu dir." : `Orte nahe dem Zentrum von ${esc(city)}. Mit deinem Standort siehst du, was direkt um dich herum passiert ist.`}</p></div>
-          ${ref ? "" : `<button class="btn" data-locate>${ICON_NEAR}Standort verwenden</button>`}</div>
-        <div class="row">${near.map((s) => card(s, from)).join("")}</div>
+        <div class="sec-head"><div><h2>Rund um die Mitte</h2>
+          <p>Orte nahe dem Zentrum von ${esc(city)}.</p></div></div>
+        <div class="row">${near.map((s) => card(s)).join("")}</div>
       </section>
 
       ${must.length ? `<section>
         <div class="sec-head"><div><h2>Das ${esc(city)}-1x1</h2><p>Was man kennen sollte, auch wenn man nur ein Wochenende da ist.</p></div>
           <button class="btn" data-filter="imp" data-v="3">Alle auf der Karte</button></div>
-        <div class="row">${must.map((s) => card(s, ref)).join("")}</div>
+        <div class="row">${must.map((s) => card(s)).join("")}</div>
       </section>` : ""}
 
       <section>
-        <div class="sec-head"><div><h2>Themen</h2><p>Ein Thema öffnet die Karte mit passendem Filter.</p></div></div>
+        <div class="sec-head"><div><h2>Themen</h2><p>Ein Tag öffnet die Karte mit passendem Filter.</p></div></div>
         <div class="tiles">${cats.map(([c, n]) => {
-          const sample = stories.filter((s) => s.categories.includes(c)).sort((a, b) => b.importance - a.importance || daily(a, b)).slice(0, 3).map((s) => s.title);
-          return `<button class="tile" data-filter="cats" data-v="${esc(c)}"><span class="tn"><h3>${esc(c)}</h3><span class="n">${n}</span></span><p>${esc(sample.join(" · "))}</p></button>`;
+          const sample = stories.filter((s) => s.topics.includes(c)).sort((a, b) => b.importance - a.importance || daily(a, b)).slice(0, 3).map((s) => s.title);
+          return `<button class="tile" data-filter="tags" data-v="${esc(c)}"><span class="tn"><h3>${esc(c)}</h3><span class="n">${n}</span></span><p>${esc(sample.join(" · "))}</p></button>`;
         }).join("")}</div>
       </section>
 
       ${epochs.length ? `<section>
-        <div class="sec-head"><div><h2>Zeitreise</h2><p>Nach Epoche auf die Karte.</p></div></div>
+        <div class="sec-head"><div><h2>Zeitreise</h2><p>Nach Zeit auf die Karte.</p></div></div>
         <div class="epoch-chips">${epochs.map(([e, n]) => `<button class="chip" data-filter="epochs" data-v="${esc(e)}">${esc(e)}</button>`).join("")}</div>
       </section>` : ""}
 
@@ -1471,7 +1494,7 @@ button { font: inherit; color: inherit; }
   function filterAndShow(key, v) {
     if (state.selected) closeDetail();
     resetAll({ silent: true });
-    if (key === "imp") { state.minImp = +v; syncImp(); }
+    if (key === "imp") state.minImp = +v;
     else state[key].add(v);
     if (key === "tags") state.tagsOpen = true;
     buildFilters(); refresh();
@@ -1493,6 +1516,7 @@ button { font: inherit; color: inherit; }
 
   // ---------- In meiner Nähe ----------
   let meMarker;
+  // Zoomt nur auf den Standort laut Browser. Liegt er in einer anderen Stadt der Karte, wird diese gewählt, damit ihre Orte sichtbar sind.
   function locate() {
     const btn = $("#nearBtn");
     if (!navigator.geolocation) { toast("Dein Browser gibt keinen Standort frei."); return; }
@@ -1500,22 +1524,12 @@ button { font: inherit; color: inherit; }
     navigator.geolocation.getCurrentPosition((pos) => {
       btn.classList.remove("busy");
       const here = [pos.coords.longitude, pos.coords.latitude];
-      state.user = here;
       if (!meMarker) { const el = document.createElement("div"); el.className = "me"; meMarker = new GL.Marker({ element: el }); }
       meMarker.setLngLat(here).addTo(map);
-      // Nächstgelegenen Ort mit Geschichten wählen.
-      const nearest = regions.map((r) => ({ r, d: km(here, r.center) })).sort((a, b) => a.d - b.d)[0];
-      if (nearest.r.id !== state.region) setRegion(nearest.r.id, { fly: false });
-      if (nearest.d > nearest.r.radiusKm) {
-        toast(`Du bist etwa ${Math.round(nearest.d)} km von ${nearest.r.name} entfernt, dem nächsten Ort mit Geschichten. Die Liste ist nach Entfernung zu dir sortiert.`);
-        map.flyTo({ center: nearest.r.center, zoom: nearest.r.zoom, offset: panelOffset() });
-      } else {
-        map.flyTo({ center: here, zoom: 16, offset: panelOffset() });
-        const near = state.places.filter(passes).filter((p) => km(here, p.coord) < 0.5).length;
-        toast(near ? `${plural(near, "Ort", "Orte")} mit Geschichten im Umkreis von 500 m.` : "In 500 m Umkreis gibt es noch keine Geschichten. Die Liste zeigt die nächsten.");
-      }
-      if (!state.selected) renderList();
-      if (state.view === "discover") renderDiscover();
+      const inRegion = regions.find((r) => km(here, r.center) < r.radiusKm);
+      if (inRegion && inRegion.id !== state.region) setRegion(inRegion.id, { fly: false });
+      if (state.view === "discover") setView("map");
+      map.flyTo({ center: here, zoom: 16, offset: panelOffset() });
     }, (err) => {
       btn.classList.remove("busy");
       toast(err.code === 1 ? "Standortzugriff wurde abgelehnt. Du kannst ihn in den Browser-Einstellungen erlauben." : "Dein Standort konnte gerade nicht ermittelt werden.");
@@ -1523,12 +1537,11 @@ button { font: inherit; color: inherit; }
   }
 
   // ---------- UI-Verdrahtung ----------
-  function syncImp() { $("#fImp").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", +x.dataset.v === state.minImp)); }
+  // Wichtigkeit hat keinen eigenen Filter mehr (sie ist an den Punkten sichtbar); „Alle auf der Karte“ beim 1x1 auf Entdecken setzt sie noch.
   function resetAll({ silent = false } = {}) {
-    state.cats.clear(); state.epochs.clear(); state.tags.clear(); state.pick.clear(); state.minImp = 1; state.district = ""; state.q = ""; state.showAll = false;
+    state.epochs.clear(); state.tags.clear(); state.pick.clear(); state.minImp = 1; state.district = ""; state.q = "";
     $("#q").value = ""; $("#fDistrict").value = "";
     $$(".filters .chip").forEach((c) => c.setAttribute("aria-pressed", "false"));
-    syncImp();
     if (silent) { computeMatches(); filterSummary(); } else refresh();
   }
   function wireUi() {
@@ -1571,11 +1584,6 @@ button { font: inherit; color: inherit; }
       set.has(v) ? set.delete(v) : set.add(v);
       b.setAttribute("aria-pressed", set.has(v)); refresh(); fitIfNoneVisible();
     });
-    $("#fImp").addEventListener("click", (e) => {
-      const b = e.target.closest("button"); if (!b) return;
-      if (!state.selected) toList();
-      state.minImp = +b.dataset.v; syncImp(); refresh(); fitIfNoneVisible();
-    });
     $("#fDistrict").addEventListener("change", (e) => {
       if (!state.selected) toList();
       state.district = e.target.value; refresh();
@@ -1588,7 +1596,6 @@ button { font: inherit; color: inherit; }
     $("#reset").addEventListener("click", () => resetAll());
     $("#list").addEventListener("click", (e) => {
       if (e.target.closest("[data-reset]")) return resetAll();
-      if (e.target.closest("[data-showall]")) { state.showAll = true; return renderList(); }
       const b = e.target.closest(".item"); if (b) openDetail(b.dataset.id, { fly: true });
     });
     $("#list").addEventListener("mouseover", (e) => {

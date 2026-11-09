@@ -1,7 +1,7 @@
 """Lore-Tabelle (Excel) → GeoJSON für die Karte.
 
-Liest die Tabelle nur, verändert sie nie. Ein Feature pro Ort (Blatt „Orte“), die Geschichten
-aus „Einträge“ hängen über die Ort-ID daran.
+Liest die Tabelle nur, verändert sie nie. Ein Feature pro Ort-ID: alle Zeilen mit derselben
+Ort-ID werden ein Pin, Ortsdaten aus der ersten Zeile, die sie ausfüllt. Ein Blatt „Orte“ ist nicht nötig.
 
     python3 tools/sheet_to_geojson.py                                    # alle „Lore Tags, Kategorien und Einträge *.xlsx“
     python3 tools/sheet_to_geojson.py "Lore Tags, Kategorien und Einträge Berlin.xlsx"  # nur diese Datei
@@ -151,16 +151,10 @@ def convert(xlsx, out_dir, only_region, infos):
     categories = [text(r.get("Kategorien")) for r in rows(sheet("Kategorien")) if text(r.get("Kategorien"))]
     geo = {text(r.get("Bezirk")): r for r in rows(sheet("Geo")) if text(r.get("Bezirk"))}
 
+    # Orte entstehen aus der Haupttabelle: Zeilen mit derselben Ort-ID ergeben einen Pin.
+    # Ortsname, Koordinaten, Adresse, Bezirk und Genauigkeit kommen aus der ersten Zeile, die sie ausfüllt.
+    # Ein Blatt „Orte“ wird nicht mehr gebraucht und, falls noch vorhanden, ignoriert.
     places = {}
-    for r in rows(sheet("Orte")):
-        pid = text(r.get("Ort-ID"))
-        if not pid:
-            continue
-        c = coords(r.get("Koordinaten"))
-        if not c:
-            warn.append(f"Ort {pid}: Koordinaten fehlen oder sind ungültig ({text(r.get('Koordinaten'))!r})")
-        places[pid] = {"id": pid, "title": text(r.get("Ort")), "coord": c, "address": text(r.get("Adresse")),
-                       "bezirk": text(r.get("Bezirk")), "precision": text(r.get("Genauigkeit")) or "genau", "stories": []}
 
     if SUGGESTED_COLUMN not in [str(c).strip() for c in next(entries_sheet(wb).iter_rows(max_row=1, values_only=True)) if c]:
         warn.append(f"Spalte „{SUGGESTED_COLUMN}“ fehlt im Blatt mit den Geschichten, alle Einträge gelten als nicht vorgeschlagen")
@@ -179,13 +173,19 @@ def convert(xlsx, out_dir, only_region, infos):
             continue
         seen.add(sid)
         pid = text(r.get("Ort-ID")) or sid
+        c = coords(r.get("Koordinaten"))
         if pid not in places:
-            # Ort noch nicht im Blatt „Orte“: aus der Zeile selbst anlegen.
-            c = coords(r.get("Koordinaten"))
-            warn.append(f"{sid}: Ort-ID {pid!r} fehlt im Blatt „Orte“, Ort aus der Zeile übernommen")
             places[pid] = {"id": pid, "title": text(r.get("Ort")) or text(r.get("Name")), "coord": c,
                            "address": text(r.get("Adresse")), "bezirk": text(r.get("Bezirk")),
-                           "precision": text(r.get("Genauigkeit Koordinaten")) or "genau", "stories": []}
+                           "precision": text(r.get("Genauigkeit Koordinaten")), "stories": []}
+        else:
+            q = places[pid]
+            if c and q["coord"] and max(abs(a - b) for a, b in zip(c, q["coord"])) > 0.001:
+                warn.append(f"{sid}: andere Koordinaten als die erste Zeile von Ort {pid!r} (über 100 m), die erste gilt")
+            for key, val in (("coord", c), ("address", text(r.get("Adresse"))), ("bezirk", text(r.get("Bezirk"))),
+                             ("precision", text(r.get("Genauigkeit Koordinaten")))):
+                if not q[key] and val:
+                    q[key] = val
         p = places[pid]
         region = text(r.get("Region")).lower()
         if not region:
@@ -259,7 +259,7 @@ def convert(xlsx, out_dir, only_region, infos):
                 "place": {"stadtteil": p["bezirk"], "stadt": text(g.get("Stadt / Ort")) or p["region"].title(),
                           "kreis": text(g.get("Kreis")), "bundesland": text(g.get("Bundesland"))},
                 "address": p["address"],
-                "precision": p["precision"],
+                "precision": p["precision"] or "genau",
                 "stories": p["stories"],
             },
         })

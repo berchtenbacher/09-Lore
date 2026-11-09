@@ -1,0 +1,35 @@
+{
+  "hinweis": "Welche Tags die Karte zeigt und woraus sie entstehen. Die Excel bleibt unverändert: hier wird nur übersetzt. 'aus' nennt Kategorien, Epochen oder Themen aus der Excel (genau wie dort geschrieben). Reihenfolge hier = Reihenfolge im Filter. Nach einer Änderung: python3 tools/build.py",
+  "minGeschichten": 3,
+  "zeit": [
+    { "tag": "Frühzeit",    "aus": ["Mittelalter & früher"], "bisJahr": 499 },
+    { "tag": "Mittelalter", "aus": ["Mittelalter & früher"], "bisJahr": 1499 },
+    { "tag": "Neuzeit",     "aus": ["Frühe Neuzeit", "19. Jahrhundert"], "bisJahr": 1870 },
+    { "tag": "Moderne",     "aus": ["Kaiserreich", "Weimarer Republik", "NS-Zeit", "Nachkriegszeit & Kalter Krieg"], "bisJahr": 1989 },
+    { "tag": "Gegenwart",   "aus": ["Wende & Gegenwart"] }
+  ],
+  "themen": [
+    { "tag": "Pop- & Subkultur",      "aus": ["Pop- & Subkultur", "Musik", "Queer"] },
+    { "tag": "Film & Fernsehen",      "aus": ["Film & Fernsehen", "Drehort"] },
+    { "tag": "Verbrechen & Skandale", "aus": ["Verbrechen & Skandale"] },
+    { "tag": "Verschwundenes",        "aus": ["Verschwundenes"] },
+    { "tag": "Erfindungen",           "aus": ["Erfindungen"] },
+    { "tag": "Sagen & Legenden",      "aus": ["Sagen & Legenden"] },
+    { "tag": "DDR",                   "aus": ["DDR", "Mauer"] },
+    { "tag": "Kunst",                 "aus": ["Kunst"] },
+    { "tag": "Spionage",              "aus": ["Spionage"] },
+    { "tag": "Natur",                 "aus": ["Natur"] },
+    { "tag": "Essen & Trinken",       "aus": ["Essen"] },
+    { "tag": "Politik",               "aus": ["Protest"],
+      "woerter": ["Parlament", "Bundestag", "Reichstag", "Landtag", "Volkskammer", "Nationalversammlung", "Kanzler", "Kanzlerin", "Kanzleramt", "Partei", "Parteien", "Regierung", "Minister", "Ministerium", "Präsident", "Bürgermeister", "Revolution", "Aufstand", "Demonstration", "Kaiserwahl", "Krönung", "Politbüro"],
+      "woerterNurMit": ["Geschichte & Politik"] },
+    { "tag": "Literatur",             "aus": ["Literatur & Bühne"] },
+    { "tag": "Nachtleben",            "aus": ["Nachtleben", "Schickeria"] },
+    { "tag": "Jüdisches Leben",       "aus": ["Jüdisches Leben"] },
+    { "tag": "NS-Zeit",               "aus": ["NS-Zeit"] },
+    { "tag": "Kaiserreich",           "aus": ["Kaiserreich"] },
+    { "tag": "Persönlichkeiten",      "aus": ["Persönlichkeiten"] },
+    { "tag": "Wissenschaft",          "aus": ["Wissenschaft"] },
+    { "tag": "Architektur",           "aus": ["Architektur"] }
+  ]
+}

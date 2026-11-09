@@ -3563,7 +3563,7 @@
      "kreis": "Kreisfreie Stadt Berlin",
      "bundesland": "Berlin"
     },
-    "address": "Bernauer Straße",
+    "address": "Bernauer Straße 111",
     "precision": "genau",
     "stories": [
      {
@@ -13649,8 +13649,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.4023,
-     52.5243
+     13.402,
+     52.525
     ]
    },
    "properties": {
@@ -17727,7 +17727,7 @@
      "kreis": "Kreisfreie Stadt Berlin",
      "bundesland": "Berlin"
     },
-    "address": "Karl-Marx-Allee",
+    "address": "Strausberger Platz",
     "precision": "genau",
     "stories": [
      {
@@ -24674,8 +24674,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.408,
-     52.5165
+     13.409,
+     52.516
     ]
    },
    "properties": {
@@ -26542,7 +26542,7 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.376,
+     13.377,
      52.5095
     ]
    },
@@ -29471,8 +29471,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.4024,
-     52.517
+     13.403,
+     52.5175
     ]
    },
    "properties": {
@@ -32966,8 +32966,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.389,
-     52.484
+     13.388,
+     52.485
     ]
    },
    "properties": {
@@ -32981,7 +32981,7 @@
      "kreis": "Kreisfreie Stadt Berlin",
      "bundesland": "Berlin"
     },
-    "address": "Platz der Luftbrücke 5",
+    "address": "Platz der Luftbrücke",
     "precision": "genau",
     "stories": [
      {
@@ -33146,8 +33146,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     13.403,
-     52.473
+     13.4,
+     52.478
     ]
    },
    "properties": {
@@ -33162,7 +33162,7 @@
      "bundesland": "Berlin"
     },
     "address": "Tempelhofer Feld",
-    "precision": "genau",
+    "precision": "ungefähr",
     "stories": [
      {
       "id": "berlin-tempelhofer-feld",
